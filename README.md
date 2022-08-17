@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @LeightonGuang
-- 👀 I’m interested in sports
-- 🌱 I’m currently learning Python, Java, C, C++
+- 👀 I’m interested in sports and gaming
+- 🌱 I’m currently learning Python, Java, C, C++, html, css, javascript
 - 💞️ I’m looking to collaborate on ...
 - 📫 How to reach me ...
 
