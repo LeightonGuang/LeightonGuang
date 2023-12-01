@@ -1,0 +1,29 @@
+@use "../../sass/abstract/varaibles.scss" as *;
+.header {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__nav {
+    margin: 0 1rem;
+  }
+
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__home-link {
+    text-decoration: none;
+    color: $nav-colour;
+  }
+}
