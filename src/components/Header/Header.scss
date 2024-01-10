@@ -1,5 +1,7 @@
 @use "../../sass/abstract/varaibles.scss" as *;
 .header {
+  background-color: $primary;
+
   &__container {
     display: flex;
     align-items: center;
