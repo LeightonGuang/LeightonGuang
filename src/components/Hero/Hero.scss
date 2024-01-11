@@ -1,0 +1,25 @@
+@use "../../sass/abstract/varaibles.scss" as *;
+
+.hero {
+  margin: 2rem $mobile-side-spacing;
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+  &__container-left {
+  }
+  &__container-right {
+  }
+  &__greeting {
+    margin: 0;
+  }
+  &__name {
+    margin: 0;
+  }
+  &__title {
+    margin: 0;
+  }
+  &__memoji {
+    width: 10rem;
+  }
+}
