@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.scss";
 
 export const Header = () => (
@@ -8,15 +8,15 @@ export const Header = () => (
 
       <nav className="header__nav">
         <ul className="header__nav-list">
-          <Link to={"/"} className="header__home-link">
+          <NavLink to={"/"} className="header__home-link">
             Home
-          </Link>
-          <Link to={"/about"} className="header__home-link">
+          </NavLink>
+          <NavLink to={"/about"} className="header__home-link">
             About
-          </Link>
-          <Link to={"/portfolio"} className="header__home-link">
+          </NavLink>
+          <NavLink to={"/portfolio"} className="header__home-link">
             Portfolio
-          </Link>
+          </NavLink>
         </ul>
       </nav>
     </div>
