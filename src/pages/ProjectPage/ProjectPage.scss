@@ -1,0 +1,8 @@
+@use "../../sass/abstract/variables.scss" as *;
+
+.project {
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+}
