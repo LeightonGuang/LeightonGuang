@@ -1,9 +1,11 @@
-@use "../abstract/varaibles.scss" as *;
+@use "../abstract/variables.scss" as *;
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
