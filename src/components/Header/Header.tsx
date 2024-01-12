@@ -8,14 +8,14 @@ export const Header = () => (
 
       <nav className="header__nav">
         <ul className="header__nav-list">
-          <NavLink to={"/"} className="header__home-link">
+          <NavLink to={"/LeightonGuang"} className="header__home-link">
             Home
+          </NavLink>
+          <NavLink to={"/projects"} className="header__home-link">
+            Projects
           </NavLink>
           <NavLink to={"/about"} className="header__home-link">
             About
-          </NavLink>
-          <NavLink to={"/portfolio"} className="header__home-link">
-            Portfolio
           </NavLink>
         </ul>
       </nav>
