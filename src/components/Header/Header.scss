@@ -1,4 +1,6 @@
 @use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
 .header {
   background-color: $secondary;
   color: $black;
@@ -9,6 +11,11 @@
     justify-content: space-between;
     margin: 0 $mobile-side-spacing;
     padding: $mobile-spacing 0;
+
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+    }
   }
 
   &__title {
