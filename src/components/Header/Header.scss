@@ -1,11 +1,14 @@
-@use "../../sass/abstract/varaibles.scss" as *;
+@use "../../sass/abstract/variables.scss" as *;
 .header {
-  background-color: $primary;
+  background-color: $secondary;
+  color: $black;
 
   &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 $mobile-side-spacing;
+    padding: $mobile-spacing 0;
   }
 
   &__title {
@@ -26,6 +29,6 @@
 
   &__home-link {
     text-decoration: none;
-    color: $nav-colour;
+    color: $black;
   }
 }
