@@ -17,7 +17,7 @@
     padding: 2rem 0;
 
     @include desktop {
-      max-width: $desktop-max-width;
+      width: $desktop-max-width;
     }
   }
 
@@ -26,8 +26,10 @@
   }
 
   &__message {
-    border: 1px black solid;
-    background-color: red;
+    background-color: $primary;
+    padding: 1rem;
+    color: white;
+    border-radius: 1rem;
   }
 
   &__container-right {
