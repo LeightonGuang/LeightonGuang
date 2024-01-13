@@ -1,10 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.scss";
 
 export const Header = () => (
   <div className="header">
     <div className="header__container">
-      <h1 className="header__title">Leighton Guang</h1>
+      <Link to={"/LeightonGuang"} className="header__logo">
+        <h1 className="header__title">Leighton Guang</h1>
+      </Link>
 
       <nav className="header__nav">
         <ul className="header__nav-list">

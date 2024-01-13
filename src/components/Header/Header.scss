@@ -18,6 +18,11 @@
     }
   }
 
+  &__logo {
+    text-decoration: none;
+    color: $black;
+  }
+
   &__title {
     margin: 0;
   }
