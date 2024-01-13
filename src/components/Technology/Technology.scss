@@ -1,0 +1,22 @@
+@use "../../sass/abstract/variables.scss" as *;
+
+.technology {
+  background-color: $accent;
+  color: white;
+
+  &__container {
+    margin: 0 $mobile-side-spacing;
+    padding: $mobile-spacing-top 0;
+  }
+
+  &__scroll {
+    margin: 1rem 0;
+  }
+
+  &__list {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.5rem;
+    overflow-x: auto;
+  }
+}
