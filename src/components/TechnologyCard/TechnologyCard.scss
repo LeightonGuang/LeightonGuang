@@ -1,0 +1,17 @@
+@use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
+.technology-card {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  list-style: none;
+  background-color: $background;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+
+  &__name {
+    display: none;
+  }
+}
