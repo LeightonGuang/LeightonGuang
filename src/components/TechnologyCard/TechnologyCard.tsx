@@ -1,21 +1,21 @@
 import "./TechnologyCard.scss";
 
 interface TechnologyCardProps {
-  TechnologyName: string;
-  TechnologyLogo: string;
+  technologyName: string;
+  technologyLogo: string;
 }
 
 function TechnologyCard({
-  TechnologyName,
-  TechnologyLogo,
+  technologyName,
+  technologyLogo,
 }: TechnologyCardProps) {
   return (
     <li className="technology-card">
-      <h1 className="technology-card__name">{TechnologyName}</h1>
+      <h1 className="technology-card__name">{technologyName}</h1>
 
       <img
-        src={TechnologyLogo}
-        alt={TechnologyName}
+        src={technologyLogo}
+        alt={technologyName}
         className="technology-card__logo"
       />
     </li>
