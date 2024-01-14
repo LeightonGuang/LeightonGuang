@@ -2,6 +2,7 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage.tsx";
+import ProjectPage from "./pages/ProjectPage/ProjectPage.tsx";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/leightonguang" element={<HomePage />} />
+          <Route path="/projects" element={<ProjectPage />} />
         </Routes>
       </BrowserRouter>
     </div>
