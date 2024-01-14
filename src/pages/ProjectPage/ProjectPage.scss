@@ -1,8 +1,12 @@
 @use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
 
 .project {
   &__container {
     display: flex;
-    justify-content: center;
+  }
+
+  &__title {
+    font-weight: 500;
   }
 }
