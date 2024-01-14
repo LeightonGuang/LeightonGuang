@@ -35,16 +35,20 @@
     border-radius: 1rem;
   }
 
+  &__greeting {
+    font-weight: 300;
+  }
+  &__name {
+    font-weight: 500;
+  }
+  &__title {
+    font-weight: 600;
+  }
+
   &__container-right {
     width: 50%;
     text-align: center;
     justify-content: center;
-  }
-  &__greeting {
-  }
-  &__name {
-  }
-  &__title {
   }
   &__memoji {
     width: 10rem;
