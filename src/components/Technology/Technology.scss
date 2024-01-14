@@ -9,14 +9,32 @@
     padding: $mobile-spacing-top 0;
   }
 
+  &__title {
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
   &__scroll {
     margin: 1rem 0;
+    width: 100%;
+    overflow-x: auto;
   }
 
   &__list {
-    display: grid;
-    grid-auto-flow: column;
+    display: inline-flex;
+    width: fit-content;
+    height: 100%;
     gap: 0.5rem;
-    overflow-x: auto;
+    white-space: nowrap;
+    animation: scrollLogo 10s linear infinite;
+  }
+}
+
+@keyframes scrollLogo {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.5rem));
   }
 }
