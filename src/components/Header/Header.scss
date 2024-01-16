@@ -23,8 +23,8 @@
     color: $black;
   }
 
-  &__title {
-    margin: 0;
+  &__logo-img {
+    width: 3rem;
   }
 
   &__nav {
@@ -42,5 +42,7 @@
   &__home-link {
     text-decoration: none;
     color: $black;
+    font-weight: 500;
+    font-size: 1.1rem;
   }
 }

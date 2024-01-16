@@ -1,11 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Header.scss";
+import memoji from "../../assets/Leighton-memoji.png";
 
 export const Header = () => (
   <div className="header">
     <div className="header__container">
       <Link to={"/LeightonGuang"} className="header__logo">
-        <h1 className="header__title">Leighton Guang</h1>
+        <img src={memoji} alt="memoji" className="header__logo-img" />
       </Link>
 
       <nav className="header__nav">
