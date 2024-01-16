@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
-  "homepage": "https://leightonguang.github.io",
   "name": "leightonguang",
-=======
-  "name": "LeightonGuang",
   "homepage": "https://leightonguang.com",
->>>>>>> develop
   "private": true,
   "version": "0.1.0",
   "type": "module",
