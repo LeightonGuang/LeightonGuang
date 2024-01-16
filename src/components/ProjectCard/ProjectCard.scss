@@ -1,0 +1,48 @@
+@use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
+.project-card {
+  background-color: rgba($primary, 0.5);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  &__img-list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__img {
+  }
+
+  &__technology-list {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.5rem;
+    background-color: #d27ef6;
+    color: $background;
+    margin: 1rem;
+    width: fit-content;
+  }
+
+  &__github-logo {
+    width: 1rem;
+    margin-right: 0.5rem;
+  }
+}
