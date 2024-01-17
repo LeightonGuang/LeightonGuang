@@ -23,7 +23,12 @@ function ProjectPage() {
           />
           <ProjectCard
             projectName="Q bot"
-            projectImgUrlList={[]}
+            projectImgUrlList={[
+              "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help.png",
+              "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-account.png",
+              "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-valorant.png",
+              "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-private-vc.png",
+            ]}
             projectTechnologyList={[
               "Node.js",
               "JavaScript",
