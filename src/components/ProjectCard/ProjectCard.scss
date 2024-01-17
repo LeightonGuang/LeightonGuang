@@ -2,15 +2,18 @@
 @use "../../sass/abstract/mixins.scss" as *;
 
 .project-card {
-  background-color: rgba($primary, 0.5);
+  background-color: rgba($primary, 0.2);
+  border-radius: 0.5rem;
 
   &__container {
     display: flex;
     flex-direction: column;
+    margin: 0 $mobile-side-spacing;
   }
 
   &__name {
     font-weight: 500;
+    margin-top: $mobile-spacing-top;
     margin-bottom: 1rem;
   }
 
@@ -27,6 +30,13 @@
     list-style: none;
     gap: 0.5rem;
     flex-wrap: wrap;
+    margin-top: $mobile-spacing-top;
+  }
+
+  &__technology {
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.5rem;
+    background-color: rgba($background, 0.7);
   }
 
   &__link {
@@ -37,7 +47,7 @@
     border-radius: 0.5rem;
     background-color: #d27ef6;
     color: $background;
-    margin: 1rem;
+    margin: 1rem 0;
     width: fit-content;
   }
 
