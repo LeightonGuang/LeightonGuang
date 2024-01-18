@@ -39,10 +39,11 @@
     gap: 1rem;
   }
 
-  &__home-link {
+  &__nav-link {
     text-decoration: none;
     color: $black;
     font-weight: 500;
     font-size: 1.1rem;
+    cursor: pointer;
   }
 }

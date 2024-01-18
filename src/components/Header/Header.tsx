@@ -19,13 +19,13 @@ function Header() {
 
         <nav className="header__nav">
           <ul className="header__nav-list">
-            <NavLink to={"/"} className="header__home-link">
+            <NavLink to={"/"} className="header__nav-link">
               Home
             </NavLink>
-            <li onClick={handleScroll} className="header__home-link">
+            <li onClick={handleScroll} className="header__nav-link">
               Projects
             </li>
-            <NavLink to={"/about"} className="header__home-link">
+            <NavLink to={"/about"} className="header__nav-link">
               About
             </NavLink>
           </ul>
