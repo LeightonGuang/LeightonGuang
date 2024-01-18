@@ -11,11 +11,11 @@ function ProjectPage() {
             projectName="Shopdex"
             projectImgUrlList={[""]}
             projectTechnologyList={[
-              "React",
-              "Sass",
-              "HTML",
-              "CSS",
-              "JavaScript",
+              { name: "React", link: "https://reactjs.org/" },
+              { name: "Sass", link: "https://sass-lang.com/" },
+              { name: "HTML", link: "" },
+              { name: "CSS", link: "" },
+              { name: "JavaScript", link: "https://www.javascript.com/" },
             ]}
             projectGithubLink={
               "https://github.com/LeightonGuang/capstone-project"
@@ -30,12 +30,12 @@ function ProjectPage() {
               "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-private-vc.png",
             ]}
             projectTechnologyList={[
-              "Node.js",
-              "JavaScript",
-              "axios",
-              "cheerio",
-              "discordjs",
-              "puppeteer",
+              { name: "Node.js", link: "https://nodejs.org/en/" },
+              { name: "JavaScript", link: "https://www.javascript.com/" },
+              { name: "axios", link: "https://axios-http.com/" },
+              { name: "cheerio", link: "https://cheerio.js.org/" },
+              { name: "discord.js", link: "https://old.discordjs.dev" },
+              { name: "puppeteer", link: "https://pptr.dev/" },
             ]}
             projectGithubLink="https://github.com/LeightonGuang/Q-bot"
           />
@@ -44,7 +44,11 @@ function ProjectPage() {
             projectImgUrlList={[
               "https://user-images.githubusercontent.com/41440634/212241316-4c0d389e-d85f-4ecb-a925-8ae4ac1140c4.png",
             ]}
-            projectTechnologyList={["HTML", "CSS", "JavaScript"]}
+            projectTechnologyList={[
+              { name: "HTML", link: "" },
+              { name: "CSS", link: "" },
+              { name: "JavaScript", link: "https://www.javascript.com/" },
+            ]}
             projectGithubLink={"https://github.com/LeightonGuang/typing_test"}
           />
         </ul>
