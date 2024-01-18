@@ -3,8 +3,9 @@
 
 .hero {
   background-color: white;
-
   @include desktop {
+    width: $desktop-max-width;
+
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -14,14 +15,10 @@
     display: flex;
     align-items: center;
     margin: 0 $mobile-side-spacing;
-    padding: 2rem 0;
+    padding: 2rem;
     background-image: url("/src/assets/react.svg");
     background-position: right;
     background-size: cover;
-
-    @include desktop {
-      width: $desktop-max-width;
-    }
   }
 
   &__container-left {

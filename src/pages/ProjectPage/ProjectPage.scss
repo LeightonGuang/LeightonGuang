@@ -2,6 +2,12 @@
 @use "../../sass/abstract/mixins.scss" as *;
 
 .project {
+  background-color: $white;
+  @include desktop {
+    width: $desktop-max-width;
+    margin: 0 auto;
+  }
+
   &__container {
     margin: 0 $mobile-side-spacing;
     display: flex;
