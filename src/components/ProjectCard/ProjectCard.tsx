@@ -1,9 +1,14 @@
 import "./ProjectCard.scss";
 
+interface TechnologyObject {
+  name: string;
+  link: string;
+}
+
 interface ProjectCardProps {
   projectName: string;
   projectImgUrlList: Array<string>;
-  projectTechnologyList: Array<string>;
+  projectTechnologyList: Array<TechnologyObject>;
   projectGithubLink: string;
 }
 
@@ -31,7 +36,7 @@ function ProjectCard({
         <ul className="project-card__technology-list">
           {projectTechnologyList.map((projectTechnology, index) => (
             <li key={index} className="project-card__technology">
-              {projectTechnology}
+              <a href={projectTechnology.link}>{projectTechnology.name}</a>
             </li>
           ))}
         </ul>
