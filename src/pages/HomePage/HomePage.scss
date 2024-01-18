@@ -1,10 +1,7 @@
 @use "../../sass/abstract/variables.scss" as *;
 
 .homePage {
-  display: flex;
-  align-items: center;
+  background-color: $background;
   &__container {
-    margin: 0;
-    width: 100%;
   }
 }
