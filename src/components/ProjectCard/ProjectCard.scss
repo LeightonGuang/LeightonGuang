@@ -39,6 +39,11 @@
     background-color: rgba($background, 0.7);
   }
 
+  &__technology-link {
+    text-decoration: none;
+    color: $black;
+  }
+
   &__link {
     display: flex;
     align-items: center;
