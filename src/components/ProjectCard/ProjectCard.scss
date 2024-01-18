@@ -36,7 +36,7 @@
   &__technology {
     padding: 0.2rem 0.6rem;
     border-radius: 0.5rem;
-    background-color: rgba($background, 0.7);
+    background-color: rgba($white, 0.7);
   }
 
   &__technology-link {
@@ -51,7 +51,7 @@
     padding: 0.2rem 0.6rem;
     border-radius: 0.5rem;
     background-color: #d27ef6;
-    color: $background;
+    color: $white;
     margin: 1rem 0;
     width: fit-content;
   }
