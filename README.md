@@ -20,9 +20,7 @@
 <img align="left" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" /> 
 <img align="left" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
 <img align="left" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />    
-<img align="left" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original-wordmark.svg" />
-
-<br />
+<img width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original-wordmark.svg" />
 
 ## Learning
 
@@ -33,4 +31,6 @@ style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/ico
 
 ## 📊 Stats
 
-![Leighton's GitHub stats](https://github-readme-stats.vercel.app/api?username=LeightonGuang&show_icons=true&theme=radical)
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=LeightonGuang&theme=dark&hide_border=true&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
+
+![Leighton's GitHub stats](https://github-readme-stats.vercel.app/api?username=LeightonGuang&show_icons=true&theme=slateorange)
