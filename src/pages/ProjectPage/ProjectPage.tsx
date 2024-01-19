@@ -10,6 +10,7 @@ function ProjectPage() {
           <ProjectCard
             projectName="Shopdex"
             projectImgUrlList={[""]}
+            projectDescription="An e-commerce tool that enables customers to compare prices between shops in their locality, and businesses to create product listings."
             projectTechnologyList={[
               { name: "React", link: "https://reactjs.org/" },
               { name: "Sass", link: "https://sass-lang.com/" },
@@ -29,6 +30,7 @@ function ProjectPage() {
               "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-valorant.png",
               "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-private-vc.png",
             ]}
+            projectDescription="Q bot is a discord bot"
             projectTechnologyList={[
               { name: "Node.js", link: "https://nodejs.org/en/" },
               { name: "JavaScript", link: "https://www.javascript.com/" },
@@ -44,6 +46,7 @@ function ProjectPage() {
             projectImgUrlList={[
               "https://user-images.githubusercontent.com/41440634/212241316-4c0d389e-d85f-4ecb-a925-8ae4ac1140c4.png",
             ]}
+            projectDescription="This is a website I made that will evalulate your typing speed in words per minute (WPM)."
             projectTechnologyList={[
               { name: "HTML", link: "" },
               { name: "CSS", link: "" },

@@ -8,6 +8,7 @@ interface TechnologyObject {
 interface ProjectCardProps {
   projectName: string;
   projectImgUrlList: Array<string>;
+  projectDescription: string;
   projectTechnologyList: Array<TechnologyObject>;
   projectGithubLink: string;
 }
@@ -15,6 +16,7 @@ interface ProjectCardProps {
 function ProjectCard({
   projectName,
   projectImgUrlList,
+  projectDescription,
   projectTechnologyList,
   projectGithubLink,
 }: ProjectCardProps) {
@@ -33,11 +35,13 @@ function ProjectCard({
             </li>
           ))}
         </ul>
+        <p className="project-card__description">{projectDescription}</p>
         <ul className="project-card__technology-list">
           {projectTechnologyList.map((projectTechnology, index) => (
             <li key={index} className="project-card__technology">
               <a
                 href={projectTechnology.link}
+                target="_blank"
                 className="project-card__technology-link"
               >
                 {projectTechnology.name}
@@ -45,7 +49,11 @@ function ProjectCard({
             </li>
           ))}
         </ul>
-        <a href={projectGithubLink} className="project-card__link">
+        <a
+          href={projectGithubLink}
+          target="_blank"
+          className="project-card__link"
+        >
           <img
             src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
             alt="github logo"
