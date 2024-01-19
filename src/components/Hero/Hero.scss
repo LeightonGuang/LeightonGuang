@@ -15,10 +15,20 @@
     display: flex;
     align-items: center;
     margin: 0 $mobile-side-spacing;
-    padding: 2rem;
+    padding: 2rem 0;
     background-image: url("/src/assets/react.svg");
     background-position: right;
     background-size: cover;
+
+    @include tablet {
+      margin: 0 $tablet-desktop-side-spacing;
+    }
+
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+      padding: 2rem $tablet-desktop-side-spacing;
+    }
   }
 
   &__container-left {

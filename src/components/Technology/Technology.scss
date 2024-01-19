@@ -12,6 +12,11 @@
   &__container {
     margin: 0 $mobile-side-spacing;
     padding: $mobile-spacing-top 0;
+
+    @include tablet {
+      margin: 0 $tablet-desktop-side-spacing;
+      padding: $tablet-desktop-spacing-top 0;
+    }
   }
 
   &__title {
