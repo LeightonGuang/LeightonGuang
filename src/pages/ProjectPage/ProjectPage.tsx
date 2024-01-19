@@ -23,6 +23,39 @@ function ProjectPage() {
             }
           />
           <ProjectCard
+            projectName="Shopdex API"
+            projectImgUrlList={[
+              "https://www.nairaland.com/attachments/16116667_api_png1ab24127fdc57af104f0130205baef40",
+            ]}
+            projectDescription="A RESTful API made for Shopdex."
+            projectTechnologyList={[
+              { name: "Node.js", link: "https://nodejs.org/en/" },
+              { name: "JavaScript", link: "https://www.javascript.com/" },
+              { name: "Express", link: "https://expressjs.com/" },
+              { name: "MySQL", link: "https://www.mysql.com/" },
+              { name: "Knex", link: "https://knexjs.org/" },
+            ]}
+            projectGithubLink={
+              "https://github.com/LeightonGuang/leighton-guang-capstone-api"
+            }
+          />
+          <ProjectCard
+            projectName="British Airways Hackathon"
+            projectImgUrlList={[""]}
+            projectDescription="A 24 hours hackathon hosted by British Airways where I collaborated with 
+              UI/UX Designers and data scientist to develop a solution to solve the problem of 'How might we encourage 
+              customers to book flights using their travel voucher?'"
+            projectTechnologyList={[
+              { name: "React", link: "https://reactjs.org/" },
+              { name: "Sass", link: "https://sass-lang.com/" },
+              { name: "HTML", link: "" },
+              { name: "CSS", link: "" },
+              { name: "JavaScript", link: "https://www.javascript.com/" },
+              { name: "Tailwindcss", link: "https://tailwindcss.com/" },
+            ]}
+            projectGithubLink="https://github.com/LeightonGuang/aero-dynamic-british-airways-frontend-hackathon"
+          />
+          <ProjectCard
             projectName="Q bot"
             projectImgUrlList={[
               "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help.png",
@@ -34,7 +67,7 @@ function ProjectPage() {
             projectTechnologyList={[
               { name: "Node.js", link: "https://nodejs.org/en/" },
               { name: "JavaScript", link: "https://www.javascript.com/" },
-              { name: "axios", link: "https://axios-http.com/" },
+              { name: "Axios", link: "https://axios-http.com/" },
               { name: "cheerio", link: "https://cheerio.js.org/" },
               { name: "discord.js", link: "https://old.discordjs.dev" },
               { name: "puppeteer", link: "https://pptr.dev/" },
