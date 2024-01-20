@@ -4,6 +4,7 @@
 .project-card {
   background-color: rgba($primary, 0.2);
   border-radius: 0.5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
   &__container {
     display: flex;
