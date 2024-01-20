@@ -12,6 +12,11 @@
     margin: 0 $mobile-side-spacing;
     display: flex;
     flex-direction: column;
+    padding-bottom: 1rem;
+
+    @include tablet {
+      margin: 0 $tablet-desktop-side-spacing;
+    }
   }
 
   &__title {
@@ -24,6 +29,10 @@
     display: flex;
     flex-direction: column;
     list-style: none;
-    gap: 1rem;
+    gap: $mobile-spacing;
+
+    @include tablet {
+      gap: $tablet-desktop-spacing;
+    }
   }
 }
