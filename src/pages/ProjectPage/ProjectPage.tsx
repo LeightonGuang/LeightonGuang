@@ -41,7 +41,11 @@ function ProjectPage() {
           />
           <ProjectCard
             projectName="British Airways Hackathon"
-            projectImgUrlList={[""]}
+            projectImgUrlList={[
+              "https://github.com/LeightonGuang/aero-dynamic-british-airways-frontend-hackathon/raw/main/README/screenshots/home.png",
+              "https://github.com/LeightonGuang/aero-dynamic-british-airways-frontend-hackathon/raw/main/README/screenshots/personalise.png",
+              "https://github.com/LeightonGuang/aero-dynamic-british-airways-frontend-hackathon/raw/main/README/screenshots/result.png",
+            ]}
             projectDescription="A 24 hours hackathon hosted by British Airways where I collaborated with 
               UI/UX Designers, data scientist and software engineers to develop a solution to solve the problem of 'How might we encourage 
               customers to book flights using their travel voucher?'"
