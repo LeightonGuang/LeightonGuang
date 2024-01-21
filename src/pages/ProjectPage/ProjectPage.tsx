@@ -43,7 +43,7 @@ function ProjectPage() {
             projectName="British Airways Hackathon"
             projectImgUrlList={[""]}
             projectDescription="A 24 hours hackathon hosted by British Airways where I collaborated with 
-              UI/UX Designers and data scientist to develop a solution to solve the problem of 'How might we encourage 
+              UI/UX Designers, data scientist and software engineers to develop a solution to solve the problem of 'How might we encourage 
               customers to book flights using their travel voucher?'"
             projectTechnologyList={[
               { name: "React", link: "https://reactjs.org/" },
@@ -52,6 +52,7 @@ function ProjectPage() {
               { name: "CSS", link: "" },
               { name: "JavaScript", link: "https://www.javascript.com/" },
               { name: "Tailwindcss", link: "https://tailwindcss.com/" },
+              { name: "Figma", link: "https://www.figma.com/" },
             ]}
             projectGithubLink="https://github.com/LeightonGuang/aero-dynamic-british-airways-frontend-hackathon"
           />
@@ -63,7 +64,8 @@ function ProjectPage() {
               "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-valorant.png",
               "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-private-vc.png",
             ]}
-            projectDescription="Q bot is a discord bot"
+            projectDescription="Q bot is a discord bot that allows you to check your Valorant stats, 
+              manage multiple Valorant accounts, create private voice channels in the server, and more."
             projectTechnologyList={[
               { name: "Node.js", link: "https://nodejs.org/en/" },
               { name: "JavaScript", link: "https://www.javascript.com/" },
@@ -79,7 +81,7 @@ function ProjectPage() {
             projectImgUrlList={[
               "https://user-images.githubusercontent.com/41440634/212241316-4c0d389e-d85f-4ecb-a925-8ae4ac1140c4.png",
             ]}
-            projectDescription="This is a website I made that will evalulate your typing speed in words per minute (WPM)."
+            projectDescription="A website that evalulate your typing speed in words per minute (WPM)."
             projectTechnologyList={[
               { name: "HTML", link: "" },
               { name: "CSS", link: "" },
