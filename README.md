@@ -26,11 +26,13 @@
 
 <img align="left" width="30px" 
 style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
+<img align="left" width="30px" 
+style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" />
 
 <br />
 
 ## 📊 Stats
 
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=LeightonGuang&theme=dark&hide_border=true&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats)
-
-![Leighton's GitHub stats](https://github-readme-stats.vercel.app/api?username=LeightonGuang&show_icons=true&theme=slateorange)
+|                                                                                                                                                                              |                                                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=LeightonGuang&theme=dark&hide_border=true&date_format=j%20M%5B%20Y%5D)](https://git.io/streak-stats) | ![Leighton's GitHub stats](https://github-readme-stats.vercel.app/api?username=LeightonGuang&show_icons=true&theme=slateorange) |
