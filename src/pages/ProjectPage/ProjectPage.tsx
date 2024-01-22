@@ -9,7 +9,14 @@ function ProjectPage() {
         <ul className="project__list">
           <ProjectCard
             projectName="Shopdex"
-            projectImgUrlList={[""]}
+            projectImgUrlList={[
+              "https://github.com/LeightonGuang/capstone-project/raw/main/README/screenshots/home.png",
+              "https://github.com/LeightonGuang/capstone-project/raw/main/README/screenshots/productpage.png",
+              "https://github.com/LeightonGuang/capstone-project/raw/main/README/screenshots/categories.png",
+              "https://github.com/LeightonGuang/capstone-project/raw/main/README/screenshots/saved.png",
+              "https://github.com/LeightonGuang/capstone-project/raw/main/README/screenshots/register.png",
+              "https://github.com/LeightonGuang/capstone-project/raw/main/README/screenshots/login.png",
+            ]}
             projectDescription="An e-commerce tool that enables customers to compare prices between shops in their locality, and businesses to create product listings."
             projectTechnologyList={[
               { name: "React", link: "https://reactjs.org/" },
