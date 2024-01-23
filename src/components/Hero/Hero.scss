@@ -2,23 +2,23 @@
 @use "../../sass/abstract/mixins.scss" as *;
 
 .hero {
+  display: flex;
   background-color: white;
-  @include desktop {
-    width: $desktop-max-width;
-
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-  }
+  width: 100%;
+  height: calc(100dvh - 5rem); // 100dvh;
+  background-image: url("/src/assets/react.svg");
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: auto 130%;
+  justify-content: center;
+  align-items: center;
 
   &__container {
     display: flex;
+    height: min-content;
+    flex-direction: column;
     align-items: center;
-    margin: 0 $mobile-side-spacing;
-    padding: 2rem 0;
-    background-image: url("/src/assets/react.svg");
-    background-position: right;
-    background-size: cover;
+    gap: $mobile-spacing;
 
     @include tablet {
       margin: 0 $tablet-desktop-side-spacing;
@@ -31,34 +31,40 @@
     }
   }
 
-  &__container-left {
-    width: 50%;
+  &__container-top {
   }
 
   &__message {
-    background-color: rgba($primary, 0.8);
+    width: min-content;
+    background-color: rgba(white, 0.8);
     padding: 1rem;
-    color: white;
+    color: black;
     border-radius: 1rem;
+    text-align: center;
   }
 
   &__greeting {
     font-weight: 300;
-  }
-  &__name {
-    font-weight: 500;
-  }
-  &__title {
-    font-weight: 600;
+    font-size: 2rem;
   }
 
-  &__container-right {
-    width: 50%;
-    text-align: center;
+  &__name {
+    font-weight: 700;
+    font-size: 3rem;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 2rem;
+    color: $accent;
+  }
+
+  &__container-bottom {
     justify-content: center;
   }
+
   &__memoji {
-    width: 10rem;
+    width: 12rem;
 
     @include tablet {
       width: 15rem;
