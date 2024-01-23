@@ -76,7 +76,7 @@ function ProjectPage() {
               "https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-private-vc.png",
             ]}
             projectDescription="Q bot is a discord bot that allows you to check your Valorant stats, 
-              manage multiple Valorant accounts, create private voice channels in the server, and more."
+              manage Valorant accounts you've added, create private voice channels in the server, and more."
             projectTechnologyList={[
               { name: "Node.js", link: "https://nodejs.org/en/" },
               { name: "JavaScript", link: "https://www.javascript.com/" },
