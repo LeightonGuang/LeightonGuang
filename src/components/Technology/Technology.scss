@@ -4,8 +4,8 @@
 .technology {
   background-color: $accent;
   color: white;
+
   @include desktop {
-    width: $desktop-max-width;
     margin: 0 auto;
   }
 
