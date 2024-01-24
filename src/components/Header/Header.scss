@@ -2,7 +2,7 @@
 @use "../../sass/abstract/mixins.scss" as *;
 
 .header {
-  display: flex;
+  // display: flex;
   align-items: center;
   color: $black;
   height: 5rem;
@@ -10,9 +10,9 @@
   &__container {
     display: flex;
     align-items: center;
-    gap: 5rem;
     justify-content: space-between;
     margin: 0 $mobile-side-spacing;
+    padding: 0.875rem 0;
 
     @include desktop {
       width: $desktop-max-width;
