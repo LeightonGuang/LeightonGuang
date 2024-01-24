@@ -36,11 +36,17 @@
 
   &__message {
     width: min-content;
-    background-color: rgba(white, 0.8);
     padding: 1rem;
     color: black;
     border-radius: 1rem;
     text-align: center;
+    // glass effect
+    background-color: rgba(white, 0.21);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.8px);
+    -webkit-backdrop-filter: blur(6.8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   &__greeting {
