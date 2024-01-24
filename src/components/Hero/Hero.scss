@@ -7,11 +7,21 @@
   width: 100%;
   height: calc(100dvh - 5rem); // 100dvh;
   background-image: url("/src/assets/react.svg");
-  background-position: top left;
+  background-position: 2.5rem 8rem;
   background-repeat: no-repeat;
   background-size: auto 130%;
   justify-content: center;
   align-items: center;
+
+  @include tablet {
+    background-size: 150%;
+    background-position: 3rem 7rem;
+  }
+
+  @include desktop {
+    background-size: 125%;
+    background-position: 7.5rem 3rem;
+  }
 
   &__container {
     display: flex;
@@ -47,10 +57,14 @@
     backdrop-filter: blur(6.8px);
     -webkit-backdrop-filter: blur(6.8px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+
+    @include tablet {
+      width: auto;
+    }
   }
 
   &__greeting {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 2rem;
   }
 

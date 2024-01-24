@@ -7,9 +7,9 @@ function Header() {
       <div className="hero__container">
         <div className="hero__container-top">
           <div className="hero__message">
-            <span className="hero__greeting">Hi I'm</span>{" "}
-            <span className="hero__name">Leighton Guang</span>
-            <h3 className="hero__greeting">a</h3>
+            <span className="hero__greeting">Hi I'm</span>
+            <h2 className="hero__name">Leighton Guang</h2>
+            <span className="hero__greeting">a</span>
             <h2 className="hero__title">Full Stack Developer</h2>
           </div>
         </div>
