@@ -3,7 +3,7 @@ import "./Header.scss";
 import memoji from "../../assets/Leighton-memoji.png";
 
 function Header() {
-  const handleScroll = () => {
+  const handleProjectScroll = () => {
     const project = document.getElementById("project");
     if (project) {
       project.scrollIntoView({ behavior: "smooth" });
@@ -19,10 +19,7 @@ function Header() {
 
         <nav className="header__nav">
           <ul className="header__nav-list">
-            <NavLink to={"/"} className="header__nav-link">
-              Home
-            </NavLink>
-            <li onClick={handleScroll} className="header__nav-link">
+            <li onClick={handleProjectScroll} className="header__nav-link">
               Projects
             </li>
             <NavLink to={"/about"} className="header__nav-link">
