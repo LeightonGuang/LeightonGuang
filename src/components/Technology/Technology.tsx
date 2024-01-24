@@ -3,7 +3,7 @@ import TechnologyCard from "../TechnologyCard/TechnologyCard";
 
 function Technology() {
   return (
-    <div className="technology">
+    <section className="technology">
       <div className="technology__container">
         <h1 className="technology__title">Technology I use</h1>
         <div className="technology__scroll">
@@ -71,7 +71,7 @@ function Technology() {
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 export default Technology;

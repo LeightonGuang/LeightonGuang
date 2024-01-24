@@ -3,7 +3,7 @@ import "./ProjectPage.scss";
 
 function ProjectPage() {
   return (
-    <div id="project" className="project">
+    <section id="project" className="project">
       <div className="project__container">
         <h1 className="project__title">Projects</h1>
         <ul className="project__list">
@@ -102,7 +102,7 @@ function ProjectPage() {
           />
         </ul>
       </div>
-    </div>
+    </section>
   );
 }
 
