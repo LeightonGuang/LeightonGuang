@@ -29,6 +29,7 @@ function ProjectPage() {
               "https://github.com/LeightonGuang/capstone-project"
             }
           />
+          <div className="project__divider" />
           <ProjectCard
             projectName="Shopdex API"
             projectImgUrlList={[
@@ -46,6 +47,7 @@ function ProjectPage() {
               "https://github.com/LeightonGuang/leighton-guang-capstone-api"
             }
           />
+          <div className="project__divider" />
           <ProjectCard
             projectName="British Airways Hackathon"
             projectImgUrlList={[
@@ -67,6 +69,7 @@ function ProjectPage() {
             ]}
             projectGithubLink="https://github.com/LeightonGuang/aero-dynamic-british-airways-frontend-hackathon"
           />
+          <div className="project__divider" />
           <ProjectCard
             projectName="Q bot"
             projectImgUrlList={[
@@ -87,6 +90,7 @@ function ProjectPage() {
             ]}
             projectGithubLink="https://github.com/LeightonGuang/Q-bot"
           />
+          <div className="project__divider" />
           <ProjectCard
             projectName="Typing test website"
             projectImgUrlList={[
