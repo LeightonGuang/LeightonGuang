@@ -30,6 +30,7 @@
     gap: $mobile-spacing;
     background-color: white;
     border-radius: 1rem;
+    border: 1px solid #c3d7dd;
 
     @include tablet {
       gap: $tablet-desktop-spacing;
