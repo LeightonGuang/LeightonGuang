@@ -2,15 +2,17 @@
 @use "../../sass/abstract/mixins.scss" as *;
 
 .project-card {
-  background-color: rgba($primary, 0.2);
   border-radius: 1rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
   &__container {
     display: flex;
     flex-direction: column;
     margin: 0 $mobile-side-spacing;
     gap: 1rem;
+
+    @include tablet {
+      margin: 0 $tablet-desktop-side-spacing;
+    }
   }
 
   &__name {
@@ -22,9 +24,13 @@
   &__img-list {
     display: flex;
     list-style: none;
+    justify-content: center;
   }
 
   &__img {
+    background-color: lightgrey;
+    height: 15rem;
+    object-fit: contain;
   }
 
   &__technology-list {
@@ -38,6 +44,7 @@
     padding: 0.2rem 0.6rem;
     border-radius: 0.5rem;
     background-color: rgba($white, 0.7);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 
   &__technology-link {
@@ -55,6 +62,7 @@
     color: $white;
     margin: 1rem 0;
     width: fit-content;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 
   &__github-logo {
