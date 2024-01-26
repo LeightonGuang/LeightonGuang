@@ -38,9 +38,12 @@
       rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     text-align: center;
     padding-top: $mobile-spacing-top;
+    padding-bottom: $mobile-spacing;
 
     @include tablet {
       gap: $tablet-desktop-spacing;
+      padding-top: $tablet-desktop-spacing-top;
+      padding-bottom: $tablet-desktop-spacing;
     }
   }
 
