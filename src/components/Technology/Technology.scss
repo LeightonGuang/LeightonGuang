@@ -24,6 +24,10 @@
     font-size: $mobile-h3-size;
     padding-bottom: $mobile-spacing;
     letter-spacing: 0px;
+
+    @include desktop {
+      font-size: $desktop-h3-size;
+    }
   }
 
   &__scroll {
