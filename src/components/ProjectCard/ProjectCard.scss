@@ -16,21 +16,32 @@
   }
 
   &__name {
-    font-weight: 500;
-    margin-top: $mobile-spacing-top;
-    margin-bottom: 1rem;
+    font-size: $mobile-h3-size;
+    font-weight: 600;
   }
 
   &__img-list {
+    padding: $mobile-spacing;
+    background-color: rgb(235, 235, 235);
+    border-radius: 1rem;
     display: flex;
+    gap: $mobile-spacing;
     list-style: none;
     justify-content: center;
+
+    @include tablet {
+      padding: $tablet-desktop-spacing;
+      gap: $tablet-desktop-spacing;
+    }
   }
 
   &__img {
-    background-color: lightgrey;
     height: 15rem;
     object-fit: contain;
+  }
+
+  &__description {
+    font-weight: 500;
   }
 
   &__technology-list {
@@ -40,16 +51,24 @@
     flex-wrap: wrap;
   }
 
-  &__technology {
+  &__technology-pill {
     padding: 0.2rem 0.6rem;
     border-radius: 0.5rem;
     background-color: rgba($white, 0.7);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: all 200ms;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: $hover-technology;
+    }
   }
 
   &__technology-link {
     text-decoration: none;
     color: $black;
+    font-weight: 500;
   }
 
   &__link {
@@ -58,11 +77,18 @@
     text-decoration: none;
     padding: 0.2rem 0.6rem;
     border-radius: 0.5rem;
-    background-color: #d27ef6;
-    color: $white;
+    color: $black;
     margin: 1rem 0;
     width: fit-content;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-weight: 500;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: all 200ms;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: $hover-github;
+    }
   }
 
   &__github-logo {
