@@ -38,7 +38,7 @@ function ProjectCard({
         <p className="project-card__description">{projectDescription}</p>
         <ul className="project-card__technology-list">
           {projectTechnologyList.map((projectTechnology, index) => (
-            <li key={index} className="project-card__technology">
+            <li key={index} className="project-card__technology-pill">
               <a
                 href={projectTechnology.link}
                 target="_blank"
