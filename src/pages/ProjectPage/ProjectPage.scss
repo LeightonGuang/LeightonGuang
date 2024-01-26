@@ -8,10 +8,11 @@
     margin: 0 $mobile-side-spacing;
     display: flex;
     flex-direction: column;
-    padding-bottom: 1rem;
+    padding-bottom: $mobile-spacing;
 
     @include tablet {
       margin: 0 $tablet-desktop-side-spacing;
+      padding-bottom: 2.25rem;
     }
   }
 
