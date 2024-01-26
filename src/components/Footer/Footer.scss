@@ -1,0 +1,42 @@
+@use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
+.footer {
+  padding: 3rem 0;
+  display: flex;
+  background-color: $accent;
+  height: min-content;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  &__about {
+    width: min-content;
+    height: min-content;
+    display: flex;
+    gap: 5rem;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    height: 4rem;
+    transition: all 200ms;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__copyright {
+    color: rgb(185, 243, 253);
+    font-size: 0.9rem;
+  }
+}
