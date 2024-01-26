@@ -27,6 +27,9 @@
 
   &__logo-img {
     width: 3rem;
+    @include tablet {
+      width: 4.5rem;
+    }
   }
 
   &__nav {
@@ -45,7 +48,11 @@
     text-decoration: none;
     color: $black;
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.125rem;
     cursor: pointer;
+
+    @include tablet {
+      font-size: 1.25rem;
+    }
   }
 }
