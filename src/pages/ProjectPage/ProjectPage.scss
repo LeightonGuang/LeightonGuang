@@ -2,8 +2,7 @@
 @use "../../sass/abstract/mixins.scss" as *;
 
 .project {
-  background-color: $white;
-  background-color: rgba($primary, 0.2);
+  background-color: white;
 
   &__container {
     margin: 0 $mobile-side-spacing;
@@ -20,7 +19,7 @@
     font-weight: 600;
     margin-top: $mobile-spacing-top;
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: $mobile-h2-size;
   }
 
   &__list {
@@ -30,7 +29,10 @@
     gap: $mobile-spacing;
     background-color: white;
     border-radius: 1rem;
-    border: 1px solid #c3d7dd;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    text-align: center;
+    padding-top: $mobile-spacing-top;
 
     @include tablet {
       gap: $tablet-desktop-spacing;
