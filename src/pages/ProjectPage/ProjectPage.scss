@@ -21,6 +21,10 @@
     margin-top: $mobile-spacing-top;
     margin-bottom: 1rem;
     font-size: $mobile-h2-size;
+
+    @include desktop {
+      font-size: $desktop-h2-size;
+    }
   }
 
   &__list {
