@@ -8,16 +8,21 @@
     display: flex;
     flex-direction: column;
     margin: 0 $mobile-side-spacing;
-    gap: 1rem;
+    gap: $mobile-spacing;
 
     @include tablet {
       margin: 0 $tablet-desktop-side-spacing;
+      gap: $tablet-desktop-spacing;
     }
   }
 
   &__name {
     font-size: $mobile-h3-size;
     font-weight: 600;
+
+    @include desktop {
+      font-size: $desktop-h3-size;
+    }
   }
 
   &__img-list {
@@ -42,6 +47,11 @@
 
   &__description {
     font-weight: 500;
+    font-size: $mobile-p-size;
+
+    @include tablet {
+      font-size: $tablet-desktop-font-size;
+    }
   }
 
   &__technology-list {
@@ -49,6 +59,10 @@
     list-style: none;
     gap: 0.5rem;
     flex-wrap: wrap;
+
+    @include tablet {
+      gap: 0.75rem;
+    }
   }
 
   &__technology-pill {
