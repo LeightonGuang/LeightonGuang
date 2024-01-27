@@ -16,6 +16,7 @@
   @include tablet {
     background-size: 150%;
     background-position: 3rem 7rem;
+    height: calc(100dvh - 6.5rem);
   }
 
   @include desktop {
