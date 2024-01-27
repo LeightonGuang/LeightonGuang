@@ -5,6 +5,10 @@
   color: $black;
   height: 5rem;
 
+  @include tablet {
+    height: 6.5rem;
+  }
+
   &__container {
     display: flex;
     align-items: center;
