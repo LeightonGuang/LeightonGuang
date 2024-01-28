@@ -2,16 +2,36 @@
 @use "../../sass/abstract/mixins.scss" as *;
 
 .technology-card {
+  margin: 0.5rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
-  padding: 1rem;
   list-style: none;
-  background-color: $white;
-  border-radius: 50%;
   width: 4rem;
-  height: 4rem;
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  @include tablet {
+    margin: 0 calc($tablet-desktop-spacing / 2);
+    width: 5rem;
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__logo {
+    width: 5rem;
+  }
 
   &__name {
+    font-weight: 400;
     display: none;
   }
 }
