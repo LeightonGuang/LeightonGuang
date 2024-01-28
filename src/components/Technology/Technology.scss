@@ -25,24 +25,21 @@
     padding-bottom: $mobile-spacing;
     letter-spacing: 0px;
 
+    @include tablet {
+      padding-bottom: $tablet-desktop-spacing;
+    }
+
     @include desktop {
       font-size: $desktop-h3-size;
     }
   }
 
-  &__scroll {
-    margin: 1rem 0;
-    width: 100%;
-    overflow-x: auto;
+  &__marquee {
   }
 
   &__list {
-    display: inline-flex;
-    width: fit-content;
-    height: 100%;
-    gap: 0.5rem;
-    white-space: nowrap;
-    animation: scrollLogo 10s linear infinite;
+    display: flex;
+    justify-content: space-evenly;
   }
 }
 
