@@ -28,6 +28,8 @@
 style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
 <img align="left" width="30px" 
 style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" />
+<img align="left" width="30px" 
+style="padding-right:10px" src="https://pagepro.co/blog/wp-content/uploads/2020/03/framer-motion.png" />
 
 <br />
 <br />
