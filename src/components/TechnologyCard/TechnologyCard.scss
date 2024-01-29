@@ -8,30 +8,59 @@
   align-items: center;
   list-style: none;
   width: 4rem;
-
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
+
+  // glass effect
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(0.5rem);
   -webkit-backdrop-filter: blur(0.5rem);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-
-  @include tablet {
-    margin: 0 calc($tablet-desktop-spacing / 2);
-    width: 5rem;
-  }
+  border: 1px solid rgba(255, 255, 255, 0.25);
 
   &__container {
-    display: flex;
-  }
-
-  &__logo {
-    width: 5rem;
+    height: 1.875rem;
   }
 
   &__name {
     font-weight: 400;
     display: none;
+  }
+
+  &__logo {
+    width: 1.875rem;
+  }
+
+  @include tablet {
+    margin: 0 calc($tablet-desktop-spacing / 2);
+    width: 5rem;
+
+    &__container {
+      width: 2.875rem;
+      height: 2.875rem;
+    }
+
+    &__logo {
+      width: 2.875rem;
+    }
+  }
+
+  @include desktop {
+    width: auto;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: $tablet-desktop-spacing;
+
+    &__container {
+      display: flex;
+      gap: $tablet-desktop-spacing;
+      align-items: center;
+      width: auto;
+    }
+
+    &__name {
+      font-size: $tablet-desktop-font-size;
+      font-weight: 500;
+      display: block;
+    }
   }
 }
