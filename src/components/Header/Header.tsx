@@ -1,14 +1,26 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Header.scss";
 import memoji from "../../assets/Leighton-memoji.png";
+import { useEffect, useState } from "react";
 
 function Header() {
+  const navigate = useNavigate();
+  const [isProjectClicked, setIsProjectClicked] = useState(false);
+
   const handleProjectScroll = () => {
-    const project = document.getElementById("project");
-    if (project) {
-      project.scrollIntoView({ behavior: "smooth" });
-    }
+    navigate("/");
+    setIsProjectClicked(true);
   };
+
+  useEffect(() => {
+    if (isProjectClicked) {
+      const project = document.getElementById("project");
+      if (project) {
+        project.scrollIntoView({ behavior: "smooth" });
+      }
+      setIsProjectClicked(false);
+    }
+  }, [isProjectClicked]);
 
   return (
     <div className="header">

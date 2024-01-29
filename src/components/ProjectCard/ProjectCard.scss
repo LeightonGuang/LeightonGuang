@@ -41,7 +41,8 @@
   }
 
   &__img {
-    height: 15rem;
+    display: flex;
+    max-height: 15rem;
     object-fit: contain;
   }
 
