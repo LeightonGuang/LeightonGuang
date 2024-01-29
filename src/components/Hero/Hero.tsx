@@ -6,7 +6,11 @@ function Header() {
   return (
     <div className="hero">
       <div className="hero__container">
-        <div className="hero__container-top">
+        <motion.div
+          whileHover={{ scale: [null, 1.125, 1.1] }}
+          transition={{ duration: 0.3 }}
+          className="hero__container-top"
+        >
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -22,10 +26,14 @@ function Header() {
             <span className="hero__greeting">a</span>
             <h2 className="hero__title">Full Stack Developer</h2>
           </motion.div>
-        </div>
-        <div className="hero__container-bottom">
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: [null, 1.125, 1.1] }}
+          transition={{ duration: 0.3 }}
+          className="hero__container-bottom"
+        >
           <img src={memoji} alt="memoji" className="hero__memoji" />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
