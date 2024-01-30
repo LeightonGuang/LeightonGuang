@@ -1,0 +1,37 @@
+@use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
+.aboutPage {
+  display: flex;
+  justify-content: center;
+  height: calc(100dvh - 5rem);
+
+  @include tablet {
+    height: calc(100dvh - 6.5rem);
+  }
+
+  &__container {
+    margin: 0 $mobile-side-spacing;
+    padding-bottom: $mobile-spacing;
+    text-align: center;
+
+    @include tablet {
+      margin: 0 $tablet-desktop-side-spacing;
+      padding-bottom: 2.25rem;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    margin-top: $mobile-spacing-top;
+    margin-bottom: 1rem;
+    font-size: $mobile-h2-size;
+
+    @include desktop {
+      font-size: $desktop-h2-size;
+    }
+  }
+
+  &__description {
+  }
+}
