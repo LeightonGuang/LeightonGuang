@@ -5,9 +5,21 @@
   display: flex;
   justify-content: center;
   height: calc(100dvh - 5rem);
+  // background image
+  background-image: url("../../assets/reactBackground.svg");
+  background-position: 2.5rem 8rem;
+  background-repeat: no-repeat;
+  background-size: auto 130%;
 
   @include tablet {
+    background-size: 150%;
+    background-position: 3rem 7rem;
     height: calc(100dvh - 6.5rem);
+  }
+
+  @include desktop {
+    background-size: 125%;
+    background-position: 7.5rem 3rem;
   }
 
   &__container {
@@ -29,6 +41,27 @@
 
     @include desktop {
       font-size: $desktop-h2-size;
+    }
+  }
+
+  &__card {
+    padding: $mobile-spacing;
+
+    // glass effect
+    background-color: rgba(white, 0.21);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.8px);
+    -webkit-backdrop-filter: blur(6.8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    @include tablet {
+      max-width: 48rem;
+      padding: $tablet-desktop-spacing;
+      font-size: $tablet-desktop-font-size;
+    }
+
+    @include desktop {
     }
   }
 
