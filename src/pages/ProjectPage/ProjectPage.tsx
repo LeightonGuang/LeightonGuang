@@ -17,7 +17,7 @@ function ProjectPage() {
               "https://github.com/LeightonGuang/capstone-project/raw/main/README/screenshots/register.png",
               "https://github.com/LeightonGuang/capstone-project/raw/main/README/screenshots/login.png",
             ]}
-            projectDescription="An e-commerce tool that enables customers to compare prices between shops in their locality, and businesses to create product listings."
+            projectDescription="This is an e-commerce tool that enables customers to compare prices between shops in their locality, and businesses to create product listings."
             projectTechnologyList={[
               { name: "React", link: "https://reactjs.org/" },
               { name: "Sass", link: "https://sass-lang.com/" },
@@ -35,7 +35,7 @@ function ProjectPage() {
             projectImgUrlList={[
               "https://www.nairaland.com/attachments/16116667_api_png1ab24127fdc57af104f0130205baef40",
             ]}
-            projectDescription="A RESTful API made for Shopdex."
+            projectDescription="This is a RESTful API and database made for Shopdex."
             projectTechnologyList={[
               { name: "Node.js", link: "https://nodejs.org/en/" },
               { name: "JavaScript", link: "https://www.javascript.com/" },
@@ -55,7 +55,7 @@ function ProjectPage() {
               "https://github.com/LeightonGuang/aero-dynamic-british-airways-frontend-hackathon/raw/main/README/screenshots/personalise.png",
               "https://github.com/LeightonGuang/aero-dynamic-british-airways-frontend-hackathon/raw/main/README/screenshots/result.png",
             ]}
-            projectDescription="A 24 hours hackathon hosted by British Airways where I collaborated with 
+            projectDescription="This is a 24-hour hackathon hosted by British Airways where I collaborated with 
               UI/UX Designers, data scientist and software engineers to develop a solution to solve the problem of 'How might we encourage 
               customers to book flights using their travel voucher?'"
             projectTechnologyList={[
@@ -96,7 +96,7 @@ function ProjectPage() {
             projectImgUrlList={[
               "https://user-images.githubusercontent.com/41440634/212241316-4c0d389e-d85f-4ecb-a925-8ae4ac1140c4.png",
             ]}
-            projectDescription="A website that evalulate your typing speed in words per minute (WPM)."
+            projectDescription="This is a website that evalulate your typing speed in words per minute (WPM)."
             projectTechnologyList={[
               { name: "HTML", link: "" },
               { name: "CSS", link: "" },
