@@ -16,6 +16,9 @@ function AboutPage() {
             hope I can apply my skills to drive companies to new heights.
           </p>
         </div>
+        <a href="mailto:leighton.guang@icloud.com" className="aboutPage__email">
+          Email Me!
+        </a>
       </div>
     </section>
   );
