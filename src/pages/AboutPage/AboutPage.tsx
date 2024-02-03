@@ -18,10 +18,18 @@ function AboutPage() {
           </p>
         </div>
         <motion.a
-          animate={{ scale: [1, 1.1, 1, 1.1, 1] }}
-          whileHover={{ scale: 1.2, backgroundColor: "#d3f4ff" }}
-          transition={{ repeat: Infinity, repeatDelay: 5 }}
-          href="mailto:leighton.guang@icloud.com"
+          animate={{
+            scale: [1, 1.1, 1, 1.1, 1],
+            transition: {
+              duration: 1,
+              delay: 2,
+              repeat: Infinity,
+              repeatDelay: 5,
+            },
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          href="mailto:leighton.guang@icloud.com?body=Hi Leighton,"
           className="aboutPage__email"
         >
           Email me!
