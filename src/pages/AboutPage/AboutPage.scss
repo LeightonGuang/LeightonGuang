@@ -10,6 +10,7 @@
   background-position: 2.5rem 8rem;
   background-repeat: no-repeat;
   background-size: auto 130%;
+  @include floatingAnimation;
 
   @include tablet {
     background-size: 150%;
