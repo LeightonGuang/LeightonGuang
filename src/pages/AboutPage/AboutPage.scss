@@ -86,5 +86,10 @@
     backdrop-filter: blur(6.8px);
     -webkit-backdrop-filter: blur(6.8px);
     border: 1px solid rgba(217, 217, 217, 0.3);
+
+    @include tablet {
+      font-size: $tablet-desktop-font-size;
+      padding: 0.3rem 0.9rem;
+    }
   }
 }
