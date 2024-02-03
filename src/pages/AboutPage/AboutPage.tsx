@@ -1,4 +1,5 @@
 import "./AboutPage.scss";
+import { motion } from "framer-motion";
 
 function AboutPage() {
   return (
@@ -16,9 +17,15 @@ function AboutPage() {
             hope I can apply my skills to drive companies to new heights.
           </p>
         </div>
-        <a href="mailto:leighton.guang@icloud.com" className="aboutPage__email">
-          Email Me!
-        </a>
+        <motion.a
+          animate={{ scale: [1, 1.1, 1, 1.1, 1] }}
+          whileHover={{ scale: 1.2, backgroundColor: "#d3f4ff" }}
+          transition={{ repeat: Infinity, repeatDelay: 5 }}
+          href="mailto:leighton.guang@icloud.com"
+          className="aboutPage__email"
+        >
+          Email me!
+        </motion.a>
       </div>
     </section>
   );
