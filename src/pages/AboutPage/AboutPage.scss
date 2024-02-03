@@ -26,6 +26,10 @@
     margin: 0 $mobile-side-spacing;
     padding-bottom: $mobile-spacing;
     text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-spacing;
 
     @include tablet {
       margin: 0 $tablet-desktop-side-spacing;
@@ -36,7 +40,6 @@
   &__title {
     font-weight: 600;
     margin-top: $mobile-spacing-top;
-    margin-bottom: 1rem;
     font-size: $mobile-h2-size;
 
     @include desktop {
@@ -66,5 +69,22 @@
   }
 
   &__description {
+  }
+
+  &__email {
+    text-decoration: none;
+    color: $black;
+    width: fit-content;
+    flex-wrap: nowrap;
+    margin: $mobile-spacing 0;
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+
+    // glass effect
+    background-color: rgba(white, 0.21);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.8px);
+    -webkit-backdrop-filter: blur(6.8px);
+    border: 1px solid rgba(217, 217, 217, 0.3);
   }
 }
