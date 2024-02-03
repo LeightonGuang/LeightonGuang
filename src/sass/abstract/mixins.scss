@@ -11,3 +11,24 @@
     @content;
   }
 }
+
+@mixin floatingAnimation {
+  @keyframes float {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 1% -1%;
+    }
+    50% {
+      background-position: -1% 1%;
+    }
+    75% {
+      background-position: 1% -1%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  animation: float 15s infinite;
+}
