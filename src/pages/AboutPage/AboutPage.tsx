@@ -17,23 +17,33 @@ function AboutPage() {
             hope I can apply my skills to drive companies to new heights.
           </p>
         </div>
-        <motion.a
-          animate={{
-            scale: [1, 1.1, 1, 1.1, 1],
-            transition: {
-              duration: 1,
-              delay: 2,
-              repeat: Infinity,
-              repeatDelay: 5,
-            },
-          }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          href="mailto:leighton.guang@icloud.com?body=Hi Leighton,"
-          className="aboutPage__email"
-        >
-          Email me!
-        </motion.a>
+        <div className="aboutPage__buttons-container">
+          <motion.a
+            animate={{
+              scale: [1, 1.1, 1, 1.1, 1],
+              transition: {
+                duration: 1,
+                delay: 2,
+                repeat: Infinity,
+                repeatDelay: 5,
+              },
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            href="mailto:leighton.guang@icloud.com?body=Hi Leighton,"
+            className="aboutPage__button"
+          >
+            Email me!
+          </motion.a>
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            href=""
+            className="aboutPage__button"
+          >
+            Resume
+          </motion.a>
+        </div>
       </div>
     </section>
   );
