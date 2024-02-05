@@ -38,7 +38,8 @@ function AboutPage() {
           <motion.a
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            href=""
+            target="_blank"
+            href="https://drive.google.com/file/d/1oaHBeI_gjD0gflxp_7jeHg4aU73h67TT/view?usp=sharing"
             className="aboutPage__button"
           >
             Resume
