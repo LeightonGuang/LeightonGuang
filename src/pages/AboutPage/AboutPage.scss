@@ -72,6 +72,9 @@
   }
 
   &__description {
+    @include tablet {
+      line-height: 1.5rem;
+    }
   }
 
   &__buttons-container {
