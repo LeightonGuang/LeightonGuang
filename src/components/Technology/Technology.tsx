@@ -23,7 +23,7 @@ function Technology() {
   return (
     <section className="technology">
       <div className="technology__container">
-        <h1 className="technology__title">Technology I use</h1>
+        <h2 className="technology__title">What I use</h2>
         <Marquee pauseOnHover={true} speed={75} className="technology__marquee">
           <ul className="technology__list">
             <TechnologyCard technologyName="HTML" technologyLogo={htmlIcon} />
