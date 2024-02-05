@@ -8,13 +8,13 @@ function AboutPage() {
         <h1 className="aboutPage__title">About Me</h1>
         <div className="aboutPage__card">
           <p className="aboutPage__description">
-            Hi I'm Leighton. I am passionate about Software Engineering because
-            I consider myself a maker/creator at heart. I love creating things
-            and giving people a pleasant experience using it. I got into
-            Software Engineering because I found out that being a software
-            engineer allows me to be creative simply through a computer, without
-            relying on physical tools or materials. As a quick problem solver, I
-            hope I can apply my skills to drive companies to new heights.
+            👋 Hi I'm Leighton. I'm a passionate Full Stack React Developer who
+            loves to create applications and deliver great user experiences. My
+            journey into Software Engineering started when I discovered that
+            this allows me to be creative simply through a computer, without the
+            constraints of physical tools or materials. As a problem solver and
+            quick thinker, I hope to use my skills to drive companies to greater
+            success.
           </p>
         </div>
         <div className="aboutPage__buttons-container">
