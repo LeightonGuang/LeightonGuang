@@ -1,8 +1,10 @@
 # Leighton Guang
 
-👋 Hi, I’m Leighton. I'm a full stack React developer.
+👋 Hi, I’m Leighton. I'm a passionate Full Stack React Developer who loves to create applications and deliver great user experiences.<br>
+My journey into Software Engineering started when I discovered that coding allows me to be creative simply through a computer, without the constraints of physical tools or materials.<br>
+As a problem solver and quick thinker, I hope to use my skills to drive companies to greater success.
 
-## Languages and Tools
+## 📚 Languages, Technologies and Tools
 
 <img align="left" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" />
 <img align="left" width="30px" style="padding-right:10px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg" />
