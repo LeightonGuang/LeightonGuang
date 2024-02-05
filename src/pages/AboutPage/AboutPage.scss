@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   height: calc(100dvh - 5rem);
+
   // background image
   background-image: url("../../assets/reactBackground.svg");
   background-position: 2.5rem 8rem;
@@ -35,6 +36,7 @@
     @include tablet {
       margin: 0 $tablet-desktop-side-spacing;
       padding-bottom: 2.25rem;
+      gap: $tablet-desktop-spacing;
     }
   }
 
@@ -75,16 +77,23 @@
   &__buttons-container {
     display: flex;
     gap: $mobile-spacing;
+    margin-top: 2rem;
+
+    @include tablet {
+      margin-top: 4rem;
+      gap: $tablet-desktop-spacing;
+    }
   }
 
   &__button {
+    font-weight: 400;
+    font-size: 1.1rem;
     text-decoration: none;
     color: $black;
     width: fit-content;
     flex-wrap: nowrap;
-    // margin: $mobile-spacing 0;
     padding: 0.2rem 0.6rem;
-    border-radius: 1rem;
+    border-radius: 0.75rem;
 
     // glass effect
     background-color: rgba(white, 0.21);
@@ -95,11 +104,7 @@
 
     @include tablet {
       font-size: $tablet-desktop-font-size;
-      padding: 0.3rem 0.9rem;
+      padding: 0.35rem 1rem;
     }
-  }
-
-  &__resume {
-    height: fit-content;
   }
 }
