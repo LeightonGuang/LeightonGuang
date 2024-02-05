@@ -16,7 +16,7 @@ function TechnologyCard({
           alt={technologyName}
           className="technology-card__logo"
         />
-        <h1 className="technology-card__name">{technologyName}</h1>
+        <h3 className="technology-card__name">{technologyName}</h3>
       </div>
     </li>
   );
