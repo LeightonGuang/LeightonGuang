@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import "./Header.scss";
+import "./Navbar.scss";
 import memoji from "../../assets/Leighton-memoji.png";
 import { useEffect, useState } from "react";
 
