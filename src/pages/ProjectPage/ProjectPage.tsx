@@ -31,7 +31,7 @@ function ProjectPage() {
           />
           <div className="project__divider" />
           <ProjectCard
-            projectName="Shopdex API"
+            projectName="Shopdex API and database"
             projectImgUrlList={[
               "https://www.nairaland.com/attachments/16116667_api_png1ab24127fdc57af104f0130205baef40",
             ]}
