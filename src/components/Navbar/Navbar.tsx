@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.scss";
 import memoji from "../../assets/Leighton-memoji.png";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 function Header() {
   const navigate = useNavigate();
@@ -29,16 +30,19 @@ function Header() {
           <img src={memoji} alt="memoji" className="header__logo-img" />
         </Link>
 
-        <nav className="header__nav">
+        <motion.nav className="header__nav">
           <ul className="header__nav-list">
-            <li onClick={handleProjectScroll} className="header__nav-link">
+            <motion.li
+              onClick={handleProjectScroll}
+              className="header__nav-link"
+            >
               Projects
-            </li>
+            </motion.li>
             <NavLink to={"/about"} className="header__nav-link">
               About
             </NavLink>
           </ul>
-        </nav>
+        </motion.nav>
       </div>
     </div>
   );
