@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.scss";
 import memoji from "../../assets/Leighton-memoji.png";
 import { useEffect, useState } from "react";
@@ -11,6 +11,10 @@ function Header() {
   const handleProjectScroll = () => {
     navigate("/");
     setIsProjectClicked(true);
+  };
+
+  const handleAboutNav = () => {
+    navigate("/about");
   };
 
   useEffect(() => {
@@ -33,14 +37,19 @@ function Header() {
         <motion.nav className="header__nav">
           <ul className="header__nav-list">
             <motion.li
+              whileHover={{ scale: 1.05 }}
               onClick={handleProjectScroll}
               className="header__nav-link"
             >
               Projects
             </motion.li>
-            <NavLink to={"/about"} className="header__nav-link">
+            <motion.li
+              whileHover={{ scale: 1.05 }}
+              onClick={handleAboutNav}
+              className="header__nav-link"
+            >
               About
-            </NavLink>
+            </motion.li>
           </ul>
         </motion.nav>
       </div>
