@@ -13,7 +13,7 @@ function Header() {
     setIsProjectClicked(true);
   };
 
-  const handleAboutNav = () => {
+  const handleAboutCLick = () => {
     navigate("/about");
   };
 
@@ -45,7 +45,7 @@ function Header() {
             </motion.li>
             <motion.li
               whileHover={{ scale: 1.05 }}
-              onClick={handleAboutNav}
+              onClick={handleAboutCLick}
               className="header__nav-link"
             >
               About
