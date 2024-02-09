@@ -31,13 +31,20 @@ function Header() {
     <div className="header">
       <div className="header__container">
         <Link to={"/"} className="header__logo">
-          <img src={memoji} alt="memoji" className="header__logo-img" />
+          <motion.img
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            src={memoji}
+            alt="memoji"
+            className="header__logo-img"
+          />
         </Link>
 
         <motion.nav className="header__nav">
           <ul className="header__nav-list">
             <motion.li
               whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
               onClick={handleProjectScroll}
               className="header__nav-link"
             >
@@ -45,6 +52,7 @@ function Header() {
             </motion.li>
             <motion.li
               whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
               onClick={handleAboutCLick}
               className="header__nav-link"
             >
