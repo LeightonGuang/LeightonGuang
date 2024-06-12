@@ -1,0 +1,47 @@
+@use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
+.playground {
+  display: flex;
+  justify-content: center;
+  height: calc(100dvh - 5rem);
+
+  &__container {
+    margin: 0 $mobile-side-spacing;
+    padding-bottom: $mobile-spacing;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-spacing;
+  }
+
+  &__title {
+    font-weight: 600;
+    margin-top: $mobile-spacing-top;
+    font-size: $mobile-h2-size;
+
+    @include desktop {
+      font-size: $desktop-h2-size;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+    border: $black solid 1px;
+    border-radius: 1rem;
+    padding: $mobile-spacing;
+  }
+
+  &__list-item {
+    cursor: pointer;
+    list-style: none;
+    font-size: $mobile-p-size;
+    border: $black solid 1px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+}
