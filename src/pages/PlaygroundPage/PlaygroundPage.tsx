@@ -13,6 +13,7 @@ const PlaygroundPage = () => {
   }
   const playgroundProjectList: PlaygroundProjectType[] = [
     { name: "animations", path: "/playground/animations" },
+    { name: "test", path: "/playground/test" },
   ];
 
   useEffect(() => {}, []);
