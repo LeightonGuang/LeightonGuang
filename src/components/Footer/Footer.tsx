@@ -1,6 +1,6 @@
 import "./Footer.scss";
 
-function Footer() {
+const Footer = () => {
   return (
     <div className="footer">
       <div className="footer__container">
@@ -34,11 +34,11 @@ function Footer() {
           </a>
         </div>
         <p className="footer__copyright">
-          © 2024 Leighton Guang. All rights reserved.
+          {`© ${new Date().getFullYear()} Leighton Guang. All rights reserved.`}
         </p>
       </div>
     </div>
   );
-}
+};
 
 export default Footer;
