@@ -13,10 +13,6 @@ function Header() {
     setIsProjectClicked(true);
   };
 
-  const handleAboutCLick = () => {
-    navigate("/about");
-  };
-
   useEffect(() => {
     if (isProjectClicked) {
       const project = document.getElementById("project");
@@ -45,7 +41,18 @@ function Header() {
             </motion.li>
             <motion.li
               whileHover={{ scale: 1.05 }}
-              onClick={handleAboutCLick}
+              onClick={() => {
+                navigate("/playground");
+              }}
+              className="header__nav-link"
+            >
+              Playground
+            </motion.li>
+            <motion.li
+              whileHover={{ scale: 1.05 }}
+              onClick={() => {
+                navigate("/about");
+              }}
               className="header__nav-link"
             >
               About
