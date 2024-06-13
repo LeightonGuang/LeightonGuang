@@ -1,0 +1,38 @@
+@use "../../../sass/abstract/variables.scss" as *;
+@use "../../../sass/abstract/mixins.scss" as *;
+
+.animations {
+  display: flex;
+  justify-content: center;
+  min-height: calc(100dvh - 5rem);
+
+  &__container {
+    margin: 0 $mobile-side-spacing;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: $mobile-h2-size;
+  }
+
+  &__list {
+    width: auto;
+    height: 20rem;
+    display: grid;
+    grid-template-columns: 10rem 10rem;
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+  }
+
+  &__item {
+    list-style: none;
+    border: $black 1px solid;
+    border-radius: 1rem;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    padding: $mobile-spacing;
+    margin: auto 0;
+  }
+}
