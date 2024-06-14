@@ -12,7 +12,10 @@ const PlaygroundPage = () => {
     path: string;
   }
   const playgroundProjectList: PlaygroundProjectType[] = [
-    { name: "animations", path: "/playground/animations" },
+    {
+      name: "Framer Motion Animations",
+      path: "/playground/framer-motion-animations",
+    },
     { name: "test", path: "/playground/test" },
   ];
 

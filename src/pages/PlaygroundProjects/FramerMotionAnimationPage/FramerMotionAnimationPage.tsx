@@ -1,4 +1,4 @@
-import "./Animationpage.scss";
+import "./FramerMotionAnimationPage.scss";
 import { motion } from "framer-motion";
 
 const animations = () => {

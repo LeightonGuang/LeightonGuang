@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar/Navbar.tsx";
 import HomePage from "./pages/HomePage/HomePage.tsx";
 import ProjectPage from "./pages/ProjectPage/ProjectPage.tsx";
 import PlaygroundPage from "./pages/PlaygroundPage/PlaygroundPage.tsx";
-import AnimationPage from "./pages/PlaygroundProjects/AnimationsPage/AnimationPage.tsx";
+import FramerMotionAnimationPage from "./pages/PlaygroundProjects/FramerMotionAnimationPage/FramerMotionAnimationPage.tsx";
 import AboutPage from "./pages/AboutPage/AboutPage.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 
@@ -18,7 +18,10 @@ function App() {
           <Route path="/LeightonGuang" element={<HomePage />} />
           <Route path="/projects" element={<ProjectPage />} />
           <Route path="/playground" element={<PlaygroundPage />} />
-          <Route path="/playground/animations" element={<AnimationPage />} />
+          <Route
+            path="/playground/framer-motion-animations"
+            element={<FramerMotionAnimationPage />}
+          />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
         <Footer />
