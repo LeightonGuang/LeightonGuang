@@ -17,6 +17,7 @@ const PlaygroundPage = () => {
       path: "/playground/framer-motion-animations",
     },
     { name: "test", path: "/playground/test" },
+    { name: "Image Gallery Slider", path: "/playground/image-gallery-slider" },
   ];
 
   useEffect(() => {}, []);
