@@ -7,6 +7,7 @@ import PlaygroundPage from "./pages/PlaygroundPage/PlaygroundPage.tsx";
 import FramerMotionAnimationPage from "./pages/PlaygroundProjects/FramerMotionAnimationPage/FramerMotionAnimationPage.tsx";
 import AboutPage from "./pages/AboutPage/AboutPage.tsx";
 import Footer from "./components/Footer/Footer.tsx";
+import ImageGallerySliderPage from "./pages/PlaygroundProjects/ImageGallerySliderPage/ImageGallerySliderPage.tsx";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
           <Route path="/LeightonGuang" element={<HomePage />} />
           <Route path="/projects" element={<ProjectPage />} />
           <Route path="/playground" element={<PlaygroundPage />} />
+          <Route
+            path="playground/image-gallery-slider"
+            element={<ImageGallerySliderPage />}
+          />
           <Route
             path="/playground/framer-motion-animations"
             element={<FramerMotionAnimationPage />}
