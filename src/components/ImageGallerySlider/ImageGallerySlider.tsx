@@ -57,6 +57,11 @@ const ImageGallerySlider = ({
               }`}
               key={index}
               onClick={() => setImageIndex(index)}
+              style={
+                index === imageIndex && hightlightColour !== ""
+                  ? { backgroundColor: hightlightColour }
+                  : {}
+              }
             >
               <img
                 className="imageGallerySlider__preview-img"
