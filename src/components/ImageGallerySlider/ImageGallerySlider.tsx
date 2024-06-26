@@ -49,28 +49,30 @@ const ImageGallerySlider = ({
             onClick={handleLeftClick}
           >{`>`}</button>
         </div>
-        <ul className="imageGallerySlider__list">
-          {imageObjList.map((imageObj, index) => (
-            <li
-              className={`imageGallerySlider__item ${
-                index === imageIndex ? `imageGallerySlider__item--active` : ``
-              }`}
-              key={index}
-              onClick={() => setImageIndex(index)}
-              style={
-                index === imageIndex && hightlightColour !== ""
-                  ? { backgroundColor: hightlightColour }
-                  : {}
-              }
-            >
-              <img
-                className="imageGallerySlider__preview-img"
-                src={imageObj.image}
-                alt={imageObj.imageAlt}
-              />
-            </li>
-          ))}
-        </ul>
+        <div className="imageGallerySlider__list-container">
+          <ul className="imageGallerySlider__list">
+            {imageObjList.map((imageObj, index) => (
+              <li
+                className={`imageGallerySlider__item ${
+                  index === imageIndex ? `imageGallerySlider__item--active` : ``
+                }`}
+                key={index}
+                onClick={() => setImageIndex(index)}
+                style={
+                  index === imageIndex && hightlightColour !== ""
+                    ? { backgroundColor: hightlightColour }
+                    : {}
+                }
+              >
+                <img
+                  className="imageGallerySlider__preview-img"
+                  src={imageObj.image}
+                  alt={imageObj.imageAlt}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

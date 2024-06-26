@@ -6,7 +6,6 @@
     margin: 0 $mobile-side-spacing;
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
 
   &__display {
@@ -29,6 +28,11 @@
     &--img {
       max-height: 12rem;
     }
+  }
+
+  &__list-container {
+    display: flex;
+    justify-content: center;
   }
 
   &__list {
