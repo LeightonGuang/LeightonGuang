@@ -1,0 +1,39 @@
+.imageGallerySlider {
+  &__container {
+  }
+
+  &__display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--btn {
+      border: 1px solid black;
+      outline: none;
+      background: none;
+      cursor: pointer;
+      height: 2rem;
+      width: 2rem;
+    }
+
+    &--img {
+      max-height: 20rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    list-style: none;
+    max-height: 5rem;
+    max-width: 5rem;
+    padding: 1rem;
+
+    &--active {
+      background-color: green;
+    }
+  }
+}
