@@ -1,5 +1,12 @@
+@use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
 .imageGallerySlider {
   &__container {
+    margin: 0 $mobile-side-spacing;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &__display {
@@ -8,32 +15,43 @@
     justify-content: space-between;
 
     &--btn {
-      border: 1px solid black;
+      border: none;
       outline: none;
       background: none;
+      font-size: 1rem;
+      background-color: #eeeeee;
       cursor: pointer;
-      height: 2rem;
+      height: 3rem;
       width: 2rem;
+      border-radius: 0.25rem;
     }
 
     &--img {
-      max-height: 20rem;
+      max-height: 12rem;
     }
   }
 
   &__list {
+    margin-top: $mobile-spacing-top;
     display: flex;
     align-items: center;
   }
 
   &__item {
     list-style: none;
-    max-height: 5rem;
-    max-width: 5rem;
-    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    max-width: 3rem;
+    height: 3rem;
+    padding: 0.25rem;
 
     &--active {
-      background-color: green;
+      background-color: #666666;
+      border-radius: 0.25rem;
     }
+  }
+
+  &__preview-img {
+    object-fit: contain;
   }
 }
