@@ -1,17 +1,26 @@
 import "./imageGallerySlider.scss";
 import { useState } from "react";
 
-const ImageGallerySlider = ({ images }: { images: string[] }) => {
+const ImageGallerySlider = ({
+  images,
+}: {
+  images: string[];
+  hightlightColour: string;
+}) => {
   const [imageIndex, setImageIndex] = useState(0);
 
   const handleRightClick = () => {
-    if (imageIndex !== 0) {
+    if (imageIndex === 0) {
+      setImageIndex(images.length - 1);
+    } else if (imageIndex !== 0) {
       setImageIndex(imageIndex - 1);
     }
   };
 
   const handleLeftClick = () => {
-    if (imageIndex !== images.length - 1) {
+    if (imageIndex === images.length - 1) {
+      setImageIndex(0);
+    } else if (imageIndex !== images.length - 1) {
       setImageIndex(imageIndex + 1);
     }
   };
@@ -38,7 +47,7 @@ const ImageGallerySlider = ({ images }: { images: string[] }) => {
           {images.map((image, index) => (
             <li
               className={`imageGallerySlider__item ${
-                index === imageIndex ? "imageGallerySlider__item--active" : ""
+                index === imageIndex ? `imageGallerySlider__item--active` : ``
               }`}
               key={index}
               onClick={() => setImageIndex(index)}
