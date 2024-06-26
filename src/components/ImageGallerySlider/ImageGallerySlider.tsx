@@ -1,26 +1,32 @@
 import "./imageGallerySlider.scss";
 import { useState } from "react";
 
+interface ImageObj {
+  image: string;
+  imageAlt: string;
+}
+
 const ImageGallerySlider = ({
-  images,
+  imageObjList,
+  hightlightColour,
 }: {
-  images: string[];
+  imageObjList: ImageObj[];
   hightlightColour: string;
 }) => {
   const [imageIndex, setImageIndex] = useState(0);
 
   const handleRightClick = () => {
     if (imageIndex === 0) {
-      setImageIndex(images.length - 1);
+      setImageIndex(imageObjList.length - 1);
     } else if (imageIndex !== 0) {
       setImageIndex(imageIndex - 1);
     }
   };
 
   const handleLeftClick = () => {
-    if (imageIndex === images.length - 1) {
+    if (imageIndex === imageObjList.length - 1) {
       setImageIndex(0);
-    } else if (imageIndex !== images.length - 1) {
+    } else if (imageIndex !== imageObjList.length - 1) {
       setImageIndex(imageIndex + 1);
     }
   };
@@ -35,7 +41,7 @@ const ImageGallerySlider = ({
           >{`<`}</button>
           <img
             className="imageGallerySlider__display--img"
-            src={images[imageIndex]}
+            src={imageObjList[imageIndex].image}
             alt=""
           />
           <button
@@ -44,7 +50,7 @@ const ImageGallerySlider = ({
           >{`>`}</button>
         </div>
         <ul className="imageGallerySlider__list">
-          {images.map((image, index) => (
+          {imageObjList.map((imageObj, index) => (
             <li
               className={`imageGallerySlider__item ${
                 index === imageIndex ? `imageGallerySlider__item--active` : ``
@@ -54,8 +60,8 @@ const ImageGallerySlider = ({
             >
               <img
                 className="imageGallerySlider__preview-img"
-                src={image}
-                alt={`image ${index}`}
+                src={imageObj.image}
+                alt={imageObj.imageAlt}
               />
             </li>
           ))}
