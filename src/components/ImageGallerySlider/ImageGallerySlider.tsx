@@ -41,9 +41,10 @@ const ImageGallerySlider = ({ images }: { images: string[] }) => {
                 index === imageIndex ? "imageGallerySlider__item--active" : ""
               }`}
               key={index}
+              onClick={() => setImageIndex(index)}
             >
               <img
-                className="imageGallerySlider__img"
+                className="imageGallerySlider__preview-img"
                 src={image}
                 alt={`image ${index}`}
               />
