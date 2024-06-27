@@ -3,17 +3,24 @@
 
 .playground {
   display: flex;
-  justify-content: center;
   height: calc(100dvh - 5rem);
 
   &__container {
+    width: 100dvw;
     margin: 0 $mobile-side-spacing;
     padding-bottom: $mobile-spacing;
-    text-align: center;
-    align-items: center;
     display: flex;
     flex-direction: column;
     gap: $mobile-spacing;
+
+    @include tablet {
+      margin: 0 $tablet-desktop-side-spacing;
+    }
+
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+    }
   }
 
   &__title {
@@ -27,21 +34,29 @@
   }
 
   &__list {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     text-align: left;
-    border: $black solid 1px;
     border-radius: 1rem;
-    padding: $mobile-spacing;
+    margin-top: $mobile-spacing-top;
+
+    @include tablet {
+      margin-top: $tablet-desktop-spacing-top;
+    }
   }
 
-  &__list-item {
+  &__item {
     cursor: pointer;
     list-style: none;
     font-size: $mobile-p-size;
-    border: $black solid 1px;
+    background-color: #eeeeee;
     padding: 1rem;
     border-radius: 0.5rem;
+
+    @include tablet {
+      font-size: $tablet-desktop-font-size;
+    }
   }
 }
