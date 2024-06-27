@@ -34,7 +34,7 @@ const PlaygroundPage = () => {
               onClick={() => {
                 navigate(project.path);
               }}
-              className="playground__list-item"
+              className="playground__item"
             >
               {project.name}
             </motion.li>
