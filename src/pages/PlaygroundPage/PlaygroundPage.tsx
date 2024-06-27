@@ -12,12 +12,12 @@ const PlaygroundPage = () => {
     path: string;
   }
   const playgroundProjectList: PlaygroundProjectType[] = [
+    { name: "Image Gallery Slider", path: "/playground/image-gallery-slider" },
     {
       name: "Framer Motion Animations",
       path: "/playground/framer-motion-animations",
     },
-    { name: "test", path: "/playground/test" },
-    { name: "Image Gallery Slider", path: "/playground/image-gallery-slider" },
+    { name: "Compare", path: "/playground/compare" },
   ];
 
   useEffect(() => {}, []);
