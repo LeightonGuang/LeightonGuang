@@ -3,9 +3,23 @@
 
 .imageGallerySliderPage {
   height: calc(100dvh - 4.125rem);
-  margin: 0 $mobile-side-spacing;
+
+  &__container {
+    margin-top: $mobile-spacing;
+    margin: $mobile-side-spacing;
+
+    @include tablet {
+      margin-top: $tablet-desktop-spacing;
+      margin: 0 $tablet-desktop-side-spacing;
+    }
+
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+    }
+  }
 
   &__title {
-    margin-bottom: 1rem;
+    margin-bottom: $mobile-spacing;
   }
 }

@@ -4,8 +4,9 @@ import ImageGallerySlider from "../../../components/ImageGallerySlider/ImageGall
 const ImageGallerySliderPage = () => {
   return (
     <section className="imageGallerySliderPage">
-      <h1 className="imageGallerySliderPage__title">Image Gallery Slider</h1>
       <div className="imageGallerySliderPage__container">
+        <h1 className="imageGallerySliderPage__title">Image Gallery Slider</h1>
+
         <ImageGallerySlider
           imageObjList={[
             {
