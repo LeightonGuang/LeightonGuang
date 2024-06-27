@@ -4,10 +4,11 @@ import Navbar from "./components/Navbar/Navbar.tsx";
 import HomePage from "./pages/HomePage/HomePage.tsx";
 import ProjectPage from "./pages/ProjectPage/ProjectPage.tsx";
 import PlaygroundPage from "./pages/PlaygroundPage/PlaygroundPage.tsx";
+import ImageGallerySliderPage from "./pages/PlaygroundProjects/ImageGallerySliderPage/ImageGallerySliderPage.tsx";
 import FramerMotionAnimationPage from "./pages/PlaygroundProjects/FramerMotionAnimationPage/FramerMotionAnimationPage.tsx";
+import ComparePage from "./pages/PlaygroundProjects/ComparePage/ComparePage.tsx";
 import AboutPage from "./pages/AboutPage/AboutPage.tsx";
 import Footer from "./components/Footer/Footer.tsx";
-import ImageGallerySliderPage from "./pages/PlaygroundProjects/ImageGallerySliderPage/ImageGallerySliderPage.tsx";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             path="/playground/framer-motion-animations"
             element={<FramerMotionAnimationPage />}
           />
+          <Route path="/playground/compare" element={<ComparePage />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
         <Footer />
