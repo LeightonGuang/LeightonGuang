@@ -1,0 +1,61 @@
+@use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
+.compareList {
+  margin-top: $mobile-spacing-top;
+
+  &__container {
+    display: flex;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+
+  &__item {
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: #eeeeee;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    list-style: none;
+    width: 50%;
+    scroll-snap-align: start;
+  }
+
+  &__item-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 0.5rem;
+    font-size: $mobile-p-size;
+  }
+
+  &__img {
+    object-fit: contain;
+    background-color: #cccccc;
+    width: 12rem;
+    height: 6rem;
+    margin: 0 auto;
+  }
+
+  &__name {
+    background-color: #f1c40f;
+    padding: 0.25rem;
+  }
+
+  &__brand {
+    background-color: #23cc71;
+    padding: 0.25rem;
+  }
+
+  &__price {
+    background-color: #3399ff;
+    padding: 0.25rem;
+  }
+
+  &__description {
+    background-color: #9b59b6;
+    padding: 0.25rem;
+  }
+}
