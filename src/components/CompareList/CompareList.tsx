@@ -1,13 +1,7 @@
 import "./CompareList.scss";
-interface itemObj {
-  imageUrl: string;
-  name: string;
-  brand: string;
-  year: number;
-  price: number;
-}
+import { ItemObj } from "../../types/ItemObj";
 
-const CompareComponent = ({ itemObjList }: { itemObjList: itemObj[] }) => {
+const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
   return (
     <div className="compareList">
       <ul className="compareList__container">
