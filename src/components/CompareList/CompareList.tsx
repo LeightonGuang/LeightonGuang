@@ -3,6 +3,7 @@ interface itemObj {
   imageUrl: string;
   name: string;
   brand: string;
+  year: number;
   price: number;
 }
 
@@ -14,8 +15,9 @@ const CompareComponent = ({ itemObjList }: { itemObjList: itemObj[] }) => {
           <li className="compareList__item" key={index}>
             <ul className="compareList__item-list">
               <img className="compareList__img" src={itemObj.imageUrl} />
-              <li className="compareList__name">{itemObj.name}</li>
               <li className="compareList__brand">{itemObj.brand}</li>
+              <li className="compareList__name">{itemObj.name}</li>
+              <li className="compareList__year">{itemObj.year}</li>
               <li className="compareList__price">${itemObj.price}</li>
               <li className="compareList__description">desciption</li>
             </ul>
