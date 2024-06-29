@@ -1,10 +1,7 @@
 import "./imageGallerySlider.scss";
 import { useState } from "react";
 
-interface ImageObj {
-  image: string;
-  imageAlt: string;
-}
+import { ImageObj } from "../../types/ImageObj";
 
 const ImageGallerySlider = ({
   imageObjList,
