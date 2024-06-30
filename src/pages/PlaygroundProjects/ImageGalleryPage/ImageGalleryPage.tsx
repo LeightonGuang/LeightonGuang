@@ -1,11 +1,11 @@
-import "./imageGalleryPage.scss";
+import "./ImageGalleryPage.scss";
 import ImageGallery from "../../../components/ImageGallery/ImageGallery";
 
 const ImageGalleryPage = () => {
   return (
     <section className="imageGalleryPage">
       <div className="imageGalleryPage__container">
-        <h1 className="imageGalleryPage__title">Image Gallery Slider</h1>
+        <h1 className="imageGalleryPage__title">Image Gallery</h1>
 
         <ImageGallery
           imageObjList={[
