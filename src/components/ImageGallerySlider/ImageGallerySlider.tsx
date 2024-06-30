@@ -38,7 +38,7 @@ const ImageGallerySlider = ({
           >{`<`}</button>
           <img
             className="imageGallerySlider__display--img"
-            src={imageObjList[imageIndex].image}
+            src={imageObjList[imageIndex].imageUrl}
             alt=""
           />
           <button
@@ -63,7 +63,7 @@ const ImageGallerySlider = ({
               >
                 <img
                   className="imageGallerySlider__preview-img"
-                  src={imageObj.image}
+                  src={imageObj.imageUrl}
                   alt={imageObj.imageAlt}
                 />
               </li>
