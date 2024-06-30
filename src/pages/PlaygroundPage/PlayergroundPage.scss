@@ -3,7 +3,7 @@
 
 .playground {
   display: flex;
-  height: calc(100dvh - 5rem);
+  min-height: calc(100dvh - 5rem);
 
   &__container {
     width: 100dvw;
