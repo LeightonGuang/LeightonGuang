@@ -1,13 +1,13 @@
-import "./ImageGallerySliderPage.scss";
-import ImageGallerySlider from "../../../components/ImageGallerySlider/ImageGallerySlider";
+import "./imageGalleryPage.scss";
+import ImageGallery from "../../../components/ImageGallery/ImageGallery";
 
-const ImageGallerySliderPage = () => {
+const ImageGalleryPage = () => {
   return (
-    <section className="imageGallerySliderPage">
-      <div className="imageGallerySliderPage__container">
-        <h1 className="imageGallerySliderPage__title">Image Gallery Slider</h1>
+    <section className="imageGalleryPage">
+      <div className="imageGalleryPage__container">
+        <h1 className="imageGalleryPage__title">Image Gallery Slider</h1>
 
-        <ImageGallerySlider
+        <ImageGallery
           imageObjList={[
             {
               imageUrl:
@@ -57,4 +57,4 @@ const ImageGallerySliderPage = () => {
   );
 };
 
-export default ImageGallerySliderPage;
+export default ImageGalleryPage;

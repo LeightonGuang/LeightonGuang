@@ -1,9 +1,9 @@
-import "./imageGallerySlider.scss";
+import "./imageGallery.scss";
 import { useState } from "react";
 
 import { ImageObj } from "../../types/ImageObj";
 
-const ImageGallerySlider = ({
+const ImageGallery = ({
   imageObjList,
   hightlightColour,
 }: {
@@ -29,29 +29,29 @@ const ImageGallerySlider = ({
   };
 
   return (
-    <div className="imageGallerySlider">
-      <div className="imageGallerySlider__container">
-        <div className="imageGallerySlider__display">
+    <div className="imageGallery">
+      <div className="imageGallery__container">
+        <div className="imageGallery__display">
           <button
-            className="imageGallerySlider__display--btn"
+            className="imageGallery__display--btn"
             onClick={handleRightClick}
           >{`<`}</button>
           <img
-            className="imageGallerySlider__display--img"
+            className="imageGallery__display--img"
             src={imageObjList[imageIndex].imageUrl}
             alt=""
           />
           <button
-            className="imageGallerySlider__display--btn"
+            className="imageGallery__display--btn"
             onClick={handleLeftClick}
           >{`>`}</button>
         </div>
-        <div className="imageGallerySlider__list-container">
-          <ul className="imageGallerySlider__list">
+        <div className="imageGallery__list-container">
+          <ul className="imageGallery__list">
             {imageObjList.map((imageObj, index) => (
               <li
-                className={`imageGallerySlider__item ${
-                  index === imageIndex ? `imageGallerySlider__item--active` : ``
+                className={`imageGallery__item ${
+                  index === imageIndex ? `imageGallery__item--active` : ``
                 }`}
                 key={index}
                 onClick={() => setImageIndex(index)}
@@ -62,7 +62,7 @@ const ImageGallerySlider = ({
                 }
               >
                 <img
-                  className="imageGallerySlider__preview-img"
+                  className="imageGallery__preview-img"
                   src={imageObj.imageUrl}
                   alt={imageObj.imageAlt}
                 />
@@ -75,4 +75,4 @@ const ImageGallerySlider = ({
   );
 };
 
-export default ImageGallerySlider;
+export default imageGallery;

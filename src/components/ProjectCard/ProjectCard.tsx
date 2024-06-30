@@ -1,6 +1,6 @@
 import "./ProjectCard.scss";
 import { ProjectCardProps } from "../../types/ProjectCardProps";
-import ImageGallerySlider from "../ImageGallerySlider/ImageGallerySlider";
+import ImageGallery from "../ImageGallery/ImageGallery";
 
 function ProjectCard({
   projectName,
@@ -13,10 +13,7 @@ function ProjectCard({
     <li className="project-card">
       <div className="project-card__container">
         <h2 className="project-card__name">{projectName}</h2>
-        <ImageGallerySlider
-          imageObjList={projectImgUrlList}
-          hightlightColour=""
-        />
+        <ImageGallery imageObjList={projectImgUrlList} hightlightColour="" />
 
         <p className="project-card__description">{projectDescription}</p>
         <ul className="project-card__technology-list">
