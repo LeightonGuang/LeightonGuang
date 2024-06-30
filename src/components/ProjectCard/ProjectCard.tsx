@@ -1,17 +1,5 @@
 import "./ProjectCard.scss";
-
-interface TechnologyObject {
-  name: string;
-  link: string;
-}
-
-interface ProjectCardProps {
-  projectName: string;
-  projectImgUrlList: Array<string>;
-  projectDescription: string;
-  projectTechnologyList: Array<TechnologyObject>;
-  projectGithubLink: string;
-}
+import { ProjectCardProps } from "../../types/ProjectCardProps";
 
 function ProjectCard({
   projectName,
