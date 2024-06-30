@@ -2,7 +2,7 @@
 @use "../../../sass/abstract/variables.scss" as *;
 
 .comparePage {
-  height: calc(100dvh - 5rem);
+  min-height: calc(100dvh - 5rem);
 
   &__container {
     margin: 0 $mobile-side-spacing;
