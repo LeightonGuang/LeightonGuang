@@ -75,4 +75,4 @@ const ImageGallery = ({
   );
 };
 
-export default imageGallery;
+export default ImageGallery;
