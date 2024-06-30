@@ -6,6 +6,15 @@
 
   &__container {
     margin: 0 $mobile-side-spacing;
+
+    @include tablet {
+      margin: 0 $tablet-desktop-side-spacing;
+    }
+
+    @include desktop {
+      width: $desktop-max-width;
+      margin: 0 auto;
+    }
   }
 
   &__title {
