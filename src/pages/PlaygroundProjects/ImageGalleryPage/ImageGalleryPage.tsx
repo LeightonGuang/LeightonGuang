@@ -26,7 +26,7 @@ const ImageGalleryPage = () => {
             },
             {
               imageUrl:
-                "https://upload.wikimedia.org/wikipedia/en/thumb/3/39/Croatia_national_football_team_crest.svg/800px-Croatia_national_football_team_crest.svg.png",
+                "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Croatian_Football_Federation_logo.svg/800px-Croatian_Football_Federation_logo.svg.png",
               imageAlt: "Croatia national football team crest",
             },
             {
