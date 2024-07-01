@@ -12,6 +12,11 @@
     align-items: center;
     justify-content: space-between;
 
+    @include tablet {
+      width: 70%;
+      margin: 0 auto;
+    }
+
     &--btn {
       border: none;
       outline: none;
@@ -25,7 +30,19 @@
     }
 
     &--img {
-      max-height: 12rem;
+      object-fit: contain;
+      width: 12rem;
+      height: 12rem;
+
+      @include tablet {
+        width: 25rem;
+        height: 22rem;
+      }
+
+      @include desktop {
+        width: 28rem;
+        height: 25rem;
+      }
     }
   }
 
