@@ -10,6 +10,7 @@ const ImageGallery = ({
   imageObjList: ImageObj[];
   hightlightColour: string;
 }) => {
+  const isSingleImage: boolean = imageObjList.length === 1;
   const [imageIndex, setImageIndex] = useState(0);
 
   const handleRightClick = () => {
@@ -31,20 +32,26 @@ const ImageGallery = ({
   return (
     <div className="imageGallery">
       <div className="imageGallery__container">
-        <div className="imageGallery__display">
-          <button
-            className="imageGallery__display--btn"
-            onClick={handleRightClick}
-          >{`<`}</button>
+        <div className={isSingleImage ? `` : "imageGallery__display"}>
+          {isSingleImage ? (
+            ``
+          ) : (
+            <button
+              className="imageGallery__display--btn"
+              onClick={handleRightClick}
+            >{`<`}</button>
+          )}
           <img
             className="imageGallery__display--img"
             src={imageObjList[imageIndex].imageUrl}
             alt=""
           />
-          <button
-            className="imageGallery__display--btn"
-            onClick={handleLeftClick}
-          >{`>`}</button>
+          {isSingleImage ? null : (
+            <button
+              className="imageGallery__display--btn"
+              onClick={handleLeftClick}
+            >{`>`}</button>
+          )}
         </div>
         <div className="imageGallery__list-container">
           <ul className="imageGallery__list">
