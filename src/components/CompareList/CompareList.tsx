@@ -45,12 +45,20 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
 
   return (
     <div className="compareList">
-      <ul className="compareList__container">
+      <ul className="compareList__list">
         {
           // don't show pinned list when it's empty
-          pinnedItemList.length !== 0
-            ? pinnedItemList.map((pinnedItemObj, index) => (
-                <li className="compareList__item" key={index}>
+          pinnedItemList.length === 0
+            ? ``
+            : pinnedItemList.map((pinnedItemObj, index) => (
+                <li
+                  className={
+                    pinnedItemList.length === 0
+                      ? `compareList__item`
+                      : `compareList__item compareList__item--pinned`
+                  }
+                  key={index}
+                >
                   <button
                     className="compareList__pin-button"
                     onClick={() => {
@@ -76,10 +84,25 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
                   </ul>
                 </li>
               ))
-            : ``
         }
+        <div
+          className={
+            pinnedItemList.length === 0
+              ? `compareList__divider--hidden`
+              : `compareList__divider`
+          }
+        >
+          <div className="compareList__divider-text">Pinned</div>
+        </div>
         {unpinnedItemList.map((itemObj, index) => (
-          <li className="compareList__item" key={index}>
+          <li
+            className={
+              pinnedItemList.length === 0
+                ? `compareList__item`
+                : `compareList__item compareList__item--pinned`
+            }
+            key={index}
+          >
             <button
               className="compareList__pin-button"
               onClick={() => {
