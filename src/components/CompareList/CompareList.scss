@@ -1,8 +1,6 @@
 @use "../../sass/abstract/variables.scss" as *;
 @use "../../sass/abstract/mixins.scss" as *;
 
-$divider-width: 1.25rem;
-
 .compareList {
   margin-top: $mobile-spacing-top;
 
@@ -13,25 +11,6 @@ $divider-width: 1.25rem;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     padding-bottom: $mobile-spacing;
-  }
-
-  &__divider {
-    display: flex;
-    width: $divider-width;
-    border-radius: 0.5rem;
-    align-items: center;
-    justify-content: center;
-    background-color: #aaffaa;
-
-    &--hidden {
-      display: none;
-    }
-  }
-
-  &__divider-text {
-    transform: rotate(90deg);
-    margin: auto 0;
-    color: green;
   }
 
   &__item {
@@ -54,23 +33,21 @@ $divider-width: 1.25rem;
     @include desktop {
       width: 20%;
     }
-
-    &--pinned {
-      width: calc((100% - $divider-width) / 2);
-
-      @include tablet {
-        width: calc((100% - $divider-width) / 4);
-      }
-
-      @include desktop {
-        width: calc((100% - $divider-width) / 5);
-      }
-    }
   }
 
   &__pin-button {
-    padding: 0.125rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    border: none;
+    width: 100%;
+    background-color: #aaffaa;
+    color: green;
     cursor: pointer;
+
+    &--pinned {
+      background-color: #ffaaaa;
+      color: #ff0000;
+    }
   }
 
   &__item-list {
@@ -79,6 +56,7 @@ $divider-width: 1.25rem;
     list-style: none;
     gap: 0.5rem;
     font-size: $mobile-p-size;
+    margin-top: 0.5rem;
   }
 
   &__img {
