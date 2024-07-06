@@ -33,6 +33,20 @@
     @include desktop {
       width: 20%;
     }
+
+    &--add {
+      background-color: #cccccc;
+      display: flex;
+      justify-content: center;
+      padding: $mobile-spacing;
+      cursor: pointer;
+    }
+
+    &--add-container {
+      font-size: 5rem;
+      font-weight: 800;
+      color: #999999;
+    }
   }
 
   &__pin-button {
@@ -52,6 +66,7 @@
   }
 
   &__item-list {
+    width: 100%;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -92,5 +107,39 @@
   &__description {
     background-color: #9b59b6;
     padding: 0.25rem;
+  }
+
+  // popup
+  &__add-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__add-popup-container {
+    background-color: white;
+    width: 75%;
+    height: 50%;
+    border-radius: 0.5rem;
+    padding: $mobile-spacing;
+
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__add-popup-nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__add-popup-btn-close {
+    cursor: pointer;
   }
 }

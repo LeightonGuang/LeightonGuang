@@ -5,18 +5,19 @@ import { useState } from "react";
 const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
   // original order of the list
   const orderedList: ItemObj[] = itemObjList;
+  const [isAddItemModal, setIsAddItemModal] = useState(false);
   const [pinnedItemList, setPinnedItemList] = useState<ItemObj[]>([]);
   const [unpinnedItemList, setUnpinnedItemList] =
     useState<ItemObj[]>(itemObjList);
 
-  const handlePinButton = (objIndex: number) => {
+  const handlePinButton: (objIndex: number) => void = (objIndex: number) => {
     setPinnedItemList([...pinnedItemList, unpinnedItemList[objIndex]]);
     setUnpinnedItemList((prevList) =>
       prevList.filter((_item, i) => i !== objIndex)
     );
   };
 
-  const handleUnpinButton = (objIndex: number) => {
+  const handleUnpinButton: (objIndex: number) => void = (objIndex: number) => {
     if (!orderedList.includes(pinnedItemList[objIndex])) {
       console.log(
         `${pinnedItemList[objIndex].name} is not in the original list`
@@ -41,6 +42,10 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
     }
 
     setPinnedItemList(pinnedItemList.filter((_item, i) => i !== objIndex));
+  };
+
+  const handleAddItemButton: () => void = () => {
+    setIsAddItemModal(!isAddItemModal);
   };
 
   return (
@@ -98,7 +103,41 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
             </ul>
           </li>
         ))}
+        <li
+          className="compareList__item compareList__item--add"
+          onClick={handleAddItemButton}
+        >
+          <div className="compareList__item--add-container">+</div>
+        </li>
       </ul>
+
+      {/* add item modal */}
+      {isAddItemModal ? (
+        <div className="compareList__add-popup">
+          <div className="compareList__add-popup-container">
+            <div className="compareList__add-popup-nav">
+              <h1 className="compareList__add-popup-title">Add Item</h1>
+              <button
+                className="compareList__add-popup-btn-close"
+                onClick={() => setIsAddItemModal(false)}
+              >
+                Close
+              </button>
+            </div>
+
+            <div className="compareList__add-popup-body">
+              <form action="">
+                <label htmlFor="">
+                  Brand:
+                  <input type="text" name="brand" />
+                </label>
+              </form>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ``
+      )}
     </div>
   );
 };
