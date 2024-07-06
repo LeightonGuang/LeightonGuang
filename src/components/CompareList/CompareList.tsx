@@ -1,6 +1,7 @@
 import "./CompareList.scss";
 import { ItemObj } from "../../types/ItemObj";
 import { useState } from "react";
+import AddCompareItemModal from "../AddCompareItemModal/AddCompareItemModal";
 
 const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
   // original order of the list
@@ -113,28 +114,7 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
 
       {/* add item modal */}
       {isAddItemModal ? (
-        <div className="compareList__add-popup">
-          <div className="compareList__add-popup-container">
-            <div className="compareList__add-popup-nav">
-              <h1 className="compareList__add-popup-title">Add Item</h1>
-              <button
-                className="compareList__add-popup-btn-close"
-                onClick={() => setIsAddItemModal(false)}
-              >
-                Close
-              </button>
-            </div>
-
-            <div className="compareList__add-popup-body">
-              <form action="">
-                <label htmlFor="">
-                  Brand:
-                  <input type="text" name="brand" />
-                </label>
-              </form>
-            </div>
-          </div>
-        </div>
+        <AddCompareItemModal setIsAddItemModal={setIsAddItemModal} />
       ) : (
         ``
       )}
