@@ -10,12 +10,14 @@
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  align-items: center;
 
-  &__container {
+  &__card {
+    display: flex;
+    flex-direction: column;
     background-color: white;
     width: 75%;
-    height: 50%;
+    height: min-content;
+    margin-top: 5rem;
     border-radius: 0.5rem;
     padding: $mobile-spacing;
 
@@ -31,5 +33,36 @@
 
   &__btn-close {
     cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  &__form {
+    margin: $mobile-spacing-top auto 0 auto;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-spacing;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    margin-top: 0.125rem;
+    font-size: $mobile-p-size;
+    padding: 0.25rem;
+    border: 1px solid #aaaaaa;
+    background-color: #f0f0f0;
+    border-radius: 0.25rem;
+  }
+
+  &__add-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    color: green;
+    background-color: #aaffaa;
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+    font-size: $mobile-p-size;
   }
 }
