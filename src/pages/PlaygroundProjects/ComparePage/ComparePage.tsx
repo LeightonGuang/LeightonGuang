@@ -1,4 +1,4 @@
-import CompareComponent from "../../../components/CompareList/CompareList";
+import CompareComponent from "../../../components/CompareComponent/CompareComponent";
 import "./ComparePage.scss";
 
 import { ItemObj } from "../../../types/ItemObj";
