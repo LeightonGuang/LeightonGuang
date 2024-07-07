@@ -1,7 +1,8 @@
 export interface ItemObj {
   imageUrl: string;
-  name: string;
   brand: string;
+  name: string;
   year: number;
-  price: number;
+  price: string;
+  description: string;
 }
