@@ -5,7 +5,7 @@ import AddCompareItemModal from "../AddCompareItemModal/AddCompareItemModal";
 
 const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
   // original order of the list
-  const orderedList: ItemObj[] = itemObjList;
+  const [orderedList, setOrderedList] = useState<ItemObj[]>(itemObjList);
   const [isAddItemModal, setIsAddItemModal] = useState(false);
   const [pinnedItemList, setPinnedItemList] = useState<ItemObj[]>([]);
   const [unpinnedItemList, setUnpinnedItemList] =
@@ -46,7 +46,7 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
   };
 
   const handleAddItemButton: () => void = () => {
-    setIsAddItemModal(!isAddItemModal);
+    setIsAddItemModal(true);
   };
 
   return (
@@ -114,7 +114,13 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
 
       {/* add item modal */}
       {isAddItemModal ? (
-        <AddCompareItemModal setIsAddItemModal={setIsAddItemModal} />
+        <AddCompareItemModal
+          setIsAddItemModal={setIsAddItemModal}
+          orderedList={orderedList}
+          setOrderedList={setOrderedList}
+          unpinnedItemList={unpinnedItemList}
+          setUnpinnedItemList={setUnpinnedItemList}
+        />
       ) : (
         ``
       )}
