@@ -1,0 +1,113 @@
+@use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
+.compareComponent {
+  margin-top: $mobile-spacing-top;
+  min-height: 22rem;
+
+  &__list {
+    display: flex;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: $mobile-spacing;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: #eeeeee;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    list-style: none;
+    width: 50%;
+    scroll-snap-align: start;
+
+    @include tablet {
+      width: 25%;
+    }
+
+    @include desktop {
+      width: 20%;
+    }
+
+    &--add {
+      background-color: #cccccc;
+      display: flex;
+      justify-content: center;
+      padding: $mobile-spacing;
+      cursor: pointer;
+      min-height: 19rem;
+    }
+
+    &--add-container {
+      font-size: 5rem;
+      font-weight: 800;
+      color: #999999;
+    }
+  }
+
+  &__pin-button {
+    font-size: $mobile-p-size;
+    padding: 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    border: none;
+    width: 100%;
+    background-color: #aaffaa;
+    color: green;
+    cursor: pointer;
+
+    &--pinned {
+      background-color: #ffaaaa;
+      color: #ff0000;
+    }
+  }
+
+  &__item-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 0.5rem;
+    font-size: $mobile-p-size;
+    margin-top: 0.5rem;
+  }
+
+  &__img {
+    object-fit: contain;
+    background-color: #cccccc;
+    width: 100%;
+    height: 7rem;
+    margin: 0 auto;
+  }
+
+  &__name {
+    background-color: #f1c40f;
+    padding: 0.25rem;
+  }
+
+  &__brand {
+    background-color: #23cc71;
+    padding: 0.25rem;
+  }
+
+  &__year {
+    background-color: #000080;
+    color: white;
+    padding: 0.25rem;
+  }
+
+  &__price {
+    background-color: #3399ff;
+    padding: 0.25rem;
+  }
+
+  &__description {
+    background-color: #9b59b6;
+    padding: 0.25rem;
+  }
+}
