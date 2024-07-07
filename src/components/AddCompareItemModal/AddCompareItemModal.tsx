@@ -1,10 +1,48 @@
 import "./AddCompareItemModal.scss";
+import { useState } from "react";
+
+import { ItemObj } from "../../types/ItemObj";
+
+interface PropTypes {
+  setIsAddItemModal: (value: boolean) => void;
+  orderedList: ItemObj[];
+  setOrderedList: (value: ItemObj[]) => void;
+  unpinnedItemList: ItemObj[];
+  setUnpinnedItemList: (value: ItemObj[]) => void;
+}
 
 const AddCompareItemModal = ({
   setIsAddItemModal,
-}: {
-  setIsAddItemModal: (value: boolean) => void;
-}) => {
+  orderedList,
+  setOrderedList,
+  unpinnedItemList,
+  setUnpinnedItemList,
+}: PropTypes) => {
+  const [formData, setFormData] = useState<ItemObj>({
+    imageUrl: "",
+    brand: "",
+    name: "",
+    year: 0,
+    price: "",
+    description: "",
+  });
+
+  const handleAddFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    console.log({ ...formData, [name]: value });
+  };
+
+  const handleSubmitForm = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setOrderedList([...orderedList, formData]);
+    setUnpinnedItemList([...unpinnedItemList, formData]);
+    console.log(unpinnedItemList);
+    setIsAddItemModal(false);
+  };
+
   return (
     <div className="addCompareItemModal">
       <div className="addCompareItemModal__card">
@@ -18,21 +56,35 @@ const AddCompareItemModal = ({
           </button>
         </div>
 
-        <form className="addCompareItemModal__form" action="">
-          <label htmlFor="">
+        <form className="addCompareItemModal__form" onSubmit={handleSubmitForm}>
+          <label>
+            Image URL:
+            <input
+              className="addCompareItemModal__input"
+              type="url"
+              name="imageUrl"
+              value={formData.imageUrl}
+              onChange={handleAddFormChange}
+            />
+          </label>
+          <label>
             Brand:
             <input
               className="addCompareItemModal__input"
               type="text"
               name="brand"
+              value={formData.brand}
+              onChange={handleAddFormChange}
             />
           </label>
-          <label htmlFor="">
+          <label>
             Name:
             <input
               className="addCompareItemModal__input"
               type="text"
               name="name"
+              value={formData.name}
+              onChange={handleAddFormChange}
             />
           </label>
           <label htmlFor="">
@@ -41,22 +93,27 @@ const AddCompareItemModal = ({
               className="addCompareItemModal__input"
               type="text"
               name="year"
+              value={formData.year}
+              onChange={handleAddFormChange}
             />
           </label>
-          <label htmlFor="">
+          <label>
             Price:
             <input
               className="addCompareItemModal__input"
               type="text"
               name="price"
+              value={formData.price}
+              onChange={handleAddFormChange}
             />
           </label>
-          <label htmlFor="">
+          <label>
             Description:
             <textarea
               className="addCompareItemModal__textarea"
               name="description"
-              id=""
+              value={formData.description}
+              onChange={handleAddFormChange}
             />
           </label>
 
