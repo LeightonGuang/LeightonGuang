@@ -93,6 +93,9 @@ const ComparePage = () => {
       <div className="comparePage__container">
         <h1 className="comparePage__title">Compare Page</h1>
         <CompareComponent itemObjList={itemObjList} />
+
+        <h2>Add your own items!</h2>
+        <CompareComponent itemObjList={[]} />
       </div>
     </section>
   );
