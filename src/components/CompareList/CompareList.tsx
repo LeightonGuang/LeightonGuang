@@ -99,8 +99,10 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
               <li className="compareList__brand">{itemObj.brand}</li>
               <li className="compareList__name">{itemObj.name}</li>
               <li className="compareList__year">{itemObj.year}</li>
-              <li className="compareList__price">${itemObj.price}</li>
-              <li className="compareList__description">desciption</li>
+              <li className="compareList__price">{itemObj.price}</li>
+              <li className="compareList__description">
+                {itemObj.description}
+              </li>
             </ul>
           </li>
         ))}
