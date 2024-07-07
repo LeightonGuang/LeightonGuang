@@ -1,22 +1,17 @@
 import CompareComponent from "../../../components/CompareList/CompareList";
 import "./ComparePage.scss";
 
-interface itemObj {
-  imageUrl: string;
-  brand: string;
-  name: string;
-  year: number;
-  price: number;
-}
+import { ItemObj } from "../../../types/ItemObj";
 
-const itemObjList: itemObj[] = [
+const itemObjList: ItemObj[] = [
   {
     imageUrl:
       "https://upload.wikimedia.org/wikipedia/commons/f/fa/2016_Toyota_Prius_%28ZVW50L%29_Hybrid_liftback_%282016-04-02%29_01.jpg",
     brand: "Toyota",
     name: "Prius",
     year: 2024,
-    price: 25000,
+    price: "$25000",
+    description: "This is the best car in the world",
   },
   {
     imageUrl:
@@ -24,7 +19,8 @@ const itemObjList: itemObj[] = [
     brand: "Volkswagen",
     name: "Golf GTI",
     year: 2024,
-    price: 32000,
+    price: "$32000",
+    description: "This is the best car in the world",
   },
   {
     imageUrl:
@@ -32,7 +28,8 @@ const itemObjList: itemObj[] = [
     brand: "Honda",
     name: "Civic Type R",
     year: 2024,
-    price: 28000,
+    price: "$28000",
+    description: "This is the best car in the world",
   },
   {
     imageUrl:
@@ -40,7 +37,8 @@ const itemObjList: itemObj[] = [
     brand: "Toyota",
     name: "GR Yaris",
     year: 2024,
-    price: 35000,
+    price: "$35000",
+    description: "This is the best car in the world",
   },
   {
     imageUrl:
@@ -48,7 +46,8 @@ const itemObjList: itemObj[] = [
     brand: "Renault",
     name: "Clio RS",
     year: 2024,
-    price: 18000,
+    price: "$18000",
+    description: "This is the best car in the world",
   },
   {
     imageUrl:
@@ -56,7 +55,8 @@ const itemObjList: itemObj[] = [
     brand: "Ford",
     name: "Fiesta ST",
     year: 2024,
-    price: 22000,
+    price: "$22000",
+    description: "This is the best car in the world",
   },
   {
     imageUrl:
@@ -64,7 +64,8 @@ const itemObjList: itemObj[] = [
     brand: "Mazda",
     name: "MX-5 Miata",
     year: 2024,
-    price: 27000,
+    price: "$27000",
+    description: "This is the best car in the world",
   },
   {
     imageUrl:
@@ -72,7 +73,8 @@ const itemObjList: itemObj[] = [
     brand: "BMW",
     name: "M3 Competition",
     year: 2024,
-    price: 75000,
+    price: "$75000",
+    description: "This is the best car in the world",
   },
   {
     imageUrl:
@@ -80,7 +82,8 @@ const itemObjList: itemObj[] = [
     brand: "Subaru",
     name: "BRZ",
     year: 2024,
-    price: 26000,
+    price: "$26000",
+    description: "This is the best car in the world",
   },
 ];
 
