@@ -110,6 +110,7 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
                 {itemObj.description}
               </li>
             </ul>
+            <button className="compareComponent__edit-button">Edit</button>
           </li>
         ))}
         <li
