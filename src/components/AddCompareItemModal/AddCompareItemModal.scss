@@ -2,14 +2,15 @@
 @use "../../sass/abstract/mixins.scss" as *;
 
 .addCompareItemModal {
-  position: absolute;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
+  align-items: center;
 
   &__card {
     display: flex;
@@ -17,7 +18,6 @@
     background-color: white;
     width: 75%;
     height: min-content;
-    margin-top: 5rem;
     border-radius: 0.5rem;
     padding: $mobile-spacing;
 
