@@ -22,7 +22,7 @@ const AddCompareItemModal = ({
     imageUrl: "",
     brand: "",
     name: "",
-    year: 0,
+    year: 2024,
     price: "",
     description: "",
   });
