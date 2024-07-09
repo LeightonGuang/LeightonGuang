@@ -2,14 +2,24 @@ import "./CompareComponent.scss";
 import { ItemObj } from "../../types/ItemObj";
 import { useState } from "react";
 import AddCompareItemModal from "../AddCompareItemModal/AddCompareItemModal";
+import EditCompareItemModal from "../EditCompareItemModal/EditCompareItemModal";
 
 const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
   // original order of the list
+  const [itemObj, setItemObj] = useState<ItemObj>({
+    imageUrl: "",
+    brand: "",
+    name: "",
+    year: 0,
+    price: "",
+    description: "",
+  });
   const [orderedList, setOrderedList] = useState<ItemObj[]>(itemObjList);
-  const [isAddItemModal, setIsAddItemModal] = useState(false);
   const [pinnedItemList, setPinnedItemList] = useState<ItemObj[]>([]);
   const [unpinnedItemList, setUnpinnedItemList] =
     useState<ItemObj[]>(itemObjList);
+  const [isAddItemModal, setIsAddItemModal] = useState(false);
+  const [isEditModal, setIsEditModal] = useState(false);
 
   const handlePinButton: (objIndex: number) => void = (objIndex: number) => {
     setPinnedItemList([...pinnedItemList, unpinnedItemList[objIndex]]);
@@ -43,6 +53,19 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
     }
 
     setPinnedItemList(pinnedItemList.filter((_item, i) => i !== objIndex));
+  };
+
+  const handleEditButton: (objIndex: number, isUnpinned: boolean) => void = (
+    objIndex: number,
+    isUnpinned: boolean
+  ) => {
+    setIsEditModal(true);
+
+    if (isUnpinned) {
+      setItemObj(unpinnedItemList[objIndex]);
+    } else if (!isUnpinned) {
+      setItemObj(pinnedItemList[objIndex]);
+    }
   };
 
   const handleAddItemButton: () => void = () => {
@@ -84,7 +107,7 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
                       ${pinnedItemObj.price}
                     </li>
                     <li className="compareComponent__description">
-                      desciption
+                      ${pinnedItemObj.description}
                     </li>
                   </ul>
                 </li>
@@ -110,7 +133,14 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
                 {itemObj.description}
               </li>
             </ul>
-            <button className="compareComponent__edit-button">Edit</button>
+            <button
+              className="compareComponent__edit-button"
+              onClick={() => {
+                handleEditButton(index, true);
+              }}
+            >
+              Edit
+            </button>
           </li>
         ))}
         <li
@@ -120,6 +150,19 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
           <div className="compareComponent__item--add-container">+</div>
         </li>
       </ul>
+
+      {isEditModal ? (
+        <EditCompareItemModal
+          itemObj={itemObj}
+          pinnedItemList={pinnedItemList}
+          setPinnedItemList={setPinnedItemList}
+          unpinnedItemList={unpinnedItemList}
+          setUnpinnedItemList={setUnpinnedItemList}
+          setIsEditModal={setIsEditModal}
+        />
+      ) : (
+        ``
+      )}
 
       {/* add item modal */}
       {isAddItemModal ? (
