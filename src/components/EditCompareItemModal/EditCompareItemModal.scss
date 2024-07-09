@@ -1,0 +1,68 @@
+@use "../../sass/abstract/variables.scss" as *;
+@use "../../sass/abstract/mixins.scss" as *;
+
+.editCompareItemModal {
+  position: fixed;
+  background-color: rgb(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 75%;
+    height: min-content;
+    border-radius: 0.5rem;
+    padding: $mobile-spacing;
+
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__btn-close {
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  &__form {
+    margin: $mobile-spacing-top auto 0 auto;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    margin-top: 0.125rem;
+    font-size: $mobile-p-size;
+    padding: 0.25rem;
+    border: 1px solid #aaaaaa;
+    background-color: #f0f0f0;
+    border-radius: 0.25rem;
+  }
+
+  &__edit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    background-color: #aaffaa;
+    color: green;
+    border-radius: 0.25rem;
+    margin-top: 1rem;
+    font-size: $mobile-p-size;
+  }
+}
