@@ -49,14 +49,19 @@ const AddCompareItemModal = ({
         <div className="addCompareItemModal__nav">
           <h1 className="addCompareItemModal__title">Add Item</h1>
           <button
-            className="addCompareItemModal__btn-close"
+            className="addCompareItemModal__btn-cancel"
             onClick={() => setIsAddItemModal(false)}
           >
-            Close
+            Cancel
           </button>
         </div>
 
         <form className="addCompareItemModal__form" onSubmit={handleSubmitForm}>
+          <img
+            className="addCompareItemModal__img-preview"
+            src={formData.imageUrl}
+            alt={formData.name}
+          />
           <label>
             Image URL:
             <input
