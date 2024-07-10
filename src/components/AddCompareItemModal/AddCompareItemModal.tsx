@@ -59,8 +59,12 @@ const AddCompareItemModal = ({
         <form className="addCompareItemModal__form" onSubmit={handleSubmitForm}>
           <img
             className="addCompareItemModal__img-preview"
-            src={formData.imageUrl}
-            alt={formData.name}
+            src={
+              formData.imageUrl === ""
+                ? "https://salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
+                : formData.imageUrl
+            }
+            alt={formData.brand + ` ` + formData.name}
           />
           <label>
             Image URL:
