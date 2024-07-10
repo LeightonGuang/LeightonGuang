@@ -132,8 +132,8 @@ const EditCompareItemModal = ({
             />
           </label>
 
-          <button className="editCompareItemModal__edit-btn" type="submit">
-            Edit
+          <button className="editCompareItemModal__confirm-btn" type="submit">
+            Confirm
           </button>
         </form>
       </div>
