@@ -1,5 +1,5 @@
 import "./App.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.tsx";
 import HomePage from "./pages/HomePage/HomePage.tsx";
 import ProjectPage from "./pages/ProjectPage/ProjectPage.tsx";
@@ -13,7 +13,7 @@ import Footer from "./components/Footer/Footer.tsx";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -32,7 +32,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
