@@ -1,5 +1,5 @@
 import "./App.scss";
-import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.tsx";
 import HomePage from "./pages/HomePage/HomePage.tsx";
 import ProjectPage from "./pages/ProjectPage/ProjectPage.tsx";
