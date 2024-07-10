@@ -31,6 +31,22 @@ const EditCompareItemModal = ({
   };
 
   const handleFinishEdit = () => {
+    if (pinnedItemList.includes(itemObj)) {
+      console.log("Item is in pinned list");
+      const itemIndex: number = pinnedItemList.indexOf(itemObj);
+      const updatedList: ItemObj[] = [...pinnedItemList];
+      updatedList[itemIndex] = formData;
+      console.log(updatedList);
+      setPinnedItemList(updatedList);
+    } else if (unpinnedItemList.includes(itemObj)) {
+      console.log("Item is in unpinned list");
+      const itemIndex: number = unpinnedItemList.indexOf(itemObj);
+      const updatedList: ItemObj[] = [...unpinnedItemList];
+      updatedList[itemIndex] = formData;
+      console.log(updatedList);
+      setUnpinnedItemList(updatedList);
+    }
+
     setIsEditModal(false);
   };
 
