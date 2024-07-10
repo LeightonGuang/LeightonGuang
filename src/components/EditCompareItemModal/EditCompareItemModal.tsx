@@ -40,10 +40,10 @@ const EditCompareItemModal = ({
         <div className="editCompareItemModal__nav">
           <h1 className="editCompareItemModal__title">Edit Item</h1>
           <button
-            className="editCompareItemModal__btn-close"
+            className="editCompareItemModal__btn-cancel"
             onClick={() => setIsEditModal(false)}
           >
-            Close
+            Cancel
           </button>
         </div>
 
@@ -51,6 +51,11 @@ const EditCompareItemModal = ({
           className="editCompareItemModal__form"
           onSubmit={handleFinishEdit}
         >
+          <img
+            className="editCompareItemModal__img-preview"
+            src={formData.imageUrl}
+            alt={formData.brand + ` ` + formData.name}
+          />
           <label>
             Image URL:
             <input
