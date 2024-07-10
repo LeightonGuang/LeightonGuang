@@ -104,12 +104,20 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
                       {pinnedItemObj.year}
                     </li>
                     <li className="compareComponent__price">
-                      ${pinnedItemObj.price}
+                      {pinnedItemObj.price}
                     </li>
                     <li className="compareComponent__description">
-                      ${pinnedItemObj.description}
+                      {pinnedItemObj.description}
                     </li>
                   </ul>
+                  <button
+                    className="compareComponent__edit-button"
+                    onClick={() => {
+                      handleEditButton(index, false);
+                    }}
+                  >
+                    Edit
+                  </button>
                 </li>
               ))
         }
