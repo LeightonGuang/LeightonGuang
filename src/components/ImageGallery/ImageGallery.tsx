@@ -2,6 +2,7 @@ import "./imageGallery.scss";
 import { useState } from "react";
 
 import { ImageObj } from "../../types/ImageObj";
+import ImageGalleryModal from "../ImageGalleryModal/ImageGalleryModal";
 
 const ImageGallery = ({
   imageObjList,
@@ -78,6 +79,11 @@ const ImageGallery = ({
           </ul>
         </div>
       </div>
+
+      <ImageGalleryModal
+        imgUrl={imageObjList[imageIndex].imageUrl}
+        imgAlt={imageObjList[imageIndex].imageAlt}
+      />
     </div>
   );
 };
