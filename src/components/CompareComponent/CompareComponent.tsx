@@ -26,6 +26,10 @@ const CompareComponent = ({
     useState<ItemObj[]>(itemObjList);
   const [isAddItemModal, setIsAddItemModal] = useState(false);
   const [isEditModal, setIsEditModal] = useState(false);
+  const [isViewBtnActive, setIsViewBtnActive] = useState({
+    isGridView: true,
+    isListView: false,
+  });
 
   const handlePinButton: (objIndex: number) => void = (objIndex: number) => {
     setPinnedItemList([...pinnedItemList, unpinnedItemList[objIndex]]);
@@ -82,7 +86,33 @@ const CompareComponent = ({
     <div className="compareComponent">
       <div className="compareComponent__header">
         <h1 className="compareComponent__title">{listName}</h1>
-        <button className="compareComponent__list-view-btn">List View</button>
+
+        <div className="compareComponent__btn-container">
+          <button
+            className={`compareComponent__view-btn ${
+              isViewBtnActive.isGridView
+                ? `compareComponent__view-btn--active`
+                : ``
+            }`}
+            onClick={() =>
+              setIsViewBtnActive({ isGridView: true, isListView: false })
+            }
+          >
+            ▯ Grid
+          </button>
+          <button
+            className={`compareComponent__view-btn ${
+              isViewBtnActive.isListView
+                ? `compareComponent__view-btn--active`
+                : ``
+            }`}
+            onClick={() =>
+              setIsViewBtnActive({ isGridView: false, isListView: true })
+            }
+          >
+            ☰ List
+          </button>
+        </div>
       </div>
 
       <ul className="compareComponent__list">
