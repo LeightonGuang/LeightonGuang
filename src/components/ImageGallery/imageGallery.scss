@@ -33,6 +33,7 @@
       object-fit: contain;
       width: 12rem;
       height: 12rem;
+      cursor: pointer;
 
       @include tablet {
         width: 25rem;

@@ -12,7 +12,14 @@ const ImageGallery = ({
   hightlightColour: string;
 }) => {
   const isSingleImage: boolean = imageObjList.length === 1;
-  const [imageIndex, setImageIndex] = useState(0);
+  const [imageIndex, setImageIndex]: [
+    number,
+    React.Dispatch<React.SetStateAction<number>>
+  ] = useState(0);
+  const [isImgModal, setIsImgModal]: [
+    boolean,
+    React.Dispatch<React.SetStateAction<boolean>>
+  ] = useState(false);
 
   const handleRightClick = () => {
     if (imageIndex === 0) {
@@ -45,7 +52,8 @@ const ImageGallery = ({
           <img
             className="imageGallery__display--img"
             src={imageObjList[imageIndex].imageUrl}
-            alt=""
+            alt={imageObjList[imageIndex].imageAlt}
+            onClick={() => setIsImgModal(true)}
           />
           {isSingleImage ? null : (
             <button
@@ -81,6 +89,8 @@ const ImageGallery = ({
       </div>
 
       <ImageGalleryModal
+        isImgModal={isImgModal}
+        setImgModal={setIsImgModal}
         imgUrl={imageObjList[imageIndex].imageUrl}
         imgAlt={imageObjList[imageIndex].imageAlt}
       />
