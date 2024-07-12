@@ -23,7 +23,34 @@
     padding: $mobile-spacing;
   }
 
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    width: 85%;
+    font-size: $mobile-h3-size;
+    font-weight: 600;
+    text-align: left;
+  }
+
   &__close-btn {
+    color: black;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    line-height: 2rem;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
     cursor: pointer;
+  }
+
+  &__img {
+    margin-top: $mobile-spacing-top;
+    object-fit: contain;
+    overflow: hidden;
   }
 }
