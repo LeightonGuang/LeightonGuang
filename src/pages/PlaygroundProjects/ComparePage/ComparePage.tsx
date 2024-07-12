@@ -92,10 +92,10 @@ const ComparePage = () => {
     <section className="comparePage">
       <div className="comparePage__container">
         <h1 className="comparePage__title">Compare Page</h1>
-        <CompareComponent itemObjList={itemObjList} />
+        <CompareComponent listName="Cars demo" itemObjList={itemObjList} />
 
         <h2>Add your own items!</h2>
-        <CompareComponent itemObjList={[]} />
+        <CompareComponent listName="Test" itemObjList={[]} />
       </div>
     </section>
   );

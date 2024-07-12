@@ -5,6 +5,21 @@
   margin-top: $mobile-spacing-top;
   min-height: 22rem;
 
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: $mobile-h3-size;
+    font-weight: 600;
+  }
+
+  &__list-view-btn {
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
   &__list {
     display: flex;
     list-style: none;
@@ -12,6 +27,7 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     padding-bottom: $mobile-spacing;
+    margin-top: 1rem;
   }
 
   &__item {

@@ -4,7 +4,13 @@ import { useState } from "react";
 import AddCompareItemModal from "../AddCompareItemModal/AddCompareItemModal";
 import EditCompareItemModal from "../EditCompareItemModal/EditCompareItemModal";
 
-const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
+const CompareComponent = ({
+  listName,
+  itemObjList,
+}: {
+  listName: string;
+  itemObjList: ItemObj[];
+}) => {
   // original order of the list
   const [itemObj, setItemObj] = useState<ItemObj>({
     imageUrl: "",
@@ -74,6 +80,11 @@ const CompareComponent = ({ itemObjList }: { itemObjList: ItemObj[] }) => {
 
   return (
     <div className="compareComponent">
+      <div className="compareComponent__header">
+        <h1 className="compareComponent__title">{listName}</h1>
+        <button className="compareComponent__list-view-btn">List View</button>
+      </div>
+
       <ul className="compareComponent__list">
         {
           // don't show pinned list when it's empty
