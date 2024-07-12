@@ -21,6 +21,16 @@
     max-height: 35rem;
     border-radius: 0.5rem;
     padding: $mobile-spacing;
+
+    @include tablet {
+      padding: $tablet-desktop-spacing;
+      max-width: 70%;
+      max-height: 70%;
+    }
+
+    @include desktop {
+      max-width: 60%;
+    }
   }
 
   &__header {
