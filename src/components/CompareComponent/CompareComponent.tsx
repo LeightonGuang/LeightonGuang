@@ -115,25 +115,63 @@ const CompareComponent = ({
         </div>
       </div>
 
-      <ul className="compareComponent__list">
+      <ul
+        className={`compareComponent__list ${
+          isViewBtnActive.isGridView
+            ? `compareComponent__list--grid-view`
+            : isViewBtnActive.isListView
+            ? `compareComponent__list--list-view`
+            : ``
+        }`}
+      >
         {
           // don't show pinned list when it's empty
           pinnedItemList.length === 0
             ? ``
             : pinnedItemList.map((pinnedItemObj, index) => (
-                <li className="compareComponent__item" key={index}>
+                <li
+                  className={`compareComponent__item ${
+                    isViewBtnActive.isGridView
+                      ? `compareComponent__item--grid-view`
+                      : isViewBtnActive.isListView
+                      ? `compareComponent__item--list-view`
+                      : ``
+                  }`}
+                  key={index}
+                >
                   <button
-                    className="compareComponent__pin-button compareComponent__pin-button--pinned"
+                    className={`compareComponent__pin-button compareComponent__pin-button--pinned ${
+                      isViewBtnActive.isGridView
+                        ? `compareComponent__pin-button--grid-view`
+                        : isViewBtnActive.isListView
+                        ? `compareComponent__pin-button--list-view`
+                        : ``
+                    }`}
                     onClick={() => {
                       handleUnpinButton(index);
                     }}
                   >
                     unpin
                   </button>
-                  <ul className="compareComponent__item-list">
+                  <ul
+                    className={`compareComponent__item-list ${
+                      isViewBtnActive.isGridView
+                        ? `compareComponent__item-list--grid-view`
+                        : isViewBtnActive.isListView
+                        ? `compareComponent__item-list--list-view`
+                        : ``
+                    }`}
+                  >
                     <img
-                      className="compareComponent__img"
+                      className={`compareComponent__img ${
+                        isViewBtnActive.isGridView
+                          ? `compareComponent__img--grid-view`
+                          : isViewBtnActive.isListView
+                          ? `compareComponent__img--list-view`
+                          : ``
+                      }`}
                       src={pinnedItemObj.imageUrl}
+                      alt={pinnedItemObj.brand + " " + pinnedItemObj.name}
                     />
                     <li className="compareComponent__brand">
                       {pinnedItemObj.brand}
@@ -152,7 +190,13 @@ const CompareComponent = ({
                     </li>
                   </ul>
                   <button
-                    className="compareComponent__edit-button"
+                    className={`compareComponent__edit-button ${
+                      isViewBtnActive.isGridView
+                        ? `compareComponent__edit-button--grid-view`
+                        : isViewBtnActive.isListView
+                        ? `compareComponent__edit-button--list-view`
+                        : ``
+                    }`}
                     onClick={() => {
                       handleEditButton(index, false);
                     }}
@@ -162,38 +206,85 @@ const CompareComponent = ({
                 </li>
               ))
         }
-        {unpinnedItemList.map((itemObj, index) => (
-          <li className="compareComponent__item" key={index}>
-            <button
-              className="compareComponent__pin-button"
-              onClick={() => {
-                handlePinButton(index);
-              }}
-            >
-              pin
-            </button>
-            <ul className="compareComponent__item-list">
-              <img className="compareComponent__img" src={itemObj.imageUrl} />
-              <li className="compareComponent__brand">{itemObj.brand}</li>
-              <li className="compareComponent__name">{itemObj.name}</li>
-              <li className="compareComponent__year">{itemObj.year}</li>
-              <li className="compareComponent__price">{itemObj.price}</li>
-              <li className="compareComponent__description">
-                {itemObj.description}
+        {unpinnedItemList.length === 0
+          ? ``
+          : unpinnedItemList.map((itemObj, index) => (
+              <li
+                className={`compareComponent__item ${
+                  isViewBtnActive.isGridView
+                    ? `compareComponent__item--grid-view`
+                    : isViewBtnActive.isListView
+                    ? `compareComponent__item--list-view`
+                    : ``
+                }`}
+                key={index}
+              >
+                <button
+                  className={`compareComponent__pin-button ${
+                    isViewBtnActive.isGridView
+                      ? `compareComponent__pin-button--grid-view`
+                      : isViewBtnActive.isListView
+                      ? `compareComponent__pin-button--list-view`
+                      : ``
+                  }`}
+                  onClick={() => {
+                    handlePinButton(index);
+                  }}
+                >
+                  pin
+                </button>
+                <ul
+                  className={`compareComponent__item-list ${
+                    isViewBtnActive.isGridView
+                      ? `compareComponent__item-list--grid-view`
+                      : isViewBtnActive.isListView
+                      ? `compareComponent__item-list--list-view`
+                      : ``
+                  }`}
+                >
+                  <img
+                    className={`compareComponent__img ${
+                      isViewBtnActive.isGridView
+                        ? `compareComponent__img--grid-view`
+                        : isViewBtnActive.isListView
+                        ? `compareComponent__img--list-view`
+                        : ``
+                    }`}
+                    src={itemObj.imageUrl}
+                    alt={itemObj.brand + " " + itemObj.name}
+                  />
+                  <li className="compareComponent__brand">{itemObj.brand}</li>
+                  <li className="compareComponent__name">{itemObj.name}</li>
+                  <li className="compareComponent__year">{itemObj.year}</li>
+                  <li className="compareComponent__price">{itemObj.price}</li>
+                  <li className="compareComponent__description">
+                    {itemObj.description}
+                  </li>
+                </ul>
+                <button
+                  className={`compareComponent__edit-button ${
+                    isViewBtnActive.isGridView
+                      ? `compareComponent__edit-button--grid-view`
+                      : isViewBtnActive.isListView
+                      ? `compareComponent__edit-button--list-view`
+                      : ``
+                  }`}
+                  onClick={() => {
+                    handleEditButton(index, true);
+                  }}
+                >
+                  Edit
+                </button>
               </li>
-            </ul>
-            <button
-              className="compareComponent__edit-button"
-              onClick={() => {
-                handleEditButton(index, true);
-              }}
-            >
-              Edit
-            </button>
-          </li>
-        ))}
+            ))}
         <li
-          className="compareComponent__item compareComponent__item--add"
+          className={`compareComponent__item ${
+            isViewBtnActive.isGridView
+              ? `compareComponent__item--grid-view  compareComponent__item--add-grid-view`
+              : isViewBtnActive.isListView
+              ? `compareComponent__item--list-view  compareComponent__item--add-list-view`
+              : ``
+          }`}
           onClick={handleAddItemButton}
         >
           <div className="compareComponent__item--add-container">+</div>

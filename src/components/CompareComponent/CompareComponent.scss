@@ -18,7 +18,6 @@
   &__btn-container {
     display: flex;
     justify-content: center;
-    // background-color: green;
     background-color: #edf2f6;
     border-radius: 30rem;
     min-width: 9rem;
@@ -33,8 +32,6 @@
     border: none;
     border-radius: 30rem;
     color: #9baabd;
-    // color: black;
-    // background-color: red;
     background-color: transparent;
     font-size: 0.9rem;
     font-weight: 600;
@@ -47,76 +44,106 @@
   }
 
   &__list {
+    width: 100%;
     display: flex;
     list-style: none;
-    flex-direction: row;
     margin-top: 1rem;
-    overflow-x: scroll;
-    padding-bottom: $mobile-spacing;
 
     &--grid-view {
+      flex-direction: row;
+      overflow-x: scroll;
+      padding-bottom: $mobile-spacing;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
     }
 
     &--list-view {
+      flex-direction: column;
+      gap: 0.25rem;
     }
   }
 
   &__item {
     display: flex;
-    flex-direction: column;
     list-style: none;
+    border-radius: 0.5rem;
     background-color: #eeeeee;
 
     &--grid-view {
       flex-direction: column;
       width: 50%;
-      scroll-snap-align: start;
-      padding: 0.5rem;
-      align-items: center;
-      border-radius: 0.5rem;
       flex-grow: 0;
       flex-shrink: 0;
+      padding: 0.5rem;
+      scroll-snap-align: start;
+      align-items: center;
+
+      @include tablet {
+        width: 25%;
+      }
+
+      @include desktop {
+        width: 20%;
+      }
     }
 
     &--list-view {
-      // flex-direction: row;
+      flex-direction: row;
+      align-items: center;
+      height: 3rem;
+
+      @include tablet {
+      }
+
+      @include desktop {
+      }
     }
 
-    @include tablet {
-      width: 25%;
+    &--add-grid-view {
+      display: flex;
+      justify-content: center;
+      padding: $mobile-spacing;
+      background-color: #cccccc;
+      min-height: 19rem;
+      font-size: 5rem;
+      cursor: pointer;
     }
 
-    @include desktop {
-      width: 20%;
-    }
-
-    &--add {
+    &--add-list-view {
       background-color: #cccccc;
       display: flex;
       justify-content: center;
       padding: $mobile-spacing;
+      font-size: 2rem;
       cursor: pointer;
-      min-height: 19rem;
     }
 
     &--add-container {
-      font-size: 5rem;
+      background-color: transparent;
+      border: none;
       font-weight: 800;
       color: #999999;
     }
   }
 
   &__pin-button {
-    width: 100%;
     border: none;
-    border-radius: 0.5rem 0.5rem 0 0;
-    padding: 0.5rem;
-    font-size: $mobile-p-size;
-    background-color: #aaffaa;
-    color: green;
     cursor: pointer;
+    font-size: $mobile-p-size;
+    color: green;
+    background-color: #aaffaa;
+
+    &--grid-view {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    &--list-view {
+      height: 100%;
+      padding: 0 $mobile-side-spacing;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
 
     &--pinned {
       background-color: #ffaaaa;
@@ -127,27 +154,36 @@
   &__item-list {
     display: flex;
     list-style: none;
-    width: 100%;
-    flex-direction: column;
-    gap: 0.5rem;
     font-size: $mobile-p-size;
-    margin: 0.5rem 0;
 
     &--grid-view {
       flex-direction: column;
+      width: 100%;
+      margin: 0.5rem 0;
+      gap: 0.5rem;
     }
 
     &--list-view {
       flex-direction: row;
+      height: 3rem;
+      width: 100%;
     }
   }
 
   &__img {
-    object-fit: contain;
     background-color: #cccccc;
-    width: 100%;
-    height: 7rem;
-    margin: 0 auto;
+    object-fit: contain;
+
+    &--grid-view {
+      width: 100%;
+      height: 7rem;
+      margin: 0 auto;
+    }
+
+    &--list-view {
+      object-fit: cover;
+      width: 5rem;
+    }
   }
 
   &__name {
@@ -177,13 +213,22 @@
   }
 
   &__edit-button {
-    width: 100%;
     border: none;
-    border-radius: 0 0 0.5rem 0.5rem;
     padding: 0.5rem;
     font-size: $mobile-p-size;
     background-color: #ffffaa;
     color: #a0a000;
     cursor: pointer;
+
+    &--grid-view {
+      width: 100%;
+      border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+    &--list-view {
+      padding: 0 $mobile-side-spacing;
+      height: 100%;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
   }
 }
