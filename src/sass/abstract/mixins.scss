@@ -13,6 +13,8 @@
 }
 
 @mixin floatingAnimation {
+  animation: float 15s infinite;
+
   @keyframes float {
     0% {
       background-position: 0% 0%;
@@ -30,5 +32,4 @@
       background-position: 0% 0%;
     }
   }
-  animation: float 15s infinite;
 }
