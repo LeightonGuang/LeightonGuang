@@ -128,10 +128,11 @@
 
   &__pin-button {
     border: none;
-    cursor: pointer;
+    width: 5rem;
     font-size: $mobile-p-size;
     color: green;
     background-color: #aaffaa;
+    cursor: pointer;
 
     &--grid-view {
       width: 100%;
