@@ -173,19 +173,59 @@ const CompareComponent = ({
                       src={pinnedItemObj.imageUrl}
                       alt={pinnedItemObj.brand + " " + pinnedItemObj.name}
                     />
-                    <li className="compareComponent__category compareComponent__category--brand">
+                    <li
+                      className={
+                        isViewBtnActive.isGridView
+                          ? `compareComponent__grid-view-category compareComponent__grid-view-category--brand`
+                          : isViewBtnActive.isListView
+                          ? `compareComponent__list-view-category compareComponent__list-view-category--brand`
+                          : ``
+                      }
+                    >
                       {pinnedItemObj.brand}
                     </li>
-                    <li className="compareComponent__category compareComponent__category--name">
+                    <li
+                      className={
+                        isViewBtnActive.isGridView
+                          ? `compareComponent__grid-view-category compareComponent__grid-view-category--name`
+                          : isViewBtnActive.isListView
+                          ? `compareComponent__list-view-category compareComponent__list-view-category--name`
+                          : ``
+                      }
+                    >
                       {pinnedItemObj.name}
                     </li>
-                    <li className="compareComponent__category compareComponent__category--year">
+                    <li
+                      className={
+                        isViewBtnActive.isGridView
+                          ? `compareComponent__grid-view-category compareComponent__grid-view-category--year`
+                          : isViewBtnActive.isListView
+                          ? `compareComponent__list-view-category compareComponent__list-view-category--year`
+                          : ``
+                      }
+                    >
                       {pinnedItemObj.year}
                     </li>
-                    <li className="compareComponent__category compareComponent__category--price">
+                    <li
+                      className={
+                        isViewBtnActive.isGridView
+                          ? `compareComponent__grid-view-category compareComponent__grid-view-category--price`
+                          : isViewBtnActive.isListView
+                          ? `compareComponent__list-view-category compareComponent__list-view-category--price`
+                          : ``
+                      }
+                    >
                       {pinnedItemObj.price}
                     </li>
-                    <li className="compareComponent__category compareComponent__category--description">
+                    <li
+                      className={
+                        isViewBtnActive.isGridView
+                          ? `compareComponent__grid-view-category compareComponent__grid-view-category--description`
+                          : isViewBtnActive.isListView
+                          ? `compareComponent__list-view-category compareComponent__list-view-category--description`
+                          : ``
+                      }
+                    >
                       {pinnedItemObj.description}
                     </li>
                   </ul>
