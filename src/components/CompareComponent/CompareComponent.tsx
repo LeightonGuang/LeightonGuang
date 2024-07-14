@@ -130,13 +130,15 @@ const CompareComponent = ({
             ? ``
             : pinnedItemList.map((pinnedItemObj, index) => (
                 <li
-                  className={`compareComponent__item ${
-                    isViewBtnActive.isGridView
-                      ? `compareComponent__item--grid-view`
-                      : isViewBtnActive.isListView
-                      ? `compareComponent__item--list-view`
-                      : ``
-                  }`}
+                  className={`compareComponent__item 
+                ${index % 2 !== 0 ? `compareComponent__item--alt-colour` : ``}
+                    ${
+                      isViewBtnActive.isGridView
+                        ? `compareComponent__item--grid-view`
+                        : isViewBtnActive.isListView
+                        ? `compareComponent__item--list-view`
+                        : ``
+                    }`}
                   key={index}
                 >
                   <button
