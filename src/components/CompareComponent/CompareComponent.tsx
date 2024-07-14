@@ -173,19 +173,19 @@ const CompareComponent = ({
                       src={pinnedItemObj.imageUrl}
                       alt={pinnedItemObj.brand + " " + pinnedItemObj.name}
                     />
-                    <li className="compareComponent__brand">
+                    <li className="compareComponent__category compareComponent__category--brand">
                       {pinnedItemObj.brand}
                     </li>
-                    <li className="compareComponent__name">
+                    <li className="compareComponent__category compareComponent__category--name">
                       {pinnedItemObj.name}
                     </li>
-                    <li className="compareComponent__year">
+                    <li className="compareComponent__category compareComponent__category--year">
                       {pinnedItemObj.year}
                     </li>
-                    <li className="compareComponent__price">
+                    <li className="compareComponent__category compareComponent__category--price">
                       {pinnedItemObj.price}
                     </li>
-                    <li className="compareComponent__description">
+                    <li className="compareComponent__category compareComponent__category--description">
                       {pinnedItemObj.description}
                     </li>
                   </ul>
@@ -210,13 +210,15 @@ const CompareComponent = ({
           ? ``
           : unpinnedItemList.map((itemObj, index) => (
               <li
-                className={`compareComponent__item ${
-                  isViewBtnActive.isGridView
-                    ? `compareComponent__item--grid-view`
-                    : isViewBtnActive.isListView
-                    ? `compareComponent__item--list-view`
-                    : ``
-                }`}
+                className={`compareComponent__item 
+                ${index % 2 !== 0 ? `compareComponent__item--alt-colour` : ``}
+                  ${
+                    isViewBtnActive.isGridView
+                      ? `compareComponent__item--grid-view`
+                      : isViewBtnActive.isListView
+                      ? `compareComponent__item--list-view`
+                      : ``
+                  }`}
                 key={index}
               >
                 <button
@@ -253,11 +255,59 @@ const CompareComponent = ({
                     src={itemObj.imageUrl}
                     alt={itemObj.brand + " " + itemObj.name}
                   />
-                  <li className="compareComponent__brand">{itemObj.brand}</li>
-                  <li className="compareComponent__name">{itemObj.name}</li>
-                  <li className="compareComponent__year">{itemObj.year}</li>
-                  <li className="compareComponent__price">{itemObj.price}</li>
-                  <li className="compareComponent__description">
+                  <li
+                    className={
+                      isViewBtnActive.isGridView
+                        ? `compareComponent__grid-view-category compareComponent__grid-view-category--brand`
+                        : isViewBtnActive.isListView
+                        ? `compareComponent__list-view-category compareComponent__list-view-category--brand`
+                        : ``
+                    }
+                  >
+                    {itemObj.brand}
+                  </li>
+                  <li
+                    className={
+                      isViewBtnActive.isGridView
+                        ? `compareComponent__grid-view-category compareComponent__grid-view-category--name`
+                        : isViewBtnActive.isListView
+                        ? `compareComponent__list-view-category compareComponent__list-view-category--name`
+                        : ``
+                    }
+                  >
+                    {itemObj.name}
+                  </li>
+                  <li
+                    className={
+                      isViewBtnActive.isGridView
+                        ? `compareComponent__grid-view-category compareComponent__grid-view-category--year`
+                        : isViewBtnActive.isListView
+                        ? `compareComponent__list-view-category compareComponent__list-view-category--year`
+                        : ``
+                    }
+                  >
+                    {itemObj.year}
+                  </li>
+                  <li
+                    className={
+                      isViewBtnActive.isGridView
+                        ? `compareComponent__grid-view-category compareComponent__grid-view-category--price`
+                        : isViewBtnActive.isListView
+                        ? `compareComponent__list-view-category compareComponent__list-view-category--price`
+                        : ``
+                    }
+                  >
+                    {itemObj.price}
+                  </li>
+                  <li
+                    className={
+                      isViewBtnActive.isGridView
+                        ? `compareComponent__grid-view-category compareComponent__grid-view-category--description`
+                        : isViewBtnActive.isListView
+                        ? `compareComponent__list-view-category compareComponent__list-view-category--description`
+                        : ``
+                    }
+                  >
                     {itemObj.description}
                   </li>
                 </ul>
@@ -280,9 +330,9 @@ const CompareComponent = ({
         <li
           className={`compareComponent__item ${
             isViewBtnActive.isGridView
-              ? `compareComponent__item--grid-view  compareComponent__item--add-grid-view`
+              ? `compareComponent__item--grid-view  compareComponent__item--add-item-grid-view`
               : isViewBtnActive.isListView
-              ? `compareComponent__item--list-view  compareComponent__item--add-list-view`
+              ? `compareComponent__item--list-view  compareComponent__item--add-item-list-view`
               : ``
           }`}
           onClick={handleAddItemButton}

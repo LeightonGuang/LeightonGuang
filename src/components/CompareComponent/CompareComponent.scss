@@ -44,30 +44,36 @@
   }
 
   &__list {
-    width: 100%;
     display: flex;
     list-style: none;
     margin-top: 1rem;
+    overflow-x: scroll;
 
     &--grid-view {
+      width: 100%;
       flex-direction: row;
-      overflow-x: scroll;
       padding-bottom: $mobile-spacing;
-      scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
     }
 
     &--list-view {
+      width: 100%;
       flex-direction: column;
-      gap: 0.25rem;
     }
   }
 
   &__item {
     display: flex;
+    justify-content: space-between;
     list-style: none;
     border-radius: 0.5rem;
-    background-color: #eeeeee;
+    color: #7b86a4;
+    background-color: #ffffff;
+
+    &--alt-colour {
+      background-color: #fafafa;
+    }
 
     &--grid-view {
       flex-direction: column;
@@ -91,6 +97,7 @@
       flex-direction: row;
       align-items: center;
       height: 3rem;
+      width: max-content;
 
       @include tablet {
       }
@@ -99,18 +106,19 @@
       }
     }
 
-    &--add-grid-view {
+    &--add-item-grid-view {
       display: flex;
       justify-content: center;
       padding: $mobile-spacing;
-      background-color: #cccccc;
+      background-color: #fcfcfc;
       min-height: 19rem;
       font-size: 5rem;
       cursor: pointer;
     }
 
-    &--add-list-view {
-      background-color: #cccccc;
+    &--add-item-list-view {
+      width: 100%;
+      background-color: #f7f7f7;
       display: flex;
       justify-content: center;
       padding: $mobile-spacing;
@@ -122,14 +130,13 @@
       background-color: transparent;
       border: none;
       font-weight: 800;
-      color: #999999;
+      color: #bbbbbb;
     }
   }
 
   &__pin-button {
     border: none;
-    width: 5rem;
-    font-size: $mobile-p-size;
+    font-size: 0.75rem;
     color: green;
     background-color: #aaffaa;
     cursor: pointer;
@@ -141,9 +148,13 @@
     }
 
     &--list-view {
-      height: 100%;
-      padding: 0 $mobile-side-spacing;
-      border-radius: 0.5rem 0 0 0.5rem;
+      width: min-content;
+      padding: 0.25rem 1rem;
+      border-radius: 100rem;
+      margin: 0 1rem;
+
+      @include tablet {
+      }
     }
 
     &--pinned {
@@ -167,7 +178,7 @@
     &--list-view {
       flex-direction: row;
       height: 3rem;
-      width: 100%;
+      width: max-content;
     }
   }
 
@@ -187,36 +198,66 @@
     }
   }
 
-  &__name {
-    background-color: #f1c40f;
+  &__grid-view-category {
+    min-height: 1rem;
     padding: 0.25rem;
+
+    &--name {
+      background-color: #f1c40f;
+    }
+
+    &--brand {
+      background-color: #23cc71;
+    }
+
+    &--year {
+      color: white;
+      background-color: #000080;
+    }
+
+    &--price {
+      background-color: #3399ff;
+    }
+
+    &--description {
+      background-color: #9b59b6;
+    }
   }
 
-  &__brand {
-    background-color: #23cc71;
-    padding: 0.25rem;
-  }
+  &__list-view-category {
+    height: 3rem;
+    line-height: 3rem;
+    width: 5rem;
+    padding: 0 0.5rem;
+    text-align: center;
 
-  &__year {
-    background-color: #000080;
-    color: white;
-    padding: 0.25rem;
-  }
+    &--brand {
+      width: 8rem;
+    }
 
-  &__price {
-    background-color: #3399ff;
-    padding: 0.25rem;
-  }
+    &--name {
+      width: 8rem;
+    }
 
-  &__description {
-    background-color: #9b59b6;
-    padding: 0.25rem;
+    &--year {
+      width: 4rem;
+    }
+
+    &--price {
+    }
+
+    &--description {
+      text-align: left;
+      min-width: 15rem;
+      line-height: 1rem;
+      overflow-x: scroll;
+    }
   }
 
   &__edit-button {
     border: none;
     padding: 0.5rem;
-    font-size: $mobile-p-size;
+    font-size: 0.75rem;
     background-color: #ffffaa;
     color: #a0a000;
     cursor: pointer;
@@ -227,9 +268,14 @@
     }
 
     &--list-view {
-      padding: 0 $mobile-side-spacing;
-      height: 100%;
-      border-radius: 0 0.5rem 0.5rem 0;
+      width: min-content;
+      padding: 0.25rem 1rem;
+      border-radius: 100rem;
+      margin: 0 1rem;
+
+      @include tablet {
+        font-size: 0.75rem;
+      }
     }
   }
 }
