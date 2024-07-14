@@ -50,12 +50,12 @@
     display: flex;
     list-style: none;
     margin-top: 1rem;
-    overflow-x: scroll;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
 
     &--grid-view {
       width: 100%;
       flex-direction: row;
-      padding-bottom: $mobile-spacing;
       scroll-behavior: smooth;
       scroll-snap-type: x mandatory;
     }
@@ -97,12 +97,13 @@
     }
 
     &--list-view {
+      width: max-content;
       flex-direction: row;
       align-items: center;
       height: 3rem;
-      width: 100%;
 
       @include tablet {
+        width: 100%;
       }
 
       @include desktop {
@@ -205,27 +206,6 @@
   &__grid-view-category {
     min-height: 1rem;
     padding: 0.25rem;
-
-    &--name {
-      // background-color: #f1c40f;
-    }
-
-    &--brand {
-      // background-color: #23cc71;
-    }
-
-    &--year {
-      // color: white;
-      // background-color: #000080;
-    }
-
-    &--price {
-      // background-color: #3399ff;
-    }
-
-    &--description {
-      // background-color: #9b59b6;
-    }
   }
 
   &__list-view-category {
@@ -248,13 +228,14 @@
     }
 
     &--price {
+      width: 5rem;
     }
 
     &--description {
       text-align: left;
       min-width: 15rem;
       line-height: 1rem;
-      overflow-x: scroll;
+      overflow-y: auto;
     }
   }
 
