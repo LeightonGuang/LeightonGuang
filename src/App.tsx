@@ -9,6 +9,7 @@ import FramerMotionAnimationPage from "./pages/PlaygroundProjects/FramerMotionAn
 import ComparePage from "./pages/PlaygroundProjects/ComparePage/ComparePage.tsx";
 import AboutPage from "./pages/AboutPage/AboutPage.tsx";
 import Footer from "./components/Footer/Footer.tsx";
+import VanilaCssPage from "./pages/VanilaCssPage/VanilaCssPage.tsx";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             element={<FramerMotionAnimationPage />}
           />
           <Route path="/playground/compare" element={<ComparePage />} />
+          <Route path="/playground/vanila-css" element={<VanilaCssPage />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
         <Footer />
