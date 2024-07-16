@@ -18,6 +18,7 @@ const PlaygroundPage = () => {
       path: "/playground/framer-motion-animations",
     },
     { name: "Compare", path: "/playground/compare" },
+    { name: "Vanila css", path: "/playground/vanila-css" },
   ];
 
   useEffect(() => {}, []);
