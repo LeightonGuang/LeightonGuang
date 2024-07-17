@@ -1,3 +1,4 @@
+import ToggleButton from "../../components/vanilaCss/ToggleButton/ToggleButton";
 import "./VanilaCssPage.scss";
 
 const VanilaCssPage = () => {
@@ -8,16 +9,7 @@ const VanilaCssPage = () => {
 
         <ul className="vanilaCssPage__list">
           <li className="vanilaCssPage__item">
-            <div className="vanilaCssPage__toggle-btn">
-              <input
-                className="vanilaCssPage__checkbox"
-                type="checkbox"
-                id="checkbox"
-              />
-              <label className="vanilaCssPage__knob" htmlFor="checkbox">
-                checked
-              </label>
-            </div>
+            <ToggleButton />
           </li>
         </ul>
       </div>

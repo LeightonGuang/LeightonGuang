@@ -1,10 +1,6 @@
 @use "../../sass/abstract/variables.scss" as *;
 @use "../../sass/abstract/mixins.scss" as *;
 
-$width: 4rem;
-$height: 2rem;
-$gap: 0.1rem;
-
 .vanilaCssPage {
   height: calc(100dvh - 4.125rem);
 
@@ -34,60 +30,5 @@ $gap: 0.1rem;
   &__item {
     width: 50%;
     position: absolute;
-  }
-
-  &__toggle-btn {
-    position: relative;
-    width: min-content;
-    background-color: #ccc;
-  }
-
-  &__checkbox {
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-
-    & + .vanilaCssPage__knob {
-      display: flex;
-      align-items: center;
-      position: relative;
-      cursor: pointer;
-    }
-
-    & + .vanilaCssPage__knob::before {
-      content: "";
-      width: $width;
-      height: $height;
-      background-color: hsl(0, 80%, 90%);
-      border-radius: 1rem;
-      margin-right: 0.25rem;
-      transition: background-color 200ms ease-in-out;
-    }
-
-    & + .vanilaCssPage__knob::after {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      content: "off";
-      font-size: calc($height / 2);
-      height: calc($height - 0.1rem);
-      left: calc($gap * 2);
-      width: calc($height - $gap);
-      height: calc($height - $gap);
-      background-color: hsl(0, 80%, 60%);
-      color: white;
-      border-radius: 50%;
-      transition: background-color 200ms ease-in-out,
-        transform 200ms ease-in-out;
-    }
-
-    &:checked + .vanilaCssPage__knob::after {
-      content: "on";
-      transform: translateX(100%);
-      background-color: hsl(100, 70%, 60%);
-    }
   }
 }
