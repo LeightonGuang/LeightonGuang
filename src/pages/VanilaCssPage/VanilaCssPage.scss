@@ -25,10 +25,17 @@
 
   &__list {
     list-style: none;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 2rem;
+    justify-content: center;
+
+    @include tablet {
+      grid-template-columns: auto auto auto auto;
+      grid-gap: 4rem;
+    }
   }
 
   &__item {
-    width: 50%;
-    position: absolute;
   }
 }
