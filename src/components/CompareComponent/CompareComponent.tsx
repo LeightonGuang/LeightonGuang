@@ -26,10 +26,10 @@ const CompareComponent = ({
     useState<ItemObj[]>(itemObjList);
   const [isAddItemModal, setIsAddItemModal] = useState(false);
   const [isEditModal, setIsEditModal] = useState(false);
-  const [isGridView, setIsGridView] = useState(true);
+  const [isListView, setIsListView] = useState(false);
 
   const handleCheckboxChange = () => {
-    setIsGridView(!isGridView);
+    setIsListView(!isListView);
   };
 
   const handlePinButton: (objIndex: number) => void = (objIndex: number) => {
@@ -90,46 +90,23 @@ const CompareComponent = ({
 
         <div className="compareComponent__btn-container">
           <input
+            className="compareComponent__checkbox"
             type="checkbox"
-            checked={isGridView}
+            checked={isListView}
             onChange={handleCheckboxChange}
           />
-          {/* <button
-            className={`compareComponent__view-btn ${
-              isViewBtnActive.isGridView
-                ? `compareComponent__view-btn--active`
-                : ``
-            }`}
-            onClick={() =>
-              setIsViewBtnActive({ isGridView: true, isListView: false })
-            }
-          >
-            ▯ Grid
-          </button>
-          <button
-            className={`compareComponent__view-btn ${
-              isViewBtnActive.isListView
-                ? `compareComponent__view-btn--active`
-                : ``
-            }`}
-            onClick={() =>
-              setIsViewBtnActive({ isGridView: false, isListView: true })
-            }
-          >
-            ☰ List
-          </button> */}
         </div>
       </div>
 
       <ul
         className={`compareComponent__list ${
-          isGridView
-            ? `compareComponent__list--grid-view`
-            : `compareComponent__list--list-view`
+          isListView
+            ? `compareComponent__list--list-view`
+            : `compareComponent__list--grid-view`
         }`}
       >
         {
-          // don't show pinned list when it's empty
+          // hide pinned list when it's empty
           pinnedItemList.length === 0
             ? ``
             : pinnedItemList.map((pinnedItemObj, index) => (
@@ -137,17 +114,17 @@ const CompareComponent = ({
                   className={`compareComponent__item 
                 ${index % 2 !== 0 ? `compareComponent__item--alt-colour` : ``}
                     ${
-                      isGridView
-                        ? `compareComponent__item--grid-view`
-                        : `compareComponent__item--list-view`
+                      isListView
+                        ? `compareComponent__item--list-view`
+                        : `compareComponent__item--grid-view`
                     }`}
                   key={index}
                 >
                   <button
                     className={`compareComponent__pin-button compareComponent__pin-button--pinned ${
-                      isGridView
-                        ? `compareComponent__pin-button--grid-view`
-                        : `compareComponent__pin-button--list-view`
+                      isListView
+                        ? `compareComponent__pin-button--list-view`
+                        : `compareComponent__pin-button--grid-view`
                     }`}
                     onClick={() => {
                       handleUnpinButton(index);
@@ -157,61 +134,61 @@ const CompareComponent = ({
                   </button>
                   <ul
                     className={`compareComponent__item-list ${
-                      isGridView
-                        ? `compareComponent__item-list--grid-view`
-                        : `compareComponent__item-list--list-view`
+                      isListView
+                        ? `compareComponent__item-list--list-view`
+                        : `compareComponent__item-list--grid-view`
                     }`}
                   >
                     <img
                       className={`compareComponent__img ${
-                        isGridView
-                          ? `compareComponent__img--grid-view`
-                          : `compareComponent__img--list-view`
+                        isListView
+                          ? `compareComponent__img--list-view`
+                          : `compareComponent__img--grid-view`
                       }`}
                       src={pinnedItemObj.imageUrl}
                       alt={pinnedItemObj.brand + " " + pinnedItemObj.name}
                     />
                     <li
                       className={
-                        isGridView
-                          ? `compareComponent__grid-view-category compareComponent__grid-view-category--brand`
-                          : `compareComponent__list-view-category compareComponent__list-view-category--brand`
+                        isListView
+                          ? `compareComponent__list-view-category compareComponent__list-view-category--brand`
+                          : `compareComponent__grid-view-category compareComponent__grid-view-category--brand`
                       }
                     >
                       {pinnedItemObj.brand}
                     </li>
                     <li
                       className={
-                        isGridView
-                          ? `compareComponent__grid-view-category compareComponent__grid-view-category--name`
-                          : `compareComponent__list-view-category compareComponent__list-view-category--name`
+                        isListView
+                          ? `compareComponent__list-view-category compareComponent__list-view-category--name`
+                          : `compareComponent__grid-view-category compareComponent__grid-view-category--name`
                       }
                     >
                       {pinnedItemObj.name}
                     </li>
                     <li
                       className={
-                        isGridView
-                          ? `compareComponent__grid-view-category compareComponent__grid-view-category--year`
-                          : `compareComponent__list-view-category compareComponent__list-view-category--year`
+                        isListView
+                          ? `compareComponent__list-view-category compareComponent__list-view-category--year`
+                          : `compareComponent__grid-view-category compareComponent__grid-view-category--year`
                       }
                     >
                       {pinnedItemObj.year}
                     </li>
                     <li
                       className={
-                        isGridView
-                          ? `compareComponent__grid-view-category compareComponent__grid-view-category--price`
-                          : `compareComponent__list-view-category compareComponent__list-view-category--price`
+                        isListView
+                          ? `compareComponent__list-view-category compareComponent__list-view-category--price`
+                          : `compareComponent__grid-view-category compareComponent__grid-view-category--price`
                       }
                     >
                       {pinnedItemObj.price}
                     </li>
                     <li
                       className={
-                        isGridView
-                          ? `compareComponent__grid-view-category compareComponent__grid-view-category--description`
-                          : `compareComponent__list-view-category compareComponent__list-view-category--description`
+                        isListView
+                          ? `compareComponent__list-view-category compareComponent__list-view-category--description`
+                          : `compareComponent__grid-view-category compareComponent__grid-view-category--description`
                       }
                     >
                       {pinnedItemObj.description}
@@ -219,9 +196,9 @@ const CompareComponent = ({
                   </ul>
                   <button
                     className={`compareComponent__edit-button ${
-                      isGridView
-                        ? `compareComponent__edit-button--grid-view`
-                        : `compareComponent__edit-button--list-view`
+                      isListView
+                        ? `compareComponent__edit-button--list-view`
+                        : `compareComponent__edit-button--grid-view`
                     }`}
                     onClick={() => {
                       handleEditButton(index, false);
@@ -239,17 +216,17 @@ const CompareComponent = ({
                 className={`compareComponent__item 
                 ${index % 2 !== 0 ? `compareComponent__item--alt-colour` : ``}
                   ${
-                    isGridView
-                      ? `compareComponent__item--grid-view`
-                      : `compareComponent__item--list-view`
+                    isListView
+                      ? `compareComponent__item--list-view`
+                      : `compareComponent__item--grid-view`
                   }`}
                 key={index}
               >
                 <button
                   className={`compareComponent__pin-button ${
-                    isGridView
-                      ? `compareComponent__pin-button--grid-view`
-                      : `compareComponent__pin-button--list-view`
+                    isListView
+                      ? `compareComponent__pin-button--list-view`
+                      : `compareComponent__pin-button--grid-view`
                   }`}
                   onClick={() => {
                     handlePinButton(index);
@@ -259,61 +236,61 @@ const CompareComponent = ({
                 </button>
                 <ul
                   className={`compareComponent__item-list ${
-                    isGridView
-                      ? `compareComponent__item-list--grid-view`
-                      : `compareComponent__item-list--list-view`
+                    isListView
+                      ? `compareComponent__item-list--list-view`
+                      : `compareComponent__item-list--grid-view`
                   }`}
                 >
                   <img
                     className={`compareComponent__img ${
-                      isGridView
-                        ? `compareComponent__img--grid-view`
-                        : `compareComponent__img--list-view`
+                      isListView
+                        ? `compareComponent__img--list-view`
+                        : `compareComponent__img--grid-view`
                     }`}
                     src={itemObj.imageUrl}
                     alt={itemObj.brand + " " + itemObj.name}
                   />
                   <li
                     className={
-                      isGridView
-                        ? `compareComponent__grid-view-category compareComponent__grid-view-category--brand`
-                        : `compareComponent__list-view-category compareComponent__list-view-category--brand`
+                      isListView
+                        ? `compareComponent__list-view-category compareComponent__list-view-category--brand`
+                        : `compareComponent__grid-view-category compareComponent__grid-view-category--brand`
                     }
                   >
                     {itemObj.brand}
                   </li>
                   <li
                     className={
-                      isGridView
-                        ? `compareComponent__grid-view-category compareComponent__grid-view-category--name`
-                        : `compareComponent__list-view-category compareComponent__list-view-category--name`
+                      isListView
+                        ? `compareComponent__list-view-category compareComponent__list-view-category--name`
+                        : `compareComponent__grid-view-category compareComponent__grid-view-category--name`
                     }
                   >
                     {itemObj.name}
                   </li>
                   <li
                     className={
-                      isGridView
-                        ? `compareComponent__grid-view-category compareComponent__grid-view-category--year`
-                        : `compareComponent__list-view-category compareComponent__list-view-category--year`
+                      isListView
+                        ? `compareComponent__list-view-category compareComponent__list-view-category--year`
+                        : `compareComponent__grid-view-category compareComponent__grid-view-category--year`
                     }
                   >
                     {itemObj.year}
                   </li>
                   <li
                     className={
-                      isGridView
-                        ? `compareComponent__grid-view-category compareComponent__grid-view-category--price`
-                        : `compareComponent__list-view-category compareComponent__list-view-category--price`
+                      isListView
+                        ? `compareComponent__list-view-category compareComponent__list-view-category--price`
+                        : `compareComponent__grid-view-category compareComponent__grid-view-category--price`
                     }
                   >
                     {itemObj.price}
                   </li>
                   <li
                     className={
-                      isGridView
-                        ? `compareComponent__grid-view-category compareComponent__grid-view-category--description`
-                        : `compareComponent__list-view-category compareComponent__list-view-category--description`
+                      isListView
+                        ? `compareComponent__list-view-category compareComponent__list-view-category--description`
+                        : `compareComponent__grid-view-category compareComponent__grid-view-category--description`
                     }
                   >
                     {itemObj.description}
@@ -321,9 +298,9 @@ const CompareComponent = ({
                 </ul>
                 <button
                   className={`compareComponent__edit-button ${
-                    isGridView
-                      ? `compareComponent__edit-button--grid-view`
-                      : `compareComponent__edit-button--list-view`
+                    isListView
+                      ? `compareComponent__edit-button--list-view`
+                      : `compareComponent__edit-button--grid-view`
                   }`}
                   onClick={() => {
                     handleEditButton(index, true);
@@ -335,9 +312,9 @@ const CompareComponent = ({
             ))}
         <li
           className={`compareComponent__item ${
-            isGridView
-              ? `compareComponent__item--grid-view  compareComponent__item--add-item-grid-view`
-              : `compareComponent__item--list-view  compareComponent__item--add-item-list-view`
+            isListView
+              ? `compareComponent__item--list-view  compareComponent__item--add-item-list-view`
+              : `compareComponent__item--grid-view  compareComponent__item--add-item-grid-view`
           }`}
           onClick={handleAddItemButton}
         >
