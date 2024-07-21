@@ -15,16 +15,10 @@ const VanilaCssPage = () => {
             <ToggleButton />
           </li>
           <li className="vanilaCssPage__item">
-            <ToggleButton />
-          </li>
-          <li className="vanilaCssPage__item">
-            <ToggleButton />
-          </li>
-          <li className="vanilaCssPage__item">
-            <ToggleButton />
-          </li>
-          <li className="vanilaCssPage__item">
-            <ToggleButton />
+            <div className="newBtn">
+              <input className="newBtn__checkbox" type="checkbox" />
+              <div className="newBtn__knob" />
+            </div>
           </li>
         </ul>
       </div>
