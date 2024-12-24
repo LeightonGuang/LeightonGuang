@@ -1,13 +1,20 @@
 import "./ProjectCard.scss";
-import { ProjectCardProps } from "../../types/ProjectCardProps";
 import ImageGallery from "../ImageGallery/ImageGallery";
+
+interface ProjectCardProps {
+  projectName: string;
+  projectImgUrlList: { imageUrl: string; imageAlt: string }[];
+  projectDescription: string;
+  projectTechnologyList: { name: string; link: string }[];
+  projectGithubLink: string;
+}
 
 function ProjectCard({
   projectName,
+  projectGithubLink,
   projectImgUrlList,
   projectDescription,
   projectTechnologyList,
-  projectGithubLink,
 }: ProjectCardProps) {
   return (
     <li className="project-card">

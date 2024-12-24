@@ -1,14 +1,16 @@
 import "./imageGallery.scss";
 import { useState } from "react";
 
-import { ImageObj } from "../../types/ImageObj";
 import ImageGalleryModal from "../ImageGalleryModal/ImageGalleryModal";
 
 const ImageGallery = ({
   imageObjList,
   hightlightColour,
 }: {
-  imageObjList: ImageObj[];
+  imageObjList: {
+    imageUrl: string;
+    imageAlt: string;
+  }[];
   hightlightColour: string;
 }) => {
   const isSingleImage: boolean = imageObjList.length === 1;
