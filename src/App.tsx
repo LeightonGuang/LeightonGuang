@@ -1,23 +1,46 @@
 import "./App.scss";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer/Footer.tsx";
 import Navbar from "./components/Navbar/Navbar.tsx";
 import HomePage from "./pages/HomePage/HomePage.tsx";
+import AboutPage from "./pages/AboutPage/AboutPage.tsx";
+import { Route, Routes, HashRouter, useLocation } from "react-router-dom";
 import ProjectPage from "./pages/ProjectPage/ProjectPage.tsx";
+import VanilaCssPage from "./pages/VanilaCssPage/VanilaCssPage.tsx";
 import PlaygroundPage from "./pages/PlaygroundPage/PlaygroundPage.tsx";
+import BusinessCardPage from "./pages/BusinessCardPage/BusinessCardPage.tsx";
+import ComparePage from "./pages/PlaygroundProjects/ComparePage/ComparePage.tsx";
 import ImageGalleryPage from "./pages/PlaygroundProjects/ImageGalleryPage/ImageGalleryPage.tsx";
 import FramerMotionAnimationPage from "./pages/PlaygroundProjects/FramerMotionAnimationPage/FramerMotionAnimationPage.tsx";
-import ComparePage from "./pages/PlaygroundProjects/ComparePage/ComparePage.tsx";
-import AboutPage from "./pages/AboutPage/AboutPage.tsx";
-import Footer from "./components/Footer/Footer.tsx";
-import VanilaCssPage from "./pages/VanilaCssPage/VanilaCssPage.tsx";
 
 function App() {
+  const ConditionalNavbar = () => {
+    const location = useLocation();
+
+    if (location.pathname === "/") {
+      return null;
+    }
+
+    return <Navbar />;
+  };
+
+  const ConditionalFooter = () => {
+    const location = useLocation();
+
+    if (location.pathname === "/") {
+      return null;
+    }
+
+    return <Footer />;
+  };
+
   return (
     <div className="App">
       <HashRouter>
-        <Navbar />
+        <ConditionalNavbar />
+
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<BusinessCardPage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/LeightonGuang" element={<HomePage />} />
           <Route path="/projects" element={<ProjectPage />} />
           <Route path="/playground" element={<PlaygroundPage />} />
@@ -33,7 +56,8 @@ function App() {
           <Route path="/playground/vanila-css" element={<VanilaCssPage />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
-        <Footer />
+
+        <ConditionalFooter />
       </HashRouter>
     </div>
   );
