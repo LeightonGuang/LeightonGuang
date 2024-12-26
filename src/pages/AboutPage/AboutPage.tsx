@@ -39,7 +39,7 @@ function AboutPage() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             target="_blank"
-            href="https://drive.google.com/file/d/1oaHBeI_gjD0gflxp_7jeHg4aU73h67TT/view?usp=sharing"
+            href="https://docs.google.com/document/d/1EX49XzP9tnGXlJuNHtFzzqrBXhm_GnSXQQymitoxS8A/edit?tab=t.0"
             className="aboutPage__button"
           >
             Resume
