@@ -7,7 +7,7 @@ import { Route, Routes, HashRouter, useLocation } from "react-router-dom";
 import ProjectPage from "./pages/ProjectPage/ProjectPage.tsx";
 import VanilaCssPage from "./pages/VanilaCssPage/VanilaCssPage.tsx";
 import PlaygroundPage from "./pages/PlaygroundPage/PlaygroundPage.tsx";
-import BusinessCardPage from "./pages/BusinessCardPage/BusinessCardPage.tsx";
+import SocialsPage from "./pages/SocialsPage/SocialsPage.tsx";
 import ComparePage from "./pages/PlaygroundProjects/ComparePage/ComparePage.tsx";
 import ImageGalleryPage from "./pages/PlaygroundProjects/ImageGalleryPage/ImageGalleryPage.tsx";
 import FramerMotionAnimationPage from "./pages/PlaygroundProjects/FramerMotionAnimationPage/FramerMotionAnimationPage.tsx";
@@ -39,7 +39,7 @@ function App() {
         <ConditionalNavbar />
 
         <Routes>
-          <Route path="/" element={<BusinessCardPage />} />
+          <Route path="/" element={<SocialsPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/LeightonGuang" element={<HomePage />} />
           <Route path="/projects" element={<ProjectPage />} />
