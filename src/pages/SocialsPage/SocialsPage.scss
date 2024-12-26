@@ -1,0 +1,101 @@
+@use "../../sass/abstract/variables.scss" as *;
+
+.SocialsPage {
+  height: 100dvh;
+  width: 100dvw;
+  background: $bermuda-grey;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+    height: 80dvh;
+    width: 80dvw;
+    border-radius: 1rem;
+    max-width: 20rem;
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  &__profile-img {
+    margin: 0 auto;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: $background;
+    border: 0.2rem solid $white;
+  }
+
+  &__name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.25rem 0;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: $astronaut;
+  }
+
+  &__links {
+    list-style: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $black;
+    padding: 0.25rem 0.75rem;
+    background-color: $white;
+    border-radius: 0.25rem;
+    font-weight: 600;
+  }
+
+  &__contact {
+    list-style: none;
+  }
+
+  &__social-item {
+    display: flex;
+  }
+
+  &__social-link {
+    display: flex;
+  }
+
+  &__social-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem auto;
+    list-style: none;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  &__redirect {
+    display: block;
+    width: auto;
+    text-align: center;
+    padding: 0.5rem;
+    color: $astronaut;
+    font-weight: 500;
+  }
+}
