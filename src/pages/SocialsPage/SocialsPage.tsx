@@ -1,6 +1,12 @@
 import "./SocialsPage.scss";
 import memoji from "../../assets/Leighton-memoji.png";
 import { Link } from "react-router-dom";
+import {
+  ArrowRightSvg,
+  GithubIconSvg,
+  LocationPinSvg,
+  LinkedinIconSvg,
+} from "../../assets/icons/businessCardIcons";
 
 const SocialsPage = () => {
   const BusinessCard = () => {
@@ -10,19 +16,19 @@ const SocialsPage = () => {
       "Next.js",
       "MySQL",
       "Express.js",
-      "Supabase",
+      "Tailwind",
     ];
 
-    const socialsList: { name: string; link: string; iconUrl: string }[] = [
+    const socialsList: { name: string; link: string; icon: JSX.Element }[] = [
       {
         name: "LinkedIn",
         link: "https://www.linkedin.com/in/leighton-guang/",
-        iconUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+        icon: <LinkedinIconSvg className="BusinessCard__linkedin" />,
       },
       {
         name: "GitHub",
         link: "https://github.com/LeightonGuang",
-        iconUrl: "https://cdn-icons-png.flaticon.com/512/25/25231.png",
+        icon: <GithubIconSvg className="BusinessCard__github" />,
       },
     ];
 
@@ -32,7 +38,10 @@ const SocialsPage = () => {
           <div>
             <h1 className="BusinessCard__name">Leighton Guang</h1>
             <h2 className="BusinessCard__title">React Full Stack Developer</h2>
-            <span className="BusinessCard__location">London, UK</span>
+            <span className="BusinessCard__location">
+              <LocationPinSvg className="BusinessCard__locationPin" />
+              London, UK
+            </span>
 
             <div className="BusinessCard__technologies">
               {technologies.map((technology, i) => (
@@ -55,19 +64,17 @@ const SocialsPage = () => {
                 target="_blank"
                 className="BusinessCard__social"
               >
-                <img
-                  className="BusinessCard__social-icon"
-                  src={social.iconUrl}
-                  alt={social.name}
-                />
+                {social.icon}
               </a>
             ))}
+            <span className="BusinessCard__email">
+              leighton.guang@icloud.com
+            </span>
           </div>
 
           <Link to={"/home"} className="BusinessCard__btn">
             <div className="BusinessCard__btn-text">
-              <span>Continue</span>
-              <span>{"->"}</span>
+              <ArrowRightSvg className="BusinessCard__arrowRight" />
             </div>
           </Link>
         </div>
