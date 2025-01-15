@@ -4,98 +4,98 @@
   height: 100dvh;
   width: 100dvw;
   background: $bermuda-grey;
-
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
-  &__card {
+.BusinessCard {
+  padding: 1.5rem;
+  width: 24rem;
+  height: min-content;
+  background-color: $background;
+  border-radius: 0.25rem;
+  border-bottom: 0.2rem solid $accent;
+
+  &__container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    text-align: center;
-    gap: 1rem;
-    padding: 1rem;
-    height: 80dvh;
-    width: 80dvw;
-    border-radius: 1rem;
-    max-width: 20rem;
-
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  &__profile-img {
-    margin: 0 auto;
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    background-color: $background;
-    border: 0.2rem solid $white;
   }
 
   &__name {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin: 0.25rem 0;
+    line-height: 2rem;
   }
 
   &__title {
-    font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
     color: $astronaut;
   }
 
-  &__links {
-    list-style: none;
+  &__location {
+    color: #6b7280;
+    font-size: 0.875rem;
   }
 
-  &__link {
-    text-decoration: none;
-    color: $black;
-    padding: 0.25rem 0.75rem;
-    background-color: $white;
-    border-radius: 0.25rem;
-    font-weight: 600;
-  }
-
-  &__contact {
-    list-style: none;
-  }
-
-  &__social-item {
+  &__technologies {
+    margin-top: 0.5rem;
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
   }
 
-  &__social-link {
+  &__technology {
+    color: #1e40af;
+    background-color: #dceaff;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  &__logo {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &__footer {
     display: flex;
-  }
-
-  &__social-icon {
-    width: 1.5rem;
-    height: 1.5rem;
+    margin-top: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__socials {
     display: flex;
-    gap: 1rem;
-    margin: 1rem auto;
-    list-style: none;
-    background-color: white;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+    gap: 0.5rem;
   }
 
-  &__redirect {
-    display: block;
-    width: auto;
-    text-align: center;
-    padding: 0.5rem;
-    color: $astronaut;
+  &__social {
+  }
+
+  &__social-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  &__btn {
+    border: none;
+    color: white;
+    background-color: #2563eb;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99rem;
+    text-decoration: none;
+  }
+
+  &__btn-text {
+    display: flex;
+    gap: 0.5rem;
+    line-height: 2rem;
     font-weight: 500;
   }
 }
