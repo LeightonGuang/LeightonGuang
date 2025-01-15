@@ -46,7 +46,7 @@ function Header() {
             >
               Projects
             </motion.li>
-            <motion.li
+            {/* <motion.li
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => {
@@ -55,7 +55,7 @@ function Header() {
               className="header__nav-link"
             >
               Playground
-            </motion.li>
+            </motion.li> */}
             <motion.li
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9 }}
