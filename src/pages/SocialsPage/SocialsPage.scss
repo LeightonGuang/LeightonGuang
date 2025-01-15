@@ -10,12 +10,17 @@
 }
 
 .BusinessCard {
-  padding: 1.5rem;
-  width: 24rem;
+  padding: 1rem;
+  aspect-ratio: 1.75/1;
+  width: 25rem;
+  max-width: 90dvw;
   height: min-content;
   background-color: $background;
   border-radius: 0.25rem;
   border-bottom: 0.2rem solid $accent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &__container {
     display: flex;
@@ -37,15 +42,24 @@
   }
 
   &__location {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
     color: #6b7280;
     font-size: 0.875rem;
   }
 
+  &__locationPin {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
   &__technologies {
-    margin-top: 0.5rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem;
+    margin-top: 0.5rem;
+    max-width: 13rem;
   }
 
   &__technology {
@@ -70,15 +84,28 @@
 
   &__socials {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
   }
 
   &__social {
   }
 
-  &__social-icon {
+  &__email {
+    font-size: 0.875rem;
+    color: #4b5563;
+  }
+
+  &__linkedin {
     width: 1.25rem;
     height: 1.25rem;
+    color: #2563eb;
+  }
+
+  &__github {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #1f2937;
   }
 
   &__btn {
@@ -87,7 +114,7 @@
     background-color: #2563eb;
     font-size: 0.875rem;
     font-weight: 500;
-    padding: 0.25rem 0.75rem;
+    padding: 0.75rem;
     border-radius: 99rem;
     text-decoration: none;
   }
@@ -95,7 +122,14 @@
   &__btn-text {
     display: flex;
     gap: 0.5rem;
-    line-height: 2rem;
+    align-items: center;
+    font-size: 0.875rem;
     font-weight: 500;
+    line-height: 2rem;
+  }
+
+  &__arrowRight {
+    width: 1rem;
+    height: 1rem;
   }
 }
