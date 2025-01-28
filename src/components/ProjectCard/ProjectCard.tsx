@@ -1,21 +1,25 @@
 import "./ProjectCard.scss";
 import ImageGallery from "../ImageGallery/ImageGallery";
 
-interface ProjectCardProps {
+interface ProjectType {
   projectName: string;
   projectImgUrlList: { imageUrl: string; imageAlt: string }[];
   projectDescription: string;
   projectTechnologyList: { name: string; link: string }[];
   projectGithubLink: string;
+  projectLink?: string;
 }
 
-function ProjectCard({
-  projectName,
-  projectGithubLink,
-  projectImgUrlList,
-  projectDescription,
-  projectTechnologyList,
-}: ProjectCardProps) {
+function ProjectCard({ project }: { project: ProjectType }) {
+  const {
+    projectName,
+    projectImgUrlList,
+    projectDescription,
+    projectTechnologyList,
+    projectGithubLink,
+    projectLink,
+  } = project;
+
   return (
     <li className="project-card">
       <div className="project-card__container">
@@ -23,6 +27,7 @@ function ProjectCard({
         <ImageGallery imageObjList={projectImgUrlList} hightlightColour="" />
 
         <p className="project-card__description">{projectDescription}</p>
+
         <ul className="project-card__technology-list">
           {projectTechnologyList.map((projectTechnology, index) => (
             <li key={index} className="project-card__technology-pill">
@@ -36,18 +41,31 @@ function ProjectCard({
             </li>
           ))}
         </ul>
-        <a
-          href={projectGithubLink}
-          target="_blank"
-          className="project-card__link"
-        >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-            alt="github logo"
-            className="project-card__github-logo"
-          />
-          Github
-        </a>
+
+        <div className="project-card__links">
+          <a
+            className="project-card__link"
+            href={projectGithubLink}
+            target="_blank"
+          >
+            <img
+              alt="github logo"
+              className="project-card__github-logo"
+              src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
+            />
+            Github
+          </a>
+
+          {projectLink && (
+            <a
+              className="project-card__link"
+              href={projectLink}
+              target="_blank"
+            >
+              Live Website
+            </a>
+          )}
+        </div>
       </div>
     </li>
   );
