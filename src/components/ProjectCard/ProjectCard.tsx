@@ -1,5 +1,6 @@
 import "./ProjectCard.scss";
 import ImageGallery from "../ImageGallery/ImageGallery";
+import { ExternalLinkSvg } from "../../assets/icons/Icons";
 
 interface ProjectType {
   projectName: string;
@@ -50,7 +51,7 @@ function ProjectCard({ project }: { project: ProjectType }) {
           >
             <img
               alt="github logo"
-              className="project-card__github-logo"
+              className="project-card__link-icon"
               src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
             />
             Github
@@ -62,6 +63,7 @@ function ProjectCard({ project }: { project: ProjectType }) {
               href={projectLink}
               target="_blank"
             >
+              <ExternalLinkSvg className="project-card__link-icon" />
               Live Website
             </a>
           )}

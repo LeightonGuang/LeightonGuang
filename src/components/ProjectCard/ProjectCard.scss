@@ -93,6 +93,7 @@
 
   &__link {
     display: flex;
+    gap: 0.5rem;
     align-items: center;
     text-decoration: none;
     padding: 0.2rem 0.6rem;
@@ -110,8 +111,7 @@
     }
   }
 
-  &__github-logo {
+  &__link-icon {
     width: 1rem;
-    margin-right: 0.5rem;
   }
 }
