@@ -2,7 +2,7 @@
   "name": "leightonguang",
   "homepage": "https://leightonguang.com/#",
   "private": true,
-  "version": "1.1.5",
+  "version": "1.1.6",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
