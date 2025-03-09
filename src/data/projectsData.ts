@@ -7,6 +7,29 @@ export const projectsData: {
   projectLink?: string;
 }[] = [
   {
+    projectName: "The Next Typer",
+    projectImgUrlList: [
+      {
+        imageUrl:
+          "https://github.com/LeightonGuang/typing_test_react_app/blob/develop/_assets/screenshots/homePage.png?raw=true",
+        imageAlt: "Home Page",
+      },
+    ],
+    projectDescription: `The Next Typer is a feature rich typing test website built with Next.js, 
+                        Shadcn and Recharts. Test your speed and accuracy and track your progress with Recharts. 
+                        This revamped version enahances the original typing test website using technologies I've recently learned.`,
+    projectTechnologyList: [
+      { name: "React", link: "https://react.dev" },
+      { name: "Next.js", link: "https://nextjs.org" },
+      { name: "Typescript", link: "https://www.typescriptlang.org" },
+      { name: "Tailwind", link: "https://tailwindcss.com" },
+      { name: "Shadcn", link: "https://ui.shadcn.com" },
+      { name: "Recharts", link: "https://recharts.org" },
+    ],
+    projectGithubLink: "https://github.com/LeightonGuang/typing_test_react_app",
+    projectLink: "https://thenexttyper.netlify.app",
+  },
+  {
     projectName: "Valo Bunker",
     projectImgUrlList: [
       {
