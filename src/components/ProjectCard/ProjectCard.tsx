@@ -1,6 +1,6 @@
 import "./ProjectCard.scss";
 import ImageGallery from "../ImageGallery/ImageGallery";
-import { ExternalLinkSvg } from "../../assets/icons/Icons";
+import { ExternalLinkSvg } from "../../assets/icons/iconsSvg";
 
 interface ProjectType {
   projectName: string;
