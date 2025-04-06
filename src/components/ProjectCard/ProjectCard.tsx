@@ -64,7 +64,7 @@ function ProjectCard({ project }: { project: ProjectType }) {
               target="_blank"
             >
               <ExternalLinkSvg className="project-card__link-icon" />
-              Live Website
+              Link
             </a>
           )}
         </div>
