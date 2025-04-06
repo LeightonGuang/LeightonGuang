@@ -7,6 +7,38 @@ export const projectsData: {
   projectLink?: string;
 }[] = [
   {
+    projectName: "Stream Track",
+    projectImgUrlList: [
+      {
+        imageUrl:
+          "https://github.com/LeightonGuang/Stream-Track/raw/main/src/assets/screenshots/streamTrackThumbnail.jpg",
+        imageAlt: "Popup",
+      },
+      {
+        imageUrl:
+          "https://github.com/LeightonGuang/Stream-Track/raw/main/src/assets/screenshots/streamTrackAll.jpg",
+        imageAlt: "Stream preview",
+      },
+      {
+        imageUrl:
+          "https://github.com/LeightonGuang/Stream-Track/raw/main/src/assets/screenshots/streamTrackChrome.jpg",
+        imageAlt: "Chrome example",
+      },
+    ],
+    projectDescription:
+      "Stream Track is a Chrome extension that helps Twitch users track the live streaming status of their followed streamers. It provides a convenient way to stay updated on the streaming activities of your favorite streamers.",
+    projectTechnologyList: [
+      { name: "React", link: "https://react.dev/" },
+      { name: "TypeScript", link: "https://www.typescriptlang.org/" },
+      { name: "Vite", link: "https://vitejs.dev/" },
+      { name: "Tailwindcss", link: "https://tailwindcss.com/" },
+      { name: "Axios", link: "https://axios-http.com/" },
+    ],
+    projectGithubLink: "https://github.com/LeightonGuang/Stream-Track",
+    projectLink:
+      "https://chromewebstore.google.com/detail/stream-track/gefllgcgjeonfffgimbgfkpkpckhppdg",
+  },
+  {
     projectName: "The Next Typer",
     projectImgUrlList: [
       {
