@@ -26,7 +26,7 @@ function Header() {
   return (
     <div className="header">
       <div className="header__container">
-        <Link to={"/home"} className="header__logo">
+        <Link to={"/"} className="header__logo">
           <motion.img
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
