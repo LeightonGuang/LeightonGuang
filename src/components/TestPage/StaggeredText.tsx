@@ -10,7 +10,7 @@ const StaggeredText = () => {
       whileHover="hovered"
     >
       <motion.div
-        className="p-2"
+        className="p-2 text-black"
         variants={{
           initial: { y: 0 },
           hovered: { y: "-100%" },
@@ -20,7 +20,7 @@ const StaggeredText = () => {
       </motion.div>
 
       <motion.div
-        className="absolute inset-0 p-2"
+        className="absolute inset-0 p-2 text-white"
         variants={{ initial: { y: "100%" }, hovered: { y: 0 } }}
       >
         {name}

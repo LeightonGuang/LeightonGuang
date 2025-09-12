@@ -18,20 +18,20 @@ const StaggeredLetters = () => {
               initial: { y: 0 },
               hovered: { y: "-150%" },
             }}
-            transition={{ delay: i / 15 }}
+            transition={{ delay: i / 20 }}
           >
             {letter}
           </motion.span>
         ))}
       </div>
 
-      <div className="absolute inset-0 p-2">
+      <div className="absolute inset-0 p-2 text-white">
         {name.split("").map((letter, i) => (
           <motion.span
             key={i}
             className="inline-block"
             variants={{ initial: { y: "150%" }, hovered: { y: 0 } }}
-            transition={{ delay: i / 15 }}
+            transition={{ delay: i / 20 }}
           >
             {letter}
           </motion.span>
