@@ -1,113 +1,115 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { motion, useMotionValue } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import BusinessCard from "@/components/CardPage/BusinessCard";
+import { motion, useMotionValue, animate } from "framer-motion";
+import HoverOutline from "@/components/BusinessCardPage/HoverOutline";
 
 const BusinessCardPage = () => {
   const router = useRouter();
-  const [isCentered, setIsCentered] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
+  const [isHoveringInSnap, setIsHoveringInSnap] = useState(false);
+  const [isSnapped, setIsSnapped] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const snapRef = useRef<HTMLDivElement>(null);
   const constraintRef = useRef<HTMLDivElement>(null);
 
-  const cardPos = {
-    x: useMotionValue(0),
-    y: useMotionValue(0),
-  };
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
   useEffect(() => {
-    const checkCenter = (boxX: number, boxY: number): boolean => {
-      if (!snapRef.current || !constraintRef.current) return false;
-
-      const cardWidth = 400;
-      const cardHeight = 228.56;
-
-      // Box center position
-      const boxCenterX = boxX + cardWidth / 2;
-      const boxCenterY = boxY + cardHeight / 2;
+    const updateSnap = () => {
+      if (!snapRef.current || !constraintRef.current || !cardRef.current)
+        return;
 
       const snapRect = snapRef.current.getBoundingClientRect();
       const constraintRect = constraintRef.current.getBoundingClientRect();
+      const cardRect = cardRef.current.getBoundingClientRect();
 
-      // Center position relative to constraint container
-      const centerX = snapRect.left - constraintRect.left + snapRect.width / 2;
-      const centerY = snapRect.top - constraintRect.top + snapRect.height / 2;
+      const cardCenterX = cardRect.left + cardRect.width / 2;
+      const cardCenterY = cardRect.top + cardRect.height / 2;
 
-      // Check overlap
-      const isOverX = Math.abs(boxCenterX - centerX) < snapRect.width / 2;
-      const isOverY = Math.abs(boxCenterY - centerY) < snapRect.height / 2;
+      // Calculate snap zone boundaries relative to constraint container
+      const snapTop = snapRect.top - constraintRect.top;
+      const snapLeft = snapRect.left - constraintRect.left;
+      const snapRight = snapRect.right - constraintRect.left;
+      const snapBottom = snapRect.bottom - constraintRect.top;
 
-      const isHovering = isOverX && isOverY;
+      // Check if card center is within snap zone
+      const isInside =
+        cardCenterY >= snapTop &&
+        cardCenterX >= snapLeft &&
+        cardCenterX <= snapRight &&
+        cardCenterY <= snapBottom;
 
-      // snaps card to center if hovering
-      if (isHovering) {
-        cardPos.x.set(centerX - cardWidth / 2);
-        cardPos.y.set(centerY - cardHeight / 2);
-      }
-
-      return isHovering;
+      setIsHoveringInSnap((prev) => (prev !== isInside ? isInside : prev));
     };
 
-    const updatePos = () => {
-      const x = cardPos.x.get();
-      const y = cardPos.y.get();
-
-      setIsCentered(checkCenter(x, y));
-    };
-
-    const unsubX = cardPos.x.on("change", updatePos);
-    const unsubY = cardPos.y.on("change", updatePos);
+    const unsubX = x.on("change", updateSnap);
+    const unsubY = y.on("change", updateSnap);
 
     return () => {
       unsubX();
       unsubY();
     };
-  }, []);
+  }, [x, y]);
 
   const handleDragEnd = () => {
-    setIsDragging(false);
-  };
+    // Check if card is within the snap zone when dropped
+    if (isHoveringInSnap && !isSnapped) {
+      setIsSnapped(true);
 
-  useEffect(() => {
-    if (isCentered && !isDragging) {
-      setTimeout(() => router.push("/home"), 800);
+      const cardRect = cardRef.current?.getBoundingClientRect();
+      const constraintRect = constraintRef.current?.getBoundingClientRect();
+
+      if (!constraintRect || !cardRect) return;
+      // Animate to center position
+      animate(x, 0, {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      });
+
+      animate(y, 0, {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      });
+
+      setTimeout(() => {
+        router.push("/home");
+      }, 1000);
     }
-  }, [isCentered, isDragging]);
+  };
 
   return (
     <main className="flex h-dvh w-full">
-      <div className="relative flex h-full w-full overflow-hidden bg-[#1b1b1d]">
+      <div
+        className="relative flex h-full w-full items-center justify-center overflow-hidden bg-[#1b1b1d]"
+        ref={constraintRef}
+      >
         {/* #7696af */}
-        <div
-          className="pointer-events-none absolute inset-0 flex items-center justify-center"
-          ref={constraintRef}
-        >
-          <motion.div
-            className={`flex aspect-[1.75] w-[25rem] items-center justify-center rounded-md outline-1 outline-offset-8 ${isCentered ? "outline-green-400" : "outline-white"}`}
-            ref={snapRef}
-            animate={{ scale: isCentered ? 1.05 : 1 }}
-          ></motion.div>
-        </div>
+        <motion.div className={`absolute`} ref={snapRef}>
+          <HoverOutline
+            // 40px for dotSize of 10px * 4
+            className={`h-[calc(25rem/1.75+40px)] w-[calc(25rem+40px)]`}
+            isHoveringInSnap={isHoveringInSnap}
+          />
+        </motion.div>
+
         <motion.div
-          className="absolute hover:cursor-grab active:cursor-grabbing"
+          className={`absolute flex ${isSnapped ? "cursor-default" : "hover:cursor-grab active:cursor-grabbing"}`}
           ref={cardRef}
-          drag
+          drag={!isSnapped}
           dragElastic={0.5}
-          onDragStart={() => setIsDragging(true)}
           onDragEnd={handleDragEnd}
           dragConstraints={constraintRef}
-          whileTap={{ rotate: -2, scale: 1.1 }}
-          style={{ x: cardPos.x, y: cardPos.y }}
-          animate={
-            isCentered && { x: cardPos.x.get(), y: cardPos.y.get(), rotate: 0 }
-          }
+          whileTap={!isSnapped ? { rotate: 0, scale: 1.1 } : {}}
+          style={{ x, y }}
           transition={{
             type: "spring",
-            stiffness: 200,
-            damping: 25,
+            stiffness: 1500,
+            damping: 150,
             duration: 0.6,
           }}
         >
