@@ -17,52 +17,11 @@ const BusinessCardPage = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  useEffect(() => {
-    const updateSnap = () => {
-      if (!snapRef.current || !constraintRef.current || !cardRef.current)
-        return;
-
-      const snapRect = snapRef.current.getBoundingClientRect();
-      const constraintRect = constraintRef.current.getBoundingClientRect();
-      const cardRect = cardRef.current.getBoundingClientRect();
-
-      const cardCenterX = cardRect.left + cardRect.width / 2;
-      const cardCenterY = cardRect.top + cardRect.height / 2;
-
-      // Calculate snap zone boundaries relative to constraint container
-      const snapTop = snapRect.top - constraintRect.top;
-      const snapLeft = snapRect.left - constraintRect.left;
-      const snapRight = snapRect.right - constraintRect.left;
-      const snapBottom = snapRect.bottom - constraintRect.top;
-
-      // Check if card center is within snap zone
-      const isInside =
-        cardCenterY >= snapTop &&
-        cardCenterX >= snapLeft &&
-        cardCenterX <= snapRight &&
-        cardCenterY <= snapBottom;
-
-      setIsHoveringInSnap((prev) => (prev !== isInside ? isInside : prev));
-    };
-
-    const unsubX = x.on("change", updateSnap);
-    const unsubY = y.on("change", updateSnap);
-
-    return () => {
-      unsubX();
-      unsubY();
-    };
-  }, [x, y]);
-
   const handleDragEnd = () => {
     // Check if card is within the snap zone when dropped
     if (isHoveringInSnap && !isSnapped) {
       setIsSnapped(true);
 
-      const cardRect = cardRef.current?.getBoundingClientRect();
-      const constraintRect = constraintRef.current?.getBoundingClientRect();
-
-      if (!constraintRect || !cardRect) return;
       // Animate to center position
       animate(x, 0, {
         type: "spring",
@@ -82,39 +41,96 @@ const BusinessCardPage = () => {
     }
   };
 
+  useEffect(() => {
+    const updateSnap = () => {
+      if (!snapRef.current || !constraintRef.current || !cardRef.current)
+        return;
+
+      const snapRect = snapRef.current.getBoundingClientRect();
+      const constraintRect = constraintRef.current.getBoundingClientRect();
+
+      // constraint center position
+      const constraintCenterX = constraintRect.left + constraintRect.width / 2;
+      const constraintCenterY = constraintRect.top + constraintRect.height / 2;
+
+      // card center position
+      const cardCenterX = constraintCenterX + x.get();
+      const cardCenterY = constraintCenterY + y.get();
+
+      // Check if card center is within snap zone
+      const isInside =
+        cardCenterY >= snapRect.top &&
+        cardCenterX >= snapRect.left &&
+        cardCenterX <= snapRect.right &&
+        cardCenterY <= snapRect.bottom;
+
+      setIsHoveringInSnap((prev) => (prev !== isInside ? isInside : prev));
+    };
+
+    const unsubX = x.on("change", updateSnap);
+    const unsubY = y.on("change", updateSnap);
+
+    return () => {
+      unsubX();
+      unsubY();
+    };
+  }, [x, y]);
+
+  useEffect(() => {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    const cardRect = cardRef.current?.getBoundingClientRect();
+
+    if (!cardRect) return;
+    // Generate random position for business card
+    // -0.5 for getting a random number between -0.5 and 0.5
+    const randomX = (Math.random() - 0.5) * (viewportWidth - cardRect.width);
+    const randomY = (Math.random() - 0.5) * (viewportHeight - cardRect.height);
+
+    x.set(randomX);
+    y.set(randomY);
+  }, []);
+
   return (
     <main className="flex h-dvh w-full">
       <div
-        className="relative flex h-full w-full items-center justify-center overflow-hidden bg-[#1b1b1d]"
+        className="relative flex h-full w-full overflow-hidden bg-[#1b1b1d]"
         ref={constraintRef}
       >
         {/* #7696af */}
-        <motion.div className={`absolute`} ref={snapRef}>
-          <HoverOutline
-            // 40px for dotSize of 10px * 4
-            className={`h-[calc(25rem/1.75+40px)] w-[calc(25rem+40px)]`}
-            isHoveringInSnap={isHoveringInSnap}
-          />
-        </motion.div>
+        <div className="pointer-events-none absolute flex h-full w-full items-center justify-center">
+          <motion.div className={`absolute`} ref={snapRef}>
+            <HoverOutline
+              // 40px for dotSize of 10px * 4
+              className={`h-[calc(25rem/1.75+40px)] w-[calc(25rem+40px)]`}
+              isHoveringInSnap={isHoveringInSnap}
+            />
+          </motion.div>
+        </div>
 
-        <motion.div
-          className={`absolute flex ${isSnapped ? "cursor-default" : "hover:cursor-grab active:cursor-grabbing"}`}
-          ref={cardRef}
-          drag={!isSnapped}
-          dragElastic={0.5}
-          onDragEnd={handleDragEnd}
-          dragConstraints={constraintRef}
-          whileTap={!isSnapped ? { rotate: 0, scale: 1.1 } : {}}
-          style={{ x, y }}
-          transition={{
-            type: "spring",
-            stiffness: 1500,
-            damping: 150,
-            duration: 0.6,
-          }}
+        <div
+          className={`absolute flex h-full w-full items-center justify-center ${isSnapped ? "cursor-default" : "hover:cursor-grab active:cursor-grabbing"}`}
         >
-          <BusinessCard />
-        </motion.div>
+          <motion.div
+            className={`absolute flex ${isSnapped ? "cursor-default" : "hover:cursor-grab active:cursor-grabbing"}`}
+            ref={cardRef}
+            drag={!isSnapped}
+            dragElastic={0.5}
+            onDragEnd={handleDragEnd}
+            dragConstraints={constraintRef}
+            whileTap={!isSnapped ? { rotate: 0, scale: 1.1 } : {}}
+            style={{ x, y }}
+            transition={{
+              type: "spring",
+              stiffness: 1500,
+              damping: 150,
+              duration: 0.6,
+            }}
+          >
+            <BusinessCard />
+          </motion.div>
+        </div>
       </div>
     </main>
   );
