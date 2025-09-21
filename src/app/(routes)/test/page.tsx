@@ -9,6 +9,8 @@ import CardFlip from "@/components/TestPage/CardFlip";
 import DragContraint from "@/components/TestPage/DragContraint";
 import KeyframeShapeShift from "@/components/TestPage/KeyframeShapeShift";
 import BurgerSnap from "@/components/TestPage/BurgerSnap";
+import Translate from "@/components/TestPage/Translate";
+import MagneticEffect from "@/components/TestPage/MagneticEffect";
 
 const TestPage = () => {
   const backgroundColours = ["#79eca1", "#db79ec", "#ec798b", "#45a0e6"];
@@ -37,14 +39,16 @@ const TestPage = () => {
       element: <KeyframeShapeShift />,
     },
     { title: "Burger Snap", element: <BurgerSnap /> },
+    { title: "Translate", element: <Translate /> },
+    { title: "Magnetic Effect", element: <MagneticEffect /> },
   ];
 
   return (
-    <section className="h-full w-full p-2">
+    <section className="h-dvh w-full p-2">
       <h1 className="text-2xl font-bold">Framer Motion Testing Ground</h1>
 
       <div className="flex w-full justify-center">
-        <div className="sm:grid-col-2 mt-8 grid w-max place-items-center gap-4 md:grid-cols-3">
+        <div className="sm:grid-col-2 my-8 grid w-max place-items-center gap-4 md:grid-cols-3">
           {elementList.map((data, i) => (
             <div key={i} className="flex flex-col gap-2">
               <div
