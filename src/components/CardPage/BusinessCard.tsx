@@ -1,23 +1,14 @@
-import Link from "next/link";
 import Image from "next/image";
-import { motion, MotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 
 import {
-  ArrowRightSvg,
   GithubIconSvg,
   LocationPinSvg,
   LinkedinIconSvg,
 } from "@/assets/icons/businessCardIcons";
 import memoji from "../../assets/Leighton-memoji.png";
 
-const BusinessCard = ({
-  lagX,
-  lagY,
-  ...props
-}: {
-  lagX: MotionValue;
-  lagY: MotionValue;
-} & React.HTMLAttributes<HTMLDivElement>) => {
+const BusinessCard = ({ ...props }: React.HTMLAttributes<HTMLDivElement>) => {
   const tech = [
     "React",
     "Typescript",
@@ -29,7 +20,7 @@ const BusinessCard = ({
 
   const Techlabel = ({ tech }: { tech: string }) => (
     <div
-      className="flex h-[1.125rem] w-min bg-[#dceaff] px-2 text-[0.75rem] font-medium text-[#1e40af]"
+      className="flex h-[0.875rem] w-min bg-[#dceaff] px-1 text-[0.625rem] font-medium text-[#1e40af] lg:h-[1.125rem] lg:px-2 lg:text-[0.75rem]"
       style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d" }}
     >
       {tech}
@@ -38,27 +29,22 @@ const BusinessCard = ({
 
   return (
     <div
-      {...props}
-      className="flex aspect-[1.75] w-[25rem] rounded-xs border-b-[0.2rem] border-[#48c7f1] bg-[#f0f0f0] p-4 shadow-lg hover:cursor-grab active:cursor-grabbing"
+      className={`flex aspect-[1.75] rounded-xs bg-[#f0f0f0] p-4 shadow-lg ${props.className}`}
     >
       <div className="flex w-full flex-col justify-between">
         <div className="flex justify-between">
           <div>
             <motion.h1
-              className="text-2xl font-bold"
+              className="text-xl font-bold lg:text-2xl"
               initial={{ scale: 2, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, type: "spring" }}
-              style={{
-                x: lagX ? lagX.get() * 0.2 : 0,
-                y: lagY ? lagY.get() * 0.2 : 0,
-              }}
             >
               Leighton Guang
             </motion.h1>
 
             <motion.h2
-              className="text-md text-[#2b4b76]"
+              className="text-sm text-[#2b4b76] lg:text-base"
               initial={{ scale: 2, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.5, type: "spring" }}
@@ -67,15 +53,16 @@ const BusinessCard = ({
             </motion.h2>
 
             <motion.h3
-              className="flex items-center gap-1 overflow-hidden text-sm text-[#6b7280]"
+              className="flex items-center gap-1 overflow-hidden text-xs text-[#6b7280] lg:text-sm"
               initial={{ y: "-5dvh", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.5, type: "spring" }}
             >
-              <LocationPinSvg className="h-3.5 w-3.5" /> London, UK
+              <LocationPinSvg className="h-2.5 w-2.5 lg:h-3.5 lg:w-3.5" />{" "}
+              London, UK
             </motion.h3>
 
-            <div className="mt-2 flex w-52 flex-wrap gap-1 overflow-hidden">
+            <div className="mt-1 flex w-52 flex-wrap gap-0.5 overflow-hidden lg:mt-2 lg:gap-1">
               {tech.map((tech, i) => (
                 <motion.div
                   key={tech}
@@ -103,7 +90,7 @@ const BusinessCard = ({
             whileHover={{ rotate: 10, scale: 2 }}
           >
             <Image
-              className="h-16 w-16"
+              className="h-12 w-12 lg:h-16 lg:w-16"
               src={memoji}
               alt="memoji"
               draggable={false}
@@ -111,7 +98,7 @@ const BusinessCard = ({
           </motion.div>
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-end justify-between">
           <div className="flex items-center gap-2">
             <a
               className="cursor-pointer"
@@ -134,30 +121,6 @@ const BusinessCard = ({
               leighton.guang@icloud.com
             </a>
           </div>
-
-          <motion.a
-            className="flex cursor-pointer items-center justify-center rounded-full bg-[#2563eb] p-3 text-white"
-            href={"/home"}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.4, bounce: 0.5, type: "spring" }}
-            whileHover={{
-              scale: 1.2,
-              transition: {
-                duration: 0.5,
-                type: "spring",
-                stiffness: 300,
-                damping: 20,
-              },
-            }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <div className="h-4 w-4 overflow-hidden">
-              <motion.div whileHover={{ x: "1rem" }}>
-                <ArrowRightSvg className="h-4 w-4 text-white" />
-              </motion.div>
-            </div>
-          </motion.a>
         </div>
       </div>
     </div>
