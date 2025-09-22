@@ -1,7 +1,17 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 
-const Magnetic = ({ children }: { children: React.ReactNode }) => {
+const Magnetic = ({
+  children,
+  stiffness = 150,
+  damping = 15,
+  mass = 0.1,
+}: {
+  children: React.ReactNode;
+  stiffness?: number;
+  damping?: number;
+  mass?: number;
+}) => {
   const magnetRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
@@ -32,7 +42,12 @@ const Magnetic = ({ children }: { children: React.ReactNode }) => {
         x: pos.x,
         y: pos.y,
       }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      transition={{
+        type: "spring",
+        stiffness,
+        damping,
+        mass,
+      }}
     >
       {children}
     </motion.div>
