@@ -1,4 +1,4 @@
-export const LocationPinSvg = ({ ...props }) => (
+export const LocationPinSvg = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="100%"
     height="100%"
@@ -24,7 +24,7 @@ export const LocationPinSvg = ({ ...props }) => (
   </svg>
 );
 
-export const LinkedinIconSvg = ({ ...props }) => (
+export const LinkedinIconSvg = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
@@ -44,7 +44,7 @@ export const LinkedinIconSvg = ({ ...props }) => (
   </svg>
 );
 
-export const GithubIconSvg = ({ ...props }) => (
+export const GithubIconSvg = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="20"
@@ -63,7 +63,7 @@ export const GithubIconSvg = ({ ...props }) => (
   </svg>
 );
 
-export const ArrowRightSvg = ({ ...props }) => (
+export const ArrowRightSvg = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="100%"
     height="100%"
