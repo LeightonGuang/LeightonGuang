@@ -1,19 +1,10 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: "Urbanist";
-  font-weight: 100;
-  font-style: normal;
-  src: url("../assets/fonts/Urbanist-Thin.ttf");
-}
-
-@font-face {
-  font-family: "Urbanist";
-  font-weight: 200;
-  font-style: normal;
-  src: url("../assets/fonts/Urbanist-ExtraLight.ttf");
-}
-
 * {
   box-sizing: border-box;
+}
+
+@theme {
+  --color-light-background: #f2f2f2;
+  --color-react: #61dafb;
 }
