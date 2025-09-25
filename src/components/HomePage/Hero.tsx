@@ -1,20 +1,29 @@
 "use client";
 
 import Magnetic from "../Magnetic";
-import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { motion, MotionValue, useTransform } from "framer-motion";
 import AnimatedReactLogo from "./AnimatedReactLogo";
 
 import { ArrowRightSvg } from "@/assets/icons/businessCardIcons";
 
-const Hero = () => {
+const Hero = ({
+  scrollYProgress,
+}: {
+  scrollYProgress: MotionValue<number>;
+}) => {
   const delay = 0.5;
   const logoDuration = 4;
 
   const router = useRouter();
 
+  const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+
   return (
-    <div className="bg-light-background relative flex h-full w-full items-center justify-center overflow-hidden">
+    <motion.section
+      className="bg-light-background sticky top-0 flex h-dvh w-full items-center justify-center overflow-hidden"
+      style={{ scale: sectionScale }}
+    >
       <div className="flex h-full w-full justify-center">
         <motion.div
           className="flex"
@@ -34,7 +43,7 @@ const Hero = () => {
           </Magnetic>
         </motion.div>
 
-        <div className="absolute top-10 left-10 flex items-center gap-4">
+        <div className="absolute top-8 left-8 flex flex-col items-start gap-4 lg:top-10 lg:left-10 lg:flex-row lg:items-center">
           <button
             className="cursor-pointer"
             onClick={() => {
@@ -43,7 +52,7 @@ const Hero = () => {
           >
             <Magnetic damping={25}>
               <ArrowRightSvg
-                className="hover:text-react h-12 w-12 text-[#e0e0e0]"
+                className="hover:text-react h-8 w-8 text-[#e0e0e0]"
                 style={{ rotate: "180deg" }}
               />
             </Magnetic>
@@ -63,7 +72,7 @@ const Hero = () => {
           </motion.span>
         </div>
 
-        <div className="absolute bottom-15 left-20 text-9xl font-medium select-none">
+        <div className="absolute bottom-[6rem] left-4 text-5xl font-medium select-none lg:bottom-15 lg:left-20 lg:text-9xl">
           <motion.div
             className="flex items-end text-[#fdfdfd] mix-blend-difference"
             initial="initial"
@@ -88,13 +97,13 @@ const Hero = () => {
             ))}
 
             <Magnetic>
-              <div className="h-8 w-8 rounded-full bg-[#a34528]" />
+              <div className="h-4 w-4 rounded-full bg-[#a34528] lg:h-6 lg:w-6" />
             </Magnetic>
           </motion.div>
         </div>
 
         <motion.div
-          className="absolute top-4/9 right-10 flex flex-col items-end text-2xl font-medium text-[#e0e0e0] mix-blend-difference select-none"
+          className="absolute right-4 bottom-1/3 flex flex-col items-end text-2xl font-normal text-[#e0e0e0] mix-blend-difference select-none lg:top-4/9 lg:right-[2rem]"
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
@@ -113,7 +122,7 @@ const Hero = () => {
           </span>
         </motion.div>
       </div>
-    </div>
+    </motion.section>
   );
 };
 
