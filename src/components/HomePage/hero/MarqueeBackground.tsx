@@ -22,7 +22,7 @@ const MappedWords = ({
     {words.map((word, index) => (
       <motion.span
         key={index}
-        className="pr-8 text-[25dvh] leading-none font-black text-[#cbd4e1]"
+        className="pr-8 text-[25dvh] leading-[0.8] font-black text-[#cbd4e1]"
       >
         {word}
       </motion.span>
@@ -64,8 +64,8 @@ const MarqueeBackground = () => {
   const duration = 120;
 
   return (
-    <div className="bg-light-background absolute inset-0 h-dvh w-full">
-      <div className="flex flex-col overflow-hidden">
+    <div className="bg-light-background absolute inset-0 flex h-dvh w-full items-center">
+      <div className="flex flex-col overflow-hidden" style={{ scale: 1.25 }}>
         <ScrollAnimation
           directions="left"
           words={words.slice(0, 3)}
