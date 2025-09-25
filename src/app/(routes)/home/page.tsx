@@ -1,12 +1,20 @@
 "use client";
 
-import Hero from "@/components/HomePage/Hero";
 import Lenis from "lenis";
-import { useEffect } from "react";
+import { useScroll } from "motion/react";
+import { useEffect, useRef } from "react";
+import Hero from "@/components/HomePage/Hero";
+import Introduction from "@/components/HomePage/Introduction";
 
 const HomePage = () => {
+  const mainRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: mainRef,
+    offset: ["start start", "end end"],
+  });
+
   useEffect(() => {
-    const lenis = new Lenis();
+    const lenis = new Lenis({ lerp: 0.1 });
 
     const raf = (time: any) => {
       lenis.raf(time);
@@ -17,8 +25,9 @@ const HomePage = () => {
   }, []);
 
   return (
-    <main className="h-full w-full">
-      <Hero />
+    <main className="relative h-[200dvh] w-full bg-black" ref={mainRef}>
+      <Hero scrollYProgress={scrollYProgress} />
+      <Introduction scrollYProgress={scrollYProgress} />
       <div className="h-dvh">some projects</div>
     </main>
   );
