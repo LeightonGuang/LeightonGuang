@@ -3,7 +3,8 @@
 import Lenis from "lenis";
 import { useScroll } from "motion/react";
 import { useEffect, useRef } from "react";
-import Hero from "@/components/HomePage/Hero";
+import Hero from "@/components/HomePage/hero/Hero";
+import Projects from "@/components/HomePage/Projects";
 import Introduction from "@/components/HomePage/Introduction";
 
 const HomePage = () => {
@@ -28,7 +29,8 @@ const HomePage = () => {
     <main className="relative h-[200dvh] w-full bg-black" ref={mainRef}>
       <Hero scrollYProgress={scrollYProgress} />
       <Introduction scrollYProgress={scrollYProgress} />
-      <div className="h-dvh">some projects</div>
+      <Projects />
+      <div className="flex h-dvh">something here </div>
     </main>
   );
 };
