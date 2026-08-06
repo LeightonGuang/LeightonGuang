@@ -1,0 +1,39 @@
+---
+import '../styles/global.css'
+
+interface Props {
+	title?: string
+	description?: string
+}
+
+const { title = 'Leighton Guang', description = '' } = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title === 'Leighton Guang' ? title : `${title} | Leighton Guang`}</title>
+		<meta name="description" content={description} />
+		<script is:inline>
+			const getTheme = () => {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+					return localStorage.getItem('theme')
+				}
+				return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+			}
+			if (getTheme() === 'dark') {
+				document.documentElement.classList.add('dark')
+			} else {
+				document.documentElement.classList.remove('dark')
+			}
+		</script>
+	</head>
+
+	<body>
+		<slot />
+	</body>
+</html>
