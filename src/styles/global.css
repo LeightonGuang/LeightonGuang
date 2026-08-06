@@ -9,7 +9,7 @@ button {
 }
 
 :root {
-	--color-background: oklch(0.90 0.04 300);
+	--color-background: oklch(0.9 0.04 300);
 	--color-text: oklch(0.2 0 0);
 	--color-nav-bg: oklch(0.97 0 0 / 0.8);
 	--color-nav-border: oklch(0.9 0 0);
@@ -17,8 +17,8 @@ button {
 }
 
 .dark {
-	--color-background: oklch(41.267% 0.11548 316.212);
-	--color-text: oklch(58.834% 0.2334 28.492);
+	--color-background: oklch(0.14 0.06 300);
+	--color-text: oklch(1 0 0);
 	--color-nav-bg: oklch(0.18 0 0 / 0.8);
 	--color-nav-border: oklch(0.25 0 0);
 	--color-nav-hover: oklch(0.22 0 0);
