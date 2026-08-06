@@ -69,7 +69,7 @@ const DragTestPage = () => {
 
   return (
     <main className="flex h-full w-full">
-      <motion.div className="relative flex h-full w-full overflow-hidden bg-blue-400">
+      <div className="relative flex h-full w-full overflow-hidden bg-blue-400">
         <div
           className="pointer-events-none absolute inset-0 flex items-center justify-center bg-orange-300"
           ref={constraintRef}
@@ -99,38 +99,10 @@ const DragTestPage = () => {
           dragConstraints={constraintRef}
           dragElastic={0.8}
           dragTransition={{ power: 0.1 }}
-          // onDragEnd={() => {
-          //   if (!snapRef.current || !constraintRef.current) return false;
-
-          //   const boxCenterX = boxPos.x.get() + boxSize / 2;
-          //   const boxCenterY = boxPos.y.get() + boxSize / 2;
-
-          //   const snapRect = snapRef.current.getBoundingClientRect();
-          //   const constraintRect =
-          //     constraintRef.current.getBoundingClientRect();
-
-          //   // Center position relative to constraint container
-          //   const centerX =
-          //     snapRect.left - constraintRect.left + snapRect.width / 2;
-          //   const centerY =
-          //     snapRect.top - constraintRect.top + snapRect.height / 2;
-
-          //   // Check overlap
-          //   const isOverX = Math.abs(boxCenterX - centerX) < snapRect.width / 2;
-          //   const isOverY =
-          //     Math.abs(boxCenterY - centerY) < snapRect.height / 2;
-
-          //   const isHovering = isOverX && isOverY;
-
-          //   if (isHovering) {
-          //     boxPos.x.set(centerX - boxSize / 2);
-          //     boxPos.y.set(centerY - boxSize / 2);
-          //   }
-          // }}
           ref={boxRef}
           whileTap={{ scale: 1.1, rotate: -2 }}
         />
-      </motion.div>
+      </div>
 
       <div className="pointer-events-none absolute flex gap-2 rounded bg-black/70 p-2 font-medium text-white">
         <span>x: {displayPos.x.toFixed(1)}</span>

@@ -2,7 +2,7 @@ import { motion, MotionProps } from "framer-motion";
 
 const Dot = ({ dotSize, ...props }: MotionProps & { dotSize: number }) => (
   <motion.div
-    className={`border-none bg-white shadow-none outline-none`}
+    className={`border-none bg-[#313131] shadow-none outline-none`}
     initial={{ x: 0, y: 0 }}
     transition={{ duration: 0.5, type: "spring" }}
     style={{ width: dotSize, height: dotSize }}
@@ -28,8 +28,11 @@ const HoverOutline = ({
           <motion.div
             className="grid grid-cols-2 grid-rows-2"
             animate={{
-              x: isHoveringInSnap ? -dotSize : 0,
-              y: isHoveringInSnap ? -dotSize : 0,
+              x: isHoveringInSnap ? -dotSize : [0, -dotSize, 0, -dotSize, 0],
+              y: isHoveringInSnap ? -dotSize : [0, -dotSize, 0, -dotSize, 0],
+              transition: isHoveringInSnap
+                ? {}
+                : { delay: 3, repeat: Infinity, duration: 1, repeatDelay: 3 },
             }}
           >
             <Dot dotSize={dotSize} />
@@ -48,8 +51,11 @@ const HoverOutline = ({
           <motion.div
             className="grid grid-cols-2 grid-rows-2"
             animate={{
-              x: isHoveringInSnap ? dotSize : 0,
-              y: isHoveringInSnap ? -dotSize : 0,
+              x: isHoveringInSnap ? dotSize : [0, dotSize, 0, dotSize, 0],
+              y: isHoveringInSnap ? -dotSize : [0, -dotSize, 0, -dotSize, 0],
+              transition: isHoveringInSnap
+                ? {}
+                : { delay: 3, repeat: Infinity, duration: 1, repeatDelay: 3 },
             }}
           >
             <Dot
@@ -70,8 +76,11 @@ const HoverOutline = ({
           <motion.div
             className="grid grid-cols-2 grid-rows-2"
             animate={{
-              x: isHoveringInSnap ? -dotSize : 0,
-              y: isHoveringInSnap ? dotSize : 0,
+              x: isHoveringInSnap ? -dotSize : [0, -dotSize, 0, -dotSize, 0],
+              y: isHoveringInSnap ? dotSize : [0, dotSize, 0, dotSize, 0],
+              transition: isHoveringInSnap
+                ? {}
+                : { delay: 3, repeat: Infinity, duration: 1, repeatDelay: 3 },
             }}
           >
             <Dot
@@ -90,8 +99,11 @@ const HoverOutline = ({
           <motion.div
             className="grid grid-cols-2 grid-rows-2"
             animate={{
-              x: isHoveringInSnap ? dotSize : 0,
-              y: isHoveringInSnap ? dotSize : 0,
+              x: isHoveringInSnap ? dotSize : [0, dotSize, 0, dotSize, 0],
+              y: isHoveringInSnap ? dotSize : [0, dotSize, 0, dotSize, 0],
+              transition: isHoveringInSnap
+                ? {}
+                : { delay: 3, repeat: Infinity, duration: 1, repeatDelay: 3 },
             }}
           >
             <DotPlaceholder />

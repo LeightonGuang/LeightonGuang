@@ -34,7 +34,7 @@ const Magnetic = ({
 
   return (
     <motion.div
-      className="cursor-pointer"
+      className="cursor-grabbing"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       ref={magnetRef}

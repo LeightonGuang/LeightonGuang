@@ -1,4 +1,6 @@
-export const ExternalLinkSvg = ({ ...props }) => (
+export const ExternalLinkSvg = ({
+  ...props
+}: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="100%"
     height="100%"

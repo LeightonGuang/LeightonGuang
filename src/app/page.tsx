@@ -95,7 +95,7 @@ const BusinessCardPage = () => {
   return (
     <main className="flex h-dvh w-full">
       <div
-        className="relative flex h-full w-full overflow-hidden bg-[#1b1b1d]"
+        className="bg-light-background relative flex h-full w-full overflow-hidden"
         ref={constraintRef}
       >
         {/* #7696af */}
@@ -103,7 +103,7 @@ const BusinessCardPage = () => {
           <motion.div className={`absolute`} ref={snapRef}>
             <HoverOutline
               // 40px for dotSize of 10px * 4
-              className={`h-[calc(25rem/1.75+40px)] w-[calc(25rem+40px)]`}
+              className={`h-[calc(20rem/1.75+40px)] w-[calc(20rem+40px)] lg:h-[calc(25rem/1.75+40px)] lg:w-[calc(25rem+40px)]`}
               isHoveringInSnap={isHoveringInSnap}
             />
           </motion.div>
@@ -121,6 +121,8 @@ const BusinessCardPage = () => {
             dragConstraints={constraintRef}
             whileTap={!isSnapped ? { rotate: 0, scale: 1.1 } : {}}
             style={{ x, y }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 1 } }}
             transition={{
               type: "spring",
               stiffness: 1500,
@@ -128,7 +130,7 @@ const BusinessCardPage = () => {
               duration: 0.6,
             }}
           >
-            <BusinessCard />
+            <BusinessCard className="w-[20rem] md:w-[24rem] lg:w-[25rem]" />
           </motion.div>
         </div>
       </div>

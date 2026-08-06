@@ -64,7 +64,7 @@ const Hero = ({
           </button>
 
           <motion.span
-            className="flex text-6xl font-medium text-[#fdfdfd] mix-blend-difference select-none"
+            className="flex text-2xl font-medium text-[#fdfdfd] mix-blend-difference select-none lg:text-6xl"
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
@@ -77,7 +77,7 @@ const Hero = ({
           </motion.span>
         </div>
 
-        <div className="absolute bottom-[6rem] left-4 text-5xl font-extrabold select-none lg:bottom-15 lg:left-15 lg:text-9xl">
+        <div className="absolute bottom-[6rem] left-4 text-[11vw] font-extrabold select-none lg:bottom-15 lg:left-15 lg:text-9xl">
           <motion.div
             className="flex items-end text-[#fdfdfd] mix-blend-difference"
             initial="initial"

@@ -1,7 +1,12 @@
 "use client";
 
+// @ts-ignore
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 import localFont from "next/font/local";
+
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const urbanist = localFont({
   src: [
@@ -58,10 +63,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [isBusinessCardPage, setIsBusinessCardPage] = useState(false);
+
+  const pathName = usePathname();
+
+  useEffect(() => {
+    setIsBusinessCardPage(pathName === "/");
+  }, [pathName]);
+
   return (
     <html lang="en" className={urbanist.className}>
-      <body>
+      <body className="relative">
+        {!isBusinessCardPage && (
+          <div className="fixed right-8 bottom-8 z-10 flex h-min w-max rounded-xl bg-[#fdfdfd] p-2 shadow-lg">
+            <Navbar />
+          </div>
+        )}
+
         <div className="flex h-dvh w-full">{children}</div>
+
+        <footer className="text-black">Footer</footer>
       </body>
     </html>
   );
