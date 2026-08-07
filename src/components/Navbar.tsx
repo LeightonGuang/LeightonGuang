@@ -1,9 +1,9 @@
+import clsx from 'clsx'
+import { twMerge } from 'tailwind-merge'
 import { Moon, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { twMerge } from 'tailwind-merge'
-import clsx from 'clsx'
 
-export default function ThemeToggle() {
+export const Navbar = () => {
 	const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
 	function applyTheme(theme: string) {
@@ -41,14 +41,30 @@ export default function ThemeToggle() {
 		)
 
 	return (
-		<button
-			onClick={toggleTheme}
-			className="hover:bg-nav-hover relative flex size-8 items-center justify-center rounded-full transition-colors"
-			aria-label="Toggle theme"
-		>
-			<Sun className={iconClass(theme !== 'dark')} />
+		<div className="fixed top-4 z-50 flex w-full items-center justify-between px-4">
+			<a className="" href="/">
+				LEIGHTON GUANG
+			</a>
 
-			<Moon className={iconClass(theme === 'dark')} />
-		</button>
+			<div className="flex items-center gap-4 text-sm">
+				<a href="https://www.linkedin.com/in/leighton-guang" target="_blank">
+					LINKEDIN
+				</a>
+
+				<a href="https://github.com/LeightonGuang" target="_blank">
+					GITHUB
+				</a>
+
+				<button
+					className="hover:bg-nav-hover relative flex size-5 items-center justify-center rounded-full transition-colors"
+					aria-label="Toggle theme"
+					data-cursor-target
+					onClick={toggleTheme}
+				>
+					<Sun className={iconClass(theme !== 'dark')} />
+					<Moon className={iconClass(theme === 'dark')} />
+				</button>
+			</div>
+		</div>
 	)
 }

@@ -1,6 +1,8 @@
 ---
-import Navbar from '../components/Navbar'
 import RootLayout from './RootLayout.astro'
+import { Navbar } from '../components/Navbar'
+import CustomCursor from '../components/CustomCursor'
+import SmoothScroll from '../components/SmoothScroll'
 
 interface Props {
 	title: string
@@ -11,9 +13,11 @@ const { title, description } = Astro.props
 ---
 
 <RootLayout title={title} description={description}>
-	<Navbar client:load />
+	<CustomCursor client:load />
+	<SmoothScroll client:load />
+	<main class="relative min-h-screen">
+		<Navbar client:load />
 
-	<main>
 		<slot />
 	</main>
 </RootLayout>
