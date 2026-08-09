@@ -36,7 +36,7 @@ export const Navbar = forwardRef<HTMLButtonElement, {}>((_, themeRef) => {
 	}, [])
 
 	return (
-		<div className="fixed top-4 z-50 flex w-full items-center justify-between px-4">
+		<nav className="fixed top-4 z-50 flex w-full items-center justify-between px-4">
 			<a href="/">LEIGHTON GUANG</a>
 
 			<div className="flex items-center gap-4 text-sm">
@@ -84,6 +84,6 @@ export const Navbar = forwardRef<HTMLButtonElement, {}>((_, themeRef) => {
 					</div>
 				</Magnetic>
 			</div>
-		</div>
+		</nav>
 	)
 })
