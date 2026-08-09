@@ -1,11 +1,11 @@
 ---
 import HomePage from '../components/home/Index'
-import LayoutWithNavbar from '../layouts/LayoutWithNavbar.astro'
+import RootLayout from '../layouts/RootLayout.astro'
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<LayoutWithNavbar title="Home" description="">
+<RootLayout title="Home" description="">
 	<!-- <Welcome /> -->
 	<HomePage client:load />
-</LayoutWithNavbar>
+</RootLayout>
