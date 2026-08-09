@@ -4,7 +4,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
 const CustomCursor = ({
 	themeButtonElement
 }: {
-	themeButtonElement: React.RefObject<HTMLDivElement | null>
+	themeButtonElement: React.RefObject<HTMLButtonElement | null>
 }) => {
 	const [isHoverThemeButton, setIsHoverThemeButton] = useState<boolean>(false)
 
@@ -23,9 +23,11 @@ const CustomCursor = ({
 		const { left, top, width, height } = themeButton.getBoundingClientRect()
 		const themeButtonCenter = { x: left + width / 2, y: top + height / 2 }
 
+		const distance = { x: clientX - themeButtonCenter.x, y: clientY - themeButtonCenter.y }
+
 		if (isHoverThemeButton) {
-			mouse.x.set(themeButtonCenter.x)
-			mouse.y.set(themeButtonCenter.y)
+			mouse.x.set(themeButtonCenter.x + distance.x * 0.1)
+			mouse.y.set(themeButtonCenter.y + distance.y * 0.1)
 		} else {
 			mouse.x.set(clientX)
 			mouse.y.set(clientY)

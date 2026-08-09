@@ -6,7 +6,7 @@ const PageLayout = ({
 	themeRef
 }: {
 	children: React.ReactNode
-	themeRef: React.RefObject<HTMLDivElement | null>
+	themeRef: React.RefObject<HTMLButtonElement | null>
 }) => {
 	return (
 		<SmoothScroll>

@@ -1,9 +1,12 @@
-import clsx from 'clsx'
-import { twMerge } from 'tailwind-merge'
+import Magnetic from './Magnetic'
 import { Moon, Sun } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { forwardRef, useEffect, useState } from 'react'
 
-export const Navbar = forwardRef<HTMLDivElement, {}>((_, themeRef) => {
+const MotionSun = motion.create(Sun)
+const MotionMoon = motion.create(Moon)
+
+export const Navbar = forwardRef<HTMLButtonElement, {}>((_, themeRef) => {
 	const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
 	function applyTheme(theme: string) {
@@ -32,12 +35,6 @@ export const Navbar = forwardRef<HTMLDivElement, {}>((_, themeRef) => {
 		applyTheme(initialTheme)
 	}, [])
 
-	const iconClass = (active: boolean) =>
-		twMerge(
-			'absolute size-4 transition-all duration-300',
-			active ? 'scale-100 opacity-100 blur-0' : 'scale-75 opacity-0 blur-sm'
-		)
-
 	return (
 		<div className="fixed top-4 z-50 flex w-full items-center justify-between px-4">
 			<a href="/">LEIGHTON GUANG</a>
@@ -51,16 +48,37 @@ export const Navbar = forwardRef<HTMLDivElement, {}>((_, themeRef) => {
 					GITHUB
 				</a>
 
-				<div className="pointer-events-none relative flex size-5 items-center justify-center">
-					<Sun className={iconClass(theme === 'light')} />
-					<Moon className={iconClass(theme === 'dark')} />
+				<Magnetic>
+					<div className="pointer-events-none relative flex size-5 items-center justify-center">
+						<AnimatePresence mode="wait" initial={false}>
+							{theme === 'light' ? (
+								<MotionMoon
+									key="moon"
+									className="absolute size-4"
+									initial={{ scale: 0.75, opacity: 0 }}
+									animate={{ scale: 1, opacity: 1 }}
+									exit={{ scale: 0.75, opacity: 0 }}
+									transition={{ duration: 0.2 }}
+								/>
+							) : (
+								<MotionSun
+									key="sun"
+									className="absolute size-4"
+									initial={{ scale: 0.75, opacity: 0 }}
+									animate={{ scale: 1, opacity: 1 }}
+									exit={{ scale: 0.75, opacity: 0 }}
+									transition={{ duration: 0.2 }}
+								/>
+							)}
+						</AnimatePresence>
 
-					<div
-						ref={themeRef}
-						onClick={toggleTheme}
-						className="pointer-events-auto absolute inset-0 cursor-pointer rounded-full transition-transform duration-300 hover:scale-[3]"
-					/>
-				</div>
+						<button
+							ref={themeRef}
+							onClick={toggleTheme}
+							className="pointer-events-auto absolute inset-0 cursor-pointer rounded-full transition-transform duration-300 hover:scale-[3]"
+						/>
+					</div>
+				</Magnetic>
 			</div>
 		</div>
 	)
