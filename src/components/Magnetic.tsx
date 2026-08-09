@@ -3,9 +3,10 @@ import { useRef, useState } from 'react'
 
 type MagneticProps = {
 	children: React.ReactNode
+	className?: string
 }
 
-const Magnetic = ({ children }: MagneticProps) => {
+const Magnetic = ({ children, className }: MagneticProps) => {
 	const ref = useRef<HTMLDivElement>(null)
 	const [position, setPosition] = useState({ x: 0, y: 0 })
 
@@ -29,6 +30,7 @@ const Magnetic = ({ children }: MagneticProps) => {
 
 	return (
 		<motion.div
+			className={className}
 			style={{ position: 'relative' }}
 			ref={ref}
 			onMouseMove={handleMouse}
