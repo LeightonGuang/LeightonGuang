@@ -40,13 +40,17 @@ export const Navbar = forwardRef<HTMLButtonElement, {}>((_, themeRef) => {
 			<a href="/">LEIGHTON GUANG</a>
 
 			<div className="flex items-center gap-4 text-sm">
-				<a href="https://www.linkedin.com/in/leighton-guang" target="_blank" rel="noreferrer">
-					LINKEDIN
-				</a>
+				<Magnetic>
+					<a href="https://www.linkedin.com/in/leighton-guang" target="_blank" rel="noreferrer">
+						LINKEDIN
+					</a>
+				</Magnetic>
 
-				<a href="https://github.com/LeightonGuang" target="_blank" rel="noreferrer">
-					GITHUB
-				</a>
+				<Magnetic>
+					<a href="https://github.com/LeightonGuang" target="_blank" rel="noreferrer">
+						GITHUB
+					</a>
+				</Magnetic>
 
 				<Magnetic>
 					<div className="pointer-events-none relative flex size-5 items-center justify-center">
@@ -75,7 +79,7 @@ export const Navbar = forwardRef<HTMLButtonElement, {}>((_, themeRef) => {
 						<button
 							ref={themeRef}
 							onClick={toggleTheme}
-							className="pointer-events-auto absolute inset-0 cursor-pointer rounded-full transition-transform duration-300 hover:scale-[3]"
+							className="pointer-events-auto absolute inset-0 cursor-pointer rounded-full transition-transform duration-300 hover:scale-[3] hover:cursor-none!"
 						/>
 					</div>
 				</Magnetic>
