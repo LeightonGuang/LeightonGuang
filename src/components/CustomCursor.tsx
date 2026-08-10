@@ -6,6 +6,7 @@ type CursorTarget =
 	| 'linkedin'
 	| 'github'
 	| 'theme'
+	| 'card-dvd'
 	| 'project-row'
 	| 'project-site'
 	| 'project-github'
@@ -24,8 +25,9 @@ const CustomCursor = () => {
 	const isHome = activeTarget === 'home'
 	const isTheme = activeTarget === 'theme'
 	const isNavLink = activeTarget === 'linkedin' || activeTarget === 'github'
-	const isProjectLink = activeTarget === 'project-site' || activeTarget === 'project-github'
+	const isCardDvd = activeTarget === 'card-dvd'
 	const isProjectRow = activeTarget === 'project-row'
+	const isProjectLink = activeTarget === 'project-site' || activeTarget === 'project-github'
 
 	const cursorSize = 20
 
@@ -131,15 +133,16 @@ const CustomCursor = () => {
 			style={{ left: smoothMouseX, top: smoothMouseY, translateX: '-50%', translateY: '-50%' }}
 			animate={{
 				width:
-					isHome || isNavLink || isProjectLink || isProjectRow
+					isHome || isNavLink || isCardDvd || isProjectLink || isProjectRow
 						? targetDimensions.width
 						: cursorSize,
 				height:
-					isHome || isNavLink || isProjectLink || isProjectRow
+					isHome || isNavLink || isCardDvd || isProjectLink || isProjectRow
 						? targetDimensions.height
 						: cursorSize,
-				borderRadius: isHome || isNavLink ? 4 : isProjectLink ? 9999 : isProjectRow ? 2 : 10,
-				scale: isTheme ? 1.5 : isNavLink ? 1.25 : isHome ? 1.1 : 1
+				borderRadius:
+					isHome || isNavLink ? 4 : isProjectLink ? 9999 : isProjectRow || isCardDvd ? 2 : 10,
+				scale: isTheme ? 1.5 : isNavLink ? 1.25 : isHome ? 1.1 : isCardDvd ? 1.05 : 1
 			}}
 			transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
 		/>
