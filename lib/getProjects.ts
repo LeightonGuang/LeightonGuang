@@ -58,7 +58,14 @@ export function getProjects(): Project[] {
 			date: '2024-03',
 			url: 'https://chromewebstore.google.com/detail/stream-track-track-your-f/gefllgcgjeonfffgimbgfkpkpckhppdg',
 			github: 'https://github.com/LeightonGuang/Stream-Track',
-			technologies: [],
+			technologies: [
+				'React',
+				'TypeScript',
+				'Tailwind CSS',
+				'Vite',
+				'Chrome Extension APIs',
+				'Twitch API'
+			],
 			images: [
 				'https://lh3.googleusercontent.com/Tv8W_B085wxE7Z-WpiHre1Cig8fTVIgTsPcPTMi3A7fX-WficxbGZj0xxfyJ_om_JBP_Dg_rTATdDvepnJk12BkVSA=s1280-w1280-h800',
 				'https://lh3.googleusercontent.com/6lCbvHBHP6lzKiCmyly0AtRG_OGV-RHZTJmBCG9kZKwEZ3wDFPMdNWMo7AZVa08sVMHGyvH_Bqx2RMK5nyrFVYscOA=s1280-w1280-h800',
