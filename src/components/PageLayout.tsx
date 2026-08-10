@@ -1,20 +1,10 @@
 import { Navbar } from './Navbar'
 import SmoothScroll from './SmoothScroll'
 
-const PageLayout = ({
-	children,
-	linkedinRef,
-	githubRef,
-	themeRef
-}: {
-	children: React.ReactNode
-	linkedinRef: React.RefObject<HTMLAnchorElement | null>
-	githubRef: React.RefObject<HTMLAnchorElement | null>
-	themeRef: React.RefObject<HTMLButtonElement | null>
-}) => {
+const PageLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<SmoothScroll>
-			<Navbar linkedinRef={linkedinRef} githubRef={githubRef} themeRef={themeRef} />
+			<Navbar />
 
 			{children}
 		</SmoothScroll>

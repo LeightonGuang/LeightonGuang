@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { Project } from '../../../lib/getProjects'
 import { AnimatePresence, motion } from 'framer-motion'
 import { formatProjectDate } from '../../../lib/formatProjectDate'
+import Magnetic from '../Magnetic'
 
 const ProjectRow = ({ project }: { project: Project }) => {
 	const [open, setOpen] = useState(false)
@@ -47,33 +48,39 @@ const ProjectRow = ({ project }: { project: Project }) => {
 								<p className="wrap-break-words text-xl">{project.description}</p>
 
 								<div className="mt-4 flex gap-4 text-sm">
-									<a
-										className={`rounded-full px-3 py-1 ${
-											project.url
-												? 'bg-text/10'
-												: 'bg-text/5 pointer-events-none cursor-not-allowed opacity-40'
-										}`}
-										href={project.url || undefined}
-										target={project.url ? '_blank' : undefined}
-										rel={project.url ? 'noreferrer' : undefined}
-										aria-disabled={!project.url}
-									>
-										Site
-									</a>
+									<Magnetic>
+										<a
+											className={`rounded-full px-3 py-1 transition-colors duration-200 ${
+												project.url
+													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
+													: 'bg-text/5 pointer-events-none cursor-not-allowed opacity-40'
+											}`}
+											href={project.url || undefined}
+											target={project.url ? '_blank' : undefined}
+											rel={project.url ? 'noreferrer' : undefined}
+											aria-disabled={!project.url}
+											data-cursor="project-site"
+										>
+											Site
+										</a>
+									</Magnetic>
 
-									<a
-										className={`rounded-full px-3 py-1 ${
-											project.github
-												? 'bg-text/10'
-												: 'bg-text/5 pointer-events-none cursor-not-allowed opacity-40'
-										}`}
-										href={project.github || undefined}
-										target={project.github ? '_blank' : undefined}
-										rel={project.github ? 'noreferrer' : undefined}
-										aria-disabled={!project.github}
-									>
-										Github
-									</a>
+									<Magnetic>
+										<a
+											className={`rounded-full px-3 py-1 transition-colors duration-200 ${
+												project.github
+													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
+													: 'bg-text/5 pointer-events-none cursor-not-allowed opacity-40'
+											}`}
+											href={project.github || undefined}
+											target={project.github ? '_blank' : undefined}
+											rel={project.github ? 'noreferrer' : undefined}
+											aria-disabled={!project.github}
+											data-cursor="project-github"
+										>
+											Github
+										</a>
+									</Magnetic>
 								</div>
 
 								<ul className="mt-4 flex flex-col pl-4 text-sm">

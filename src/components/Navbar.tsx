@@ -6,13 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const MotionSun = motion.create(Sun)
 const MotionMoon = motion.create(Moon)
 
-type NavbarProps = {
-	linkedinRef: React.RefObject<HTMLAnchorElement | null>
-	githubRef: React.RefObject<HTMLAnchorElement | null>
-	themeRef: React.RefObject<HTMLButtonElement | null>
-}
-
-export const Navbar = ({ themeRef, linkedinRef, githubRef }: NavbarProps) => {
+export const Navbar = () => {
 	const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
 	function applyTheme(theme: string) {
@@ -44,17 +38,19 @@ export const Navbar = ({ themeRef, linkedinRef, githubRef }: NavbarProps) => {
 	return (
 		<nav className="fixed top-4 z-50 flex w-full items-center justify-between px-4">
 			<Magnetic>
-				<a href="/">LEIGHTON GUANG</a>
+				<a href="/" data-cursor="home">
+					LEIGHTON GUANG
+				</a>
 			</Magnetic>
 
 			<div className="flex items-center gap-4 text-sm">
 				<Magnetic>
 					<a
 						className="hover:cursor-none!"
-						ref={linkedinRef}
 						href="https://www.linkedin.com/in/leighton-guang"
 						target="_blank"
 						rel="noreferrer"
+						data-cursor="linkedin"
 					>
 						LINKEDIN
 					</a>
@@ -63,10 +59,10 @@ export const Navbar = ({ themeRef, linkedinRef, githubRef }: NavbarProps) => {
 				<Magnetic>
 					<a
 						className="hover:cursor-none!"
-						ref={githubRef}
 						href="https://github.com/LeightonGuang"
 						target="_blank"
 						rel="noreferrer"
+						data-cursor="github"
 					>
 						GITHUB
 					</a>
@@ -97,10 +93,10 @@ export const Navbar = ({ themeRef, linkedinRef, githubRef }: NavbarProps) => {
 						</AnimatePresence>
 
 						<button
-							ref={themeRef}
 							title={theme === 'light' ? 'Dark mode' : 'Light mode'}
 							onClick={toggleTheme}
 							className="pointer-events-auto absolute inset-0 cursor-pointer rounded-full transition-transform duration-300 hover:scale-[3] hover:cursor-none!"
+							data-cursor="theme"
 						/>
 					</div>
 				</Magnetic>

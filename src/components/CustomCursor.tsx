@@ -1,29 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
-type CursorTarget = 'linkedin' | 'github' | 'theme' | null
-
-type CustomCursorProps = {
-	linkedinElement: React.RefObject<HTMLAnchorElement | null>
-	githubElement: React.RefObject<HTMLAnchorElement | null>
-	themeButtonElement: React.RefObject<HTMLButtonElement | null>
-}
+type CursorTarget = 'linkedin' | 'github' | 'theme' | 'project-site' | 'project-github' | null
 
 type TargetDimensions = {
 	width: number
 	height: number
 }
 
-type CursorElement = {
-	element: HTMLElement
-	name: Exclude<CursorTarget, null>
-}
-
-const CustomCursor = ({
-	linkedinElement,
-	githubElement,
-	themeButtonElement
-}: CustomCursorProps) => {
+const CustomCursor = () => {
 	const activeElement = useRef<HTMLElement | null>(null)
 
 	const [activeTarget, setActiveTarget] = useState<CursorTarget>(null)
@@ -50,119 +35,92 @@ const CustomCursor = ({
 		mass: 0.5
 	})
 
-	function handleMouseMove(e: MouseEvent) {
-		const { clientX, clientY } = e
-
-		const element = activeElement.current
-
-		if (!element) {
-			mouseX.set(clientX)
-			mouseY.set(clientY)
-			return
-		}
-
-		const { left, top, width, height } = element.getBoundingClientRect()
-
-		const centerX = left + width / 2
-		const centerY = top + height / 2
-
-		const distanceX = clientX - centerX
-		const distanceY = clientY - centerY
-
-		const strength = 0.1
-
-		mouseX.set(centerX + distanceX * strength)
-		mouseY.set(centerY + distanceY * strength)
-	}
-
 	useEffect(() => {
-		const targets: CursorElement[] = []
+		const handleMouseMove = (e: MouseEvent) => {
+			const { clientX, clientY } = e
 
-		if (linkedinElement.current) {
-			targets.push({
-				element: linkedinElement.current,
-				name: 'linkedin'
+			const element = activeElement.current
+
+			if (!element) {
+				mouseX.set(clientX)
+				mouseY.set(clientY)
+				return
+			}
+
+			const { left, top, width, height } = element.getBoundingClientRect()
+
+			const centerX = left + width / 2
+			const centerY = top + height / 2
+
+			const strength = 0.1
+
+			mouseX.set(centerX + (clientX - centerX) * strength)
+
+			mouseY.set(centerY + (clientY - centerY) * strength)
+		}
+
+		const handleMouseOver = (e: MouseEvent) => {
+			const target = (e.target as HTMLElement).closest<HTMLElement>('[data-cursor]')
+
+			if (!target) return
+
+			const cursorTarget = target.dataset.cursor as Exclude<CursorTarget, null>
+
+			activeElement.current = target
+			setActiveTarget(cursorTarget)
+
+			const { width, height } = target.getBoundingClientRect()
+
+			setTargetDimensions({
+				width,
+				height
 			})
 		}
 
-		if (githubElement.current) {
-			targets.push({
-				element: githubElement.current,
-				name: 'github'
+		const handleMouseOut = (e: MouseEvent) => {
+			const target = (e.target as HTMLElement).closest<HTMLElement>('[data-cursor]')
+
+			if (!target || activeElement.current !== target) return
+
+			const relatedTarget = e.relatedTarget as Node | null
+
+			if (relatedTarget && target.contains(relatedTarget)) return
+
+			activeElement.current = null
+			setActiveTarget(null)
+
+			setTargetDimensions({
+				width: cursorSize,
+				height: cursorSize
 			})
 		}
-
-		if (themeButtonElement.current) {
-			targets.push({
-				element: themeButtonElement.current,
-				name: 'theme'
-			})
-		}
-
-		const listeners = targets.map(({ element, name }) => {
-			const handleMouseEnter = () => {
-				activeElement.current = element
-				setActiveTarget(name)
-
-				const { width, height } = element.getBoundingClientRect()
-
-				setTargetDimensions({
-					width,
-					height
-				})
-			}
-
-			const handleMouseLeave = () => {
-				if (activeElement.current !== element) {
-					return
-				}
-
-				activeElement.current = null
-				setActiveTarget(null)
-
-				setTargetDimensions({
-					width: cursorSize,
-					height: cursorSize
-				})
-			}
-
-			element.addEventListener('mouseenter', handleMouseEnter)
-
-			element.addEventListener('mouseleave', handleMouseLeave)
-
-			return {
-				element,
-				handleMouseEnter,
-				handleMouseLeave
-			}
-		})
 
 		window.addEventListener('mousemove', handleMouseMove)
+		window.addEventListener('mouseover', handleMouseOver)
+		window.addEventListener('mouseout', handleMouseOut)
 
 		return () => {
 			window.removeEventListener('mousemove', handleMouseMove)
-
-			listeners.forEach(({ element, handleMouseEnter, handleMouseLeave }) => {
-				element.removeEventListener('mouseenter', handleMouseEnter)
-
-				element.removeEventListener('mouseleave', handleMouseLeave)
-			})
+			window.removeEventListener('mouseover', handleMouseOver)
+			window.removeEventListener('mouseout', handleMouseOut)
 		}
-	}, [linkedinElement, githubElement, themeButtonElement])
+	}, [])
 
 	const isTheme = activeTarget === 'theme'
 
-	const isRectangle = activeTarget === 'linkedin' || activeTarget === 'github'
+	const isNavLink = activeTarget === 'linkedin' || activeTarget === 'github'
+
+	const isProjectLink = activeTarget === 'project-site' || activeTarget === 'project-github'
 
 	return (
 		<motion.div
 			className="bg-primary pointer-events-none fixed hidden md:block"
 			style={{ left: smoothMouseX, top: smoothMouseY, translateX: '-50%', translateY: '-50%' }}
 			animate={{
-				width: isRectangle ? targetDimensions.width : cursorSize,
-				height: isRectangle ? targetDimensions.height : cursorSize,
-				borderRadius: isRectangle ? 4 : 10,
-				scale: isTheme ? 1.5 : isRectangle ? 1.25 : 1
+				width: isNavLink || isProjectLink ? targetDimensions.width : cursorSize,
+				height: isNavLink || isProjectLink ? targetDimensions.height : cursorSize,
+				borderRadius: isNavLink ? 4 : isProjectLink ? 9999 : 10,
+				scale: isTheme ? 1.5 : isNavLink ? 1.25 : 1
 			}}
 			transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
 		/>
