@@ -85,7 +85,23 @@ const ProjectRow = ({ project }: { project: Project }) => {
 								</ul>
 							</div>
 
-							<div className="flex min-w-0 items-center justify-center">Some Image</div>
+							<div className="grid min-w-0 grid-cols-2 gap-2">
+								{project.images?.length ? (
+									project.images.map((image, index) => (
+										<div key={image} className="bg-text/5 aspect-video overflow-hidden rounded-lg">
+											<img
+												src={image}
+												alt={`${project.title} screenshot ${index + 1}`}
+												className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+											/>
+										</div>
+									))
+								) : (
+									<div className="bg-text/5 flex aspect-video items-center justify-center rounded-lg text-sm opacity-40">
+										No images
+									</div>
+								)}
+							</div>
 						</div>
 					</motion.div>
 				)}

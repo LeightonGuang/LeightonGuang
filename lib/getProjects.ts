@@ -53,11 +53,18 @@ export function getProjects(): Project[] {
 		},
 		{
 			title: 'Stream Track Chrome Extention',
-			description: '',
+			description:
+				'Stream Track is a Chrome extension that helps you keep track of which Twitch streamers you follow are currently live. The main difference is that it uses a UI that looks and feels like Twitch itself, so you can check your followed streamers without having to get used to a completely different interface.',
 			date: '2024-03',
 			url: 'https://chromewebstore.google.com/detail/stream-track-track-your-f/gefllgcgjeonfffgimbgfkpkpckhppdg',
+			github: 'https://github.com/LeightonGuang/Stream-Track',
 			technologies: [],
-			images: []
+			images: [
+				'https://lh3.googleusercontent.com/Tv8W_B085wxE7Z-WpiHre1Cig8fTVIgTsPcPTMi3A7fX-WficxbGZj0xxfyJ_om_JBP_Dg_rTATdDvepnJk12BkVSA=s1280-w1280-h800',
+				'https://lh3.googleusercontent.com/6lCbvHBHP6lzKiCmyly0AtRG_OGV-RHZTJmBCG9kZKwEZ3wDFPMdNWMo7AZVa08sVMHGyvH_Bqx2RMK5nyrFVYscOA=s1280-w1280-h800',
+				'https://lh3.googleusercontent.com/MreKlKemLvFuUHEchAW9SRr38wO1a-m3Kp7dLpQgAeibw9qfO0uaJp1ScCks2lcW7PYEWX44Rijtlrp9etdzt530JCo=s1280-w1280-h800',
+				'https://lh3.googleusercontent.com/ozpPLG_xCEBqFeWmF2p13UQCSaP1eNg76TSw5G3a7sDBWW78Yw6D9xA_iZfzzULV6zHxeRBTVPhUEK1Ju_vwH7IFH6g=s1280-w1280-h800'
+			]
 		},
 		{
 			title: 'The Next Typer typing test website',
