@@ -2,26 +2,32 @@ import { useEffect, useRef } from 'react'
 import { motion, useAnimationControls, type PanInfo } from 'framer-motion'
 
 const Hero = () => {
-	const containerRef = useRef<HTMLDivElement>(null)
-	const cardRef = useRef<HTMLDivElement>(null)
+	const containerRef = useRef<HTMLElement | null>(null)
+	const cardRef = useRef<HTMLDivElement | null>(null)
 
 	const controls = useAnimationControls()
 
 	const position = useRef({
 		x: 0,
-		y: 0,
+		y: 0
 	})
 
-	// Constant DVD movement
+	// Current DVD velocity
 	const dvdVelocity = useRef({
 		x: 30,
-		y: 24,
+		y: 24
+	})
+
+	// Original DVD speed
+	const baseVelocity = useRef({
+		x: 30,
+		y: 24
 	})
 
 	// Flick momentum
 	const throwVelocity = useRef({
 		x: 0,
-		y: 0,
+		y: 0
 	})
 
 	const dragging = useRef(false)
@@ -30,6 +36,12 @@ const Hero = () => {
 	const friction = 0.975
 	const throwStrength = 0.4
 	const stopThreshold = 2
+
+	// How quickly the DVD slows down when hovered.
+	const hoverFriction = 0.94
+
+	// How quickly the DVD returns to normal speed.
+	const resumeStrength = 0.08
 
 	useEffect(() => {
 		let frame: number
@@ -42,7 +54,14 @@ const Hero = () => {
 				const maxX = container.clientWidth - card.offsetWidth
 				const maxY = container.clientHeight - card.offsetHeight
 
-				// If user has thrown it, use throw momentum
+				const hoveredElement = document.querySelector('[data-cursor="card-dvd"]:hover')
+
+				const isHovered = hoveredElement === card
+
+				// --------------------------------
+				// Thrown card
+				// --------------------------------
+
 				if (isThrown.current) {
 					position.current.x += throwVelocity.current.x / 60
 					position.current.y += throwVelocity.current.y / 60
@@ -57,52 +76,74 @@ const Hero = () => {
 						isThrown.current = false
 						throwVelocity.current = {
 							x: 0,
-							y: 0,
+							y: 0
 						}
 					}
-				} else {
-					// Normal DVD movement
+				}
+
+				// --------------------------------
+				// Normal DVD movement
+				// --------------------------------
+				else {
+					if (isHovered) {
+						// Gradually slow down while hovering.
+						dvdVelocity.current.x *= hoverFriction
+						dvdVelocity.current.y *= hoverFriction
+
+						// Prevent tiny floating-point movement.
+						if (Math.abs(dvdVelocity.current.x) < 0.1) {
+							dvdVelocity.current.x = 0
+						}
+
+						if (Math.abs(dvdVelocity.current.y) < 0.1) {
+							dvdVelocity.current.y = 0
+						}
+					} else {
+						// Gradually restore the original speed after leaving.
+						dvdVelocity.current.x +=
+							(baseVelocity.current.x - dvdVelocity.current.x) * resumeStrength
+
+						dvdVelocity.current.y +=
+							(baseVelocity.current.y - dvdVelocity.current.y) * resumeStrength
+					}
+
 					position.current.x += dvdVelocity.current.x / 60
 					position.current.y += dvdVelocity.current.y / 60
 				}
 
-				// Bounce horizontally
-				if (
-					position.current.x <= 0 ||
-					position.current.x >= maxX
-				) {
-					position.current.x = Math.max(
-						0,
-						Math.min(position.current.x, maxX)
-					)
+				// --------------------------------
+				// Horizontal bounce
+				// --------------------------------
+
+				if (position.current.x <= 0 || position.current.x >= maxX) {
+					position.current.x = Math.max(0, Math.min(position.current.x, maxX))
 
 					if (isThrown.current) {
 						throwVelocity.current.x *= -1
 					} else {
 						dvdVelocity.current.x *= -1
+						baseVelocity.current.x *= -1
 					}
 				}
 
-				// Bounce vertically
-				if (
-					position.current.y <= 0 ||
-					position.current.y >= maxY
-				) {
-					position.current.y = Math.max(
-						0,
-						Math.min(position.current.y, maxY)
-					)
+				// --------------------------------
+				// Vertical bounce
+				// --------------------------------
+
+				if (position.current.y <= 0 || position.current.y >= maxY) {
+					position.current.y = Math.max(0, Math.min(position.current.y, maxY))
 
 					if (isThrown.current) {
 						throwVelocity.current.y *= -1
 					} else {
 						dvdVelocity.current.y *= -1
+						baseVelocity.current.y *= -1
 					}
 				}
 
 				controls.set({
 					x: position.current.x,
-					y: position.current.y,
+					y: position.current.y
 				})
 			}
 
@@ -125,19 +166,13 @@ const Hero = () => {
 			const maxX = container.clientWidth - card.offsetWidth
 			const maxY = container.clientHeight - card.offsetHeight
 
-			position.current.x = Math.min(
-				Math.max(position.current.x, 0),
-				maxX
-			)
+			position.current.x = Math.min(Math.max(position.current.x, 0), maxX)
 
-			position.current.y = Math.min(
-				Math.max(position.current.y, 0),
-				maxY
-			)
+			position.current.y = Math.min(Math.max(position.current.y, 0), maxY)
 
 			controls.set({
 				x: position.current.x,
-				y: position.current.y,
+				y: position.current.y
 			})
 		}
 
@@ -149,11 +184,10 @@ const Hero = () => {
 	}, [controls])
 
 	return (
-		<section
-			ref={containerRef}
-			className="relative flex h-dvh w-full overflow-hidden"
-		>
+		<section ref={containerRef} className="relative flex h-dvh w-full overflow-hidden">
 			<motion.div
+				className="absolute w-72 rounded-xs bg-white p-6 text-black shadow-xl hover:cursor-none"
+				data-cursor="card-dvd"
 				ref={cardRef}
 				animate={controls}
 				drag
@@ -165,18 +199,18 @@ const Hero = () => {
 
 					throwVelocity.current = {
 						x: 0,
-						y: 0,
+						y: 0
 					}
 				}}
 				onDragEnd={(_, info: PanInfo) => {
-				dragging.current = false
+					dragging.current = false
 
-				throwVelocity.current = {
+					throwVelocity.current = {
 						x: info.velocity.x * throwStrength,
-						y: info.velocity.y * throwStrength,
-				}
+						y: info.velocity.y * throwStrength
+					}
 
-				isThrown.current = true
+					isThrown.current = true
 				}}
 				onUpdate={(latest) => {
 					if (dragging.current) {
@@ -184,29 +218,12 @@ const Hero = () => {
 						position.current.y = Number(latest.y ?? 0)
 					}
 				}}
-				className="
-					absolute
-					w-72
-					cursor-grab
-					rounded-xs
-					bg-white
-					p-6
-					text-black
-					shadow-xl
-					active:cursor-grabbing
-				"
 			>
-				<h2 className="text-xl font-bold">
-					Leighton Guang
-				</h2>
+				<h2 className="text-xl font-bold">Leighton Guang</h2>
 
-				<p className="mt-2">
-					Full Stack React Developer
-				</p>
+				<p className="mt-2">Full Stack React Developer</p>
 
-				<p className="mt-6 text-sm">
-					leighton.guang@icloud.com
-				</p>
+				<p className="mt-6 text-sm">leighton.guang@icloud.com</p>
 			</motion.div>
 		</section>
 	)
