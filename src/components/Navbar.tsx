@@ -38,7 +38,11 @@ export const Navbar = () => {
 	return (
 		<nav className="fixed top-4 z-50 flex w-full items-center justify-between px-4">
 			<Magnetic>
-				<a href="/" data-cursor="home">
+				<a
+					className="transition-colors duration-200 hover:cursor-none! hover:text-white"
+					href="/"
+					data-cursor="home"
+				>
 					LEIGHTON GUANG
 				</a>
 			</Magnetic>
@@ -46,7 +50,7 @@ export const Navbar = () => {
 			<div className="flex items-center gap-4 text-sm">
 				<Magnetic>
 					<a
-						className="hover:cursor-none!"
+						className="transition-colors duration-200 hover:cursor-none! hover:text-white"
 						href="https://www.linkedin.com/in/leighton-guang"
 						target="_blank"
 						rel="noreferrer"
@@ -58,7 +62,7 @@ export const Navbar = () => {
 
 				<Magnetic>
 					<a
-						className="hover:cursor-none!"
+						className="transition-colors duration-200 hover:cursor-none! hover:text-white"
 						href="https://github.com/LeightonGuang"
 						target="_blank"
 						rel="noreferrer"
@@ -69,7 +73,7 @@ export const Navbar = () => {
 				</Magnetic>
 
 				<Magnetic>
-					<div className="pointer-events-none relative flex size-5 items-center justify-center">
+					<div className="pointer-events-none relative flex size-5 items-center justify-center transition-colors duration-200 hover:text-white">
 						<AnimatePresence mode="wait" initial={false}>
 							{theme === 'light' ? (
 								<MotionMoon
