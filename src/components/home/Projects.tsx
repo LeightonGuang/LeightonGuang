@@ -5,7 +5,7 @@ const Projects = () => {
 	const projects = getProjects()
 
 	return (
-		<div className="mx-4 min-h-dvh">
+		<section className="mx-4 mb-32">
 			<table className="w-full">
 				<thead className="border-b border-zinc-500 text-left">
 					<tr className="text-muted text-sm">
@@ -21,7 +21,7 @@ const Projects = () => {
 					))}
 				</tbody>
 			</table>
-		</div>
+		</section>
 	)
 }
 

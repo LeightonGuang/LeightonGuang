@@ -149,9 +149,9 @@ const Hero = () => {
 	}, [controls])
 
 	return (
-		<div
+		<section
 			ref={containerRef}
-			className="relative h-screen w-full overflow-hidden"
+			className="relative flex h-dvh w-full overflow-hidden"
 		>
 			<motion.div
 				ref={cardRef}
@@ -208,7 +208,7 @@ const Hero = () => {
 					leighton.guang@icloud.com
 				</p>
 			</motion.div>
-		</div>
+		</section>
 	)
 }
 
