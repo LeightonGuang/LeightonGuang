@@ -1,12 +1,18 @@
 import Magnetic from './Magnetic'
 import { Moon, Sun } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { forwardRef, useEffect, useState } from 'react'
 
 const MotionSun = motion.create(Sun)
 const MotionMoon = motion.create(Moon)
 
-export const Navbar = forwardRef<HTMLButtonElement, {}>((_, themeRef) => {
+type NavbarProps = {
+	linkedinRef: React.RefObject<HTMLAnchorElement | null>
+	githubRef: React.RefObject<HTMLAnchorElement | null>
+	themeRef: React.RefObject<HTMLButtonElement | null>
+}
+
+export const Navbar = ({ themeRef, linkedinRef, githubRef }: NavbarProps) => {
 	const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
 	function applyTheme(theme: string) {
@@ -37,17 +43,31 @@ export const Navbar = forwardRef<HTMLButtonElement, {}>((_, themeRef) => {
 
 	return (
 		<nav className="fixed top-4 z-50 flex w-full items-center justify-between px-4">
-			<a href="/">LEIGHTON GUANG</a>
+			<Magnetic>
+				<a href="/">LEIGHTON GUANG</a>
+			</Magnetic>
 
 			<div className="flex items-center gap-4 text-sm">
 				<Magnetic>
-					<a href="https://www.linkedin.com/in/leighton-guang" target="_blank" rel="noreferrer">
+					<a
+						className="hover:cursor-none!"
+						ref={linkedinRef}
+						href="https://www.linkedin.com/in/leighton-guang"
+						target="_blank"
+						rel="noreferrer"
+					>
 						LINKEDIN
 					</a>
 				</Magnetic>
 
 				<Magnetic>
-					<a href="https://github.com/LeightonGuang" target="_blank" rel="noreferrer">
+					<a
+						className="hover:cursor-none!"
+						ref={githubRef}
+						href="https://github.com/LeightonGuang"
+						target="_blank"
+						rel="noreferrer"
+					>
 						GITHUB
 					</a>
 				</Magnetic>
@@ -78,6 +98,7 @@ export const Navbar = forwardRef<HTMLButtonElement, {}>((_, themeRef) => {
 
 						<button
 							ref={themeRef}
+							title={theme === 'light' ? 'Dark mode' : 'Light mode'}
 							onClick={toggleTheme}
 							className="pointer-events-auto absolute inset-0 cursor-pointer rounded-full transition-transform duration-300 hover:scale-[3] hover:cursor-none!"
 						/>
@@ -86,4 +107,4 @@ export const Navbar = forwardRef<HTMLButtonElement, {}>((_, themeRef) => {
 			</div>
 		</nav>
 	)
-})
+}
