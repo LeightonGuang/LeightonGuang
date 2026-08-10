@@ -1,8 +1,8 @@
 import { useState } from 'react'
+import Magnetic from '../Magnetic'
 import type { Project } from '../../../lib/getProjects'
 import { AnimatePresence, motion } from 'framer-motion'
 import { formatProjectDate } from '../../../lib/formatProjectDate'
-import Magnetic from '../Magnetic'
 
 const ProjectRow = ({ project }: { project: Project }) => {
 	const [open, setOpen] = useState(false)
@@ -14,15 +14,14 @@ const ProjectRow = ({ project }: { project: Project }) => {
 	const formattedProjectDate = formatProjectDate(project.date)
 
 	return (
-		<div className="border-b border-zinc-500">
+		<div className="relative border-b border-zinc-500">
 			<div
+				className="grid cursor-pointer grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto] text-sm transition-colors duration-200 hover:text-white"
 				onClick={handleRowClick}
-				className="hover:bg-text hover:text-background grid cursor-pointer grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto] text-sm"
+				data-cursor="project-row"
 			>
 				<div className="min-w-0 py-1">{project.title}</div>
-
 				<div className="min-w-0 overflow-x-auto py-1 whitespace-nowrap">{project.url}</div>
-
 				<div className="py-1 whitespace-nowrap">{formattedProjectDate}</div>
 			</div>
 

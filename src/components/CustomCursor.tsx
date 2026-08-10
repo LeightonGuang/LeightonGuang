@@ -1,7 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
-type CursorTarget = 'linkedin' | 'github' | 'theme' | 'project-site' | 'project-github' | null
+type CursorTarget =
+	| 'home'
+	| 'linkedin'
+	| 'github'
+	| 'theme'
+	| 'project-row'
+	| 'project-site'
+	| 'project-github'
+	| null
 
 type TargetDimensions = {
 	width: number
@@ -12,6 +20,11 @@ const CustomCursor = () => {
 	const activeElement = useRef<HTMLElement | null>(null)
 
 	const [activeTarget, setActiveTarget] = useState<CursorTarget>(null)
+
+	const isTheme = activeTarget === 'theme'
+	const isNavLink = activeTarget === 'linkedin' || activeTarget === 'github'
+	const isProjectLink = activeTarget === 'project-site' || activeTarget === 'project-github'
+	const isProjectRow = activeTarget === 'project-row'
 
 	const cursorSize = 20
 
@@ -52,10 +65,15 @@ const CustomCursor = () => {
 			const centerX = left + width / 2
 			const centerY = top + height / 2
 
+			if (isProjectRow) {
+				mouseX.set(centerX)
+				mouseY.set(centerY)
+				return
+			}
+
 			const strength = 0.1
 
 			mouseX.set(centerX + (clientX - centerX) * strength)
-
 			mouseY.set(centerY + (clientY - centerY) * strength)
 		}
 
@@ -106,20 +124,14 @@ const CustomCursor = () => {
 		}
 	}, [])
 
-	const isTheme = activeTarget === 'theme'
-
-	const isNavLink = activeTarget === 'linkedin' || activeTarget === 'github'
-
-	const isProjectLink = activeTarget === 'project-site' || activeTarget === 'project-github'
-
 	return (
 		<motion.div
 			className="bg-primary pointer-events-none fixed hidden md:block"
 			style={{ left: smoothMouseX, top: smoothMouseY, translateX: '-50%', translateY: '-50%' }}
 			animate={{
-				width: isNavLink || isProjectLink ? targetDimensions.width : cursorSize,
-				height: isNavLink || isProjectLink ? targetDimensions.height : cursorSize,
-				borderRadius: isNavLink ? 4 : isProjectLink ? 9999 : 10,
+				width: isNavLink || isProjectLink || isProjectRow ? targetDimensions.width : cursorSize,
+				height: isNavLink || isProjectLink || isProjectRow ? targetDimensions.height : cursorSize,
+				borderRadius: isNavLink ? 4 : isProjectLink ? 9999 : isProjectRow ? 0 : 10,
 				scale: isTheme ? 1.5 : isNavLink ? 1.25 : 1
 			}}
 			transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
