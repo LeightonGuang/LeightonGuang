@@ -156,7 +156,7 @@ const CustomCursor = ({
 
 	return (
 		<motion.div
-			className="bg-primary pointer-events-none fixed"
+			className="bg-primary pointer-events-none fixed hidden md:block"
 			style={{ left: smoothMouseX, top: smoothMouseY, translateX: '-50%', translateY: '-50%' }}
 			animate={{
 				width: isRectangle ? targetDimensions.width : cursorSize,
