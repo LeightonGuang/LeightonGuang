@@ -16,7 +16,7 @@ const ProjectRow = ({ project }: { project: Project }) => {
 	return (
 		<div className="relative border-b border-zinc-500">
 			<div
-				className="grid cursor-pointer grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto] text-sm transition-colors duration-200 hover:text-white"
+				className="grid grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto] text-sm transition-colors duration-200 hover:cursor-none! hover:text-white"
 				onClick={handleRowClick}
 				data-cursor="project-row"
 			>
