@@ -75,6 +75,7 @@ const ProjectRow = ({ project, open, onClick }: ProjectRowProps) => {
 											rel={project.url ? 'noreferrer' : undefined}
 											aria-disabled={!project.url}
 											data-cursor="project-site"
+											title={project.url ? '' : 'No link available'}
 										>
 											Site
 										</a>
@@ -85,13 +86,14 @@ const ProjectRow = ({ project, open, onClick }: ProjectRowProps) => {
 											className={`rounded-full px-3 py-1 transition-colors duration-200 ${
 												project.github
 													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
-													: 'bg-text/5 pointer-events-none cursor-not-allowed opacity-40'
+													: 'bg-text/5 cursor-not-allowed! opacity-40'
 											}`}
 											href={project.github || undefined}
 											target={project.github ? '_blank' : undefined}
 											rel={project.github ? 'noreferrer' : undefined}
 											aria-disabled={!project.github}
 											data-cursor="project-github"
+											title={project.github ? '' : 'No Github link available'}
 										>
 											Github
 										</a>
