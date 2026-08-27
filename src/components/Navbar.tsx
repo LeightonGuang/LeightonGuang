@@ -63,6 +63,16 @@ export const Navbar = () => {
 				<Magnetic>
 					<a
 						className="active:text-primary transition-colors duration-200 hover:cursor-none! hover:text-white md:active:text-white"
+						href="/contact"
+						data-cursor="contact"
+					>
+						CONTACT
+					</a>
+				</Magnetic>
+
+				<Magnetic>
+					<a
+						className="active:text-primary transition-colors duration-200 hover:cursor-none! hover:text-white md:active:text-white"
 						href="https://github.com/LeightonGuang"
 						target="_blank"
 						rel="noreferrer"
