@@ -14,7 +14,7 @@ export function getProjects(): Project[] {
 			title: 'Saúde Brasil website',
 			description: 'An e-commerce website for Saúde Brasil that sells peptides in Brazil.',
 			date: '2026-08',
-			url: 'https://peptidesaude.com',
+			url: 'https://saudebrasil.com',
 			technologies: [
 				'Nextjs',
 				'Typescript',
