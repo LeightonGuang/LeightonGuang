@@ -10,6 +10,8 @@ type CursorTarget =
 	| 'project-row'
 	| 'project-site'
 	| 'project-github'
+	| 'contact'
+	| 'contact-email'
 	| null
 
 type TargetDimensions = {
@@ -24,7 +26,9 @@ const CustomCursor = () => {
 
 	const isHome = activeTarget === 'home'
 	const isTheme = activeTarget === 'theme'
-	const isNavLink = activeTarget === 'linkedin' || activeTarget === 'github'
+	const isNavLink =
+		activeTarget === 'linkedin' || activeTarget === 'github' || activeTarget === 'contact'
+	const isContactEmail = activeTarget === 'contact-email'
 	const isCardDvd = activeTarget === 'card-dvd'
 	const isProjectRow = activeTarget === 'project-row'
 	const isProjectLink = activeTarget === 'project-site' || activeTarget === 'project-github'
@@ -133,11 +137,11 @@ const CustomCursor = () => {
 			style={{ left: smoothMouseX, top: smoothMouseY, translateX: '-50%', translateY: '-50%' }}
 			animate={{
 				width:
-					isHome || isNavLink || isCardDvd || isProjectLink || isProjectRow
+					isHome || isNavLink || isCardDvd || isProjectLink || isProjectRow || isContactEmail
 						? targetDimensions.width
 						: cursorSize,
 				height:
-					isHome || isNavLink || isCardDvd || isProjectLink || isProjectRow
+					isHome || isNavLink || isCardDvd || isProjectLink || isProjectRow || isContactEmail
 						? targetDimensions.height
 						: cursorSize,
 				borderRadius:
