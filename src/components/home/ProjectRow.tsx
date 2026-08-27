@@ -16,28 +16,45 @@ const ProjectRow = ({ project }: { project: Project }) => {
 	return (
 		<div className="relative border-b border-zinc-500">
 			<div
-				className="grid grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto] text-sm transition-colors duration-200 hover:cursor-none! hover:text-white"
+				className="grid grid-cols-[minmax(0,1fr)_auto] px-0 py-1 text-sm transition-all duration-300 hover:cursor-none! hover:px-2 hover:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto]"
 				onClick={handleRowClick}
 				data-cursor="project-row"
 			>
-				<div className="min-w-0 py-1">{project.title}</div>
-				<div className="min-w-0 overflow-x-auto py-1 whitespace-nowrap">{project.url}</div>
-				<div className="py-1 whitespace-nowrap">{formattedProjectDate}</div>
+				<div className="min-w-0 py-1 whitespace-nowrap">{project.title}</div>
+				<div className="hidden min-w-0 truncate py-1 whitespace-nowrap md:block">{project.url}</div>
+				<div className="shrink-0 py-1 whitespace-nowrap">{formattedProjectDate}</div>
 			</div>
 
 			<AnimatePresence initial={false}>
 				{open && (
 					<motion.div
 						initial={{ height: 0, opacity: 0 }}
-						animate={{ height: 'auto', opacity: 1 }}
-						exit={{ height: 0, opacity: 0 }}
-						transition={{
-							height: {
-								duration: 0.35,
-								ease: [0.22, 1, 0.36, 1]
-							},
-							opacity: {
-								duration: 0.2
+						animate={{
+							height: 'auto',
+							opacity: 1,
+							transition: {
+								height: {
+									type: 'spring',
+									stiffness: 220,
+									damping: 18,
+									mass: 0.8
+								},
+								opacity: {
+									duration: 0.15
+								}
+							}
+						}}
+						exit={{
+							height: 0,
+							opacity: 0,
+							transition: {
+								height: {
+									duration: 0.5,
+									ease: [0.22, 1, 0.36, 1]
+								},
+								opacity: {
+									duration: 0.15
+								}
 							}
 						}}
 						className="overflow-hidden"
