@@ -1,23 +1,22 @@
-import { useState } from 'react'
 import Magnetic from '../Magnetic'
 import type { Project } from '../../../lib/getProjects'
 import { AnimatePresence, motion } from 'framer-motion'
 import { formatProjectDate } from '../../../lib/formatProjectDate'
 
-const ProjectRow = ({ project }: { project: Project }) => {
-	const [open, setOpen] = useState(false)
+type ProjectRowProps = {
+	project: Project
+	open: boolean
+	onClick: () => void
+}
 
-	function handleRowClick() {
-		setOpen((prev) => !prev)
-	}
-
+const ProjectRow = ({ project, open, onClick }: ProjectRowProps) => {
 	const formattedProjectDate = formatProjectDate(project.date)
 
 	return (
 		<div className="relative border-b border-zinc-500">
 			<div
 				className="grid grid-cols-[minmax(0,1fr)_auto] px-0 py-1 text-sm transition-all duration-300 hover:cursor-none! hover:px-2 hover:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto]"
-				onClick={handleRowClick}
+				onClick={onClick}
 				data-cursor="project-row"
 			>
 				<div className="min-w-0 py-1 whitespace-nowrap">{project.title}</div>
@@ -59,14 +58,14 @@ const ProjectRow = ({ project }: { project: Project }) => {
 						}}
 						className="overflow-hidden"
 					>
-						<div className="grid w-full grid-cols-1 gap-6 p-4 md:grid-cols-2">
+						<div className="grid w-full grid-cols-1 gap-6 py-4 md:grid-cols-2 md:gap-8">
 							<div className="min-w-0">
 								<p className="wrap-break-words text-xl">{project.description}</p>
 
 								<div className="mt-4 flex gap-4 text-sm">
 									<Magnetic>
 										<a
-											className={`rounded-full px-3 py-1 transition-colors duration-200 ${
+											className={`active:bg-primary rounded-full px-3 py-1 transition-colors duration-200 active:text-white ${
 												project.url
 													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
 													: 'bg-text/5 pointer-events-none cursor-not-allowed opacity-40'
