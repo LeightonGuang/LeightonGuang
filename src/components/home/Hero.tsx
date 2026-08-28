@@ -91,13 +91,9 @@ const Hero = () => {
 						dvdVelocity.current.y *= hoverFriction
 
 						// Prevent tiny floating-point movement.
-						if (Math.abs(dvdVelocity.current.x) < 0.1) {
-							dvdVelocity.current.x = 0
-						}
+						if (Math.abs(dvdVelocity.current.x) < 0.1) dvdVelocity.current.x = 0
 
-						if (Math.abs(dvdVelocity.current.y) < 0.1) {
-							dvdVelocity.current.y = 0
-						}
+						if (Math.abs(dvdVelocity.current.y) < 0.1) dvdVelocity.current.y = 0
 					} else {
 						// Gradually restore the original speed after leaving.
 						dvdVelocity.current.x +=
@@ -220,9 +216,7 @@ const Hero = () => {
 				}}
 			>
 				<h2 className="text-xl font-bold">Leighton Guang</h2>
-
 				<p className="mt-2">Full Stack React Developer</p>
-
 				<p className="mt-6 text-sm">leighton.guang@icloud.com</p>
 			</motion.div>
 		</section>
