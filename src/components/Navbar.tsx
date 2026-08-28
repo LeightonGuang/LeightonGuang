@@ -40,7 +40,7 @@ export const Navbar = () => {
 			<div className="flex h-max rounded-lg backdrop-blur-md md:backdrop-blur-none">
 				<Magnetic>
 					<a
-						className="active:text-primary rounded-lg backdrop-blur-md transition-colors duration-200 hover:cursor-none! hover:text-white md:bg-transparent md:backdrop-blur-none md:active:text-white"
+						className="active:text-primary rounded-lg px-1 backdrop-blur-md transition-colors duration-200 hover:cursor-none! hover:text-white md:bg-transparent md:px-0 md:backdrop-blur-none md:active:text-white"
 						href="/"
 						data-cursor="home"
 					>
@@ -53,7 +53,7 @@ export const Navbar = () => {
 			<div className="flex flex-col items-end gap-2 md:flex-row md:items-center md:gap-4">
 				<Magnetic>
 					<a
-						className="active:text-primary inline-block rounded-lg backdrop-blur-md transition-colors duration-200 hover:cursor-none! hover:text-white md:bg-transparent md:backdrop-blur-none md:active:text-white"
+						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-colors duration-200 hover:cursor-none! hover:text-white md:bg-transparent md:px-0 md:backdrop-blur-none md:active:text-white"
 						href="https://www.linkedin.com/in/leighton-guang"
 						target="_blank"
 						rel="noreferrer"
@@ -65,7 +65,7 @@ export const Navbar = () => {
 
 				<Magnetic>
 					<a
-						className="active:text-primary inline-block rounded-lg backdrop-blur-md transition-colors duration-200 hover:cursor-none! hover:text-white md:bg-transparent md:backdrop-blur-none md:active:text-white"
+						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-colors duration-200 hover:cursor-none! hover:text-white md:bg-transparent md:px-0 md:backdrop-blur-none md:active:text-white"
 						href="/contact"
 						data-cursor="contact"
 					>
@@ -75,7 +75,7 @@ export const Navbar = () => {
 
 				<Magnetic>
 					<a
-						className="active:text-primary inline-block rounded-lg backdrop-blur-md transition-colors duration-200 hover:cursor-none! hover:text-white md:bg-transparent md:backdrop-blur-none md:active:text-white"
+						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-colors duration-200 hover:cursor-none! hover:text-white md:bg-transparent md:px-0 md:backdrop-blur-none md:active:text-white"
 						href="https://github.com/LeightonGuang"
 						target="_blank"
 						rel="noreferrer"
