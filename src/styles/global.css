@@ -21,17 +21,18 @@ a {
 }
 
 :root {
-	--color-primary: oklch(63.745% 0.29434 315.885);
-	--color-background: oklch(0.93 0.04 300);
+	--color-primary: oklch(67.336% 0.18442 37.113);
+	--color-background: oklch(90.133% 0.01883 62.291);
 	--color-text: oklch(0.2 0 0);
+	--color-muted: oklch(0.4 0 0);
 	--color-nav-bg: oklch(0.97 0 0 / 0.8);
 	--color-nav-border: oklch(0.9 0 0);
 	--color-nav-hover: oklch(0.93 0 0);
 }
 
 .dark {
-	--color-primary: oklch(63.745% 0.29434 315.885);
-	--color-background: oklch(20.03% 0.01032 303.544);
+	--color-primary: oklch(59.839% 0.26496 329.084);
+	--color-background: oklch(18.717% 0.00202 286.054);
 	--color-text: oklch(1 0 0);
 	--color-muted: oklch(0.8 0 0);
 	--color-nav-bg: oklch(0.18 0 0 / 0.8);
