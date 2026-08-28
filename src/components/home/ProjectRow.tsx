@@ -23,7 +23,9 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 			>
 				<div className="min-w-0 py-1 whitespace-nowrap">{project.title}</div>
 				<div className="hidden min-w-0 py-1 whitespace-nowrap md:block">{project.type}</div>
-				<div className="hidden min-w-0 truncate py-1 whitespace-nowrap md:block">{project.url}</div>
+				<div className="hidden min-w-0 truncate py-1 whitespace-nowrap md:block">
+					{project.url || '-'}
+				</div>
 				<div className="shrink-0 py-1 whitespace-nowrap">{formattedProjectDate}</div>
 			</div>
 
