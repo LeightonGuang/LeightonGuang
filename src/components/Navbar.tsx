@@ -36,7 +36,7 @@ export const Navbar = () => {
 	}, [])
 
 	return (
-		<nav className="fixed top-4 z-50 flex w-full justify-between px-4 md:items-center">
+		<nav className="fixed top-4 z-200 flex w-full justify-between px-4 md:items-center">
 			<Magnetic>
 				<a
 					className="active:text-primary transition-colors duration-200 hover:cursor-none! hover:text-white md:active:text-white"

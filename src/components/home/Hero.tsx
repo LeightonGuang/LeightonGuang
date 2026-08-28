@@ -186,7 +186,7 @@ const Hero = () => {
 	return (
 		<section ref={containerRef} className="relative flex h-dvh w-full overflow-hidden">
 			<motion.div
-				className="absolute w-72 rounded-xs bg-white p-6 text-black shadow-xl hover:cursor-none"
+				className="absolute z-100 w-72 rounded-xs bg-white p-6 text-black shadow-xl hover:cursor-none"
 				data-cursor="card-dvd"
 				ref={cardRef}
 				animate={controls}

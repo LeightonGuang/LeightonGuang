@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-
 import PageLayout from '../PageLayout'
 import CustomCursor from '../CustomCursor'
 
@@ -44,7 +43,7 @@ const ContactPage = () => {
 
 							<a
 								href="mailto:leighton.guang@icloud.com"
-								className="text-text relative z-10 inline-block px-4 py-2 text-xl font-medium transition-colors duration-300 hover:cursor-none! hover:text-white sm:text-3xl lg:text-4xl"
+								className="text-text relative z-200 inline-block px-4 py-2 text-xl font-medium transition-colors duration-300 hover:cursor-none! hover:text-white sm:text-3xl lg:text-4xl"
 								data-cursor="contact-email"
 							>
 								leighton.guang@icloud.com
