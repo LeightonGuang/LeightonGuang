@@ -16,14 +16,9 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 	const formattedProjectDate = formatProjectDate(project.date)
 
 	return (
-		<div
-			className={twMerge(
-				'relative z-100 border-b border-zinc-500',
-				!open && 'active:bg-primary transition-all duration-100 active:text-white'
-			)}
-		>
+		<div className="relative z-100 border-b border-zinc-500">
 			<div
-				className="relative grid grid-cols-[minmax(0,1fr)_auto] px-0 py-1 text-sm transition-all duration-300 hover:cursor-none! hover:px-2 hover:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto]"
+				className="active:bg-primary relative grid grid-cols-[minmax(0,1fr)_auto] px-0 py-1 text-sm transition-all duration-100 hover:cursor-none! hover:px-2 hover:text-white active:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto]"
 				onClick={onClick}
 				data-cursor="project-row"
 			>
@@ -44,6 +39,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 							opacity: 1,
 							transition: {
 								height: {
+									duration: 0.75,
 									type: 'spring',
 									stiffness: 220,
 									damping: 18,
@@ -59,7 +55,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 							opacity: 0,
 							transition: {
 								height: {
-									duration: 0.5,
+									duration: 0.75,
 									ease: [0.22, 1, 0.36, 1]
 								},
 								opacity: {
