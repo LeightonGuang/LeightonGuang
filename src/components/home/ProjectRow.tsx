@@ -1,4 +1,5 @@
 import Magnetic from '../Magnetic'
+import { twMerge } from 'tailwind-merge'
 import { AnimatePresence, motion } from 'framer-motion'
 import { formatProjectDate } from '../../../lib/formatProjectDate'
 
@@ -15,7 +16,12 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 	const formattedProjectDate = formatProjectDate(project.date)
 
 	return (
-		<div className="relative z-100 border-b border-zinc-500">
+		<div
+			className={twMerge(
+				'relative z-100 border-b border-zinc-500',
+				!open && 'active:bg-primary transition-all duration-100 active:text-white'
+			)}
+		>
 			<div
 				className="relative grid grid-cols-[minmax(0,1fr)_auto] px-0 py-1 text-sm transition-all duration-300 hover:cursor-none! hover:px-2 hover:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto]"
 				onClick={onClick}
@@ -71,11 +77,13 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 								<div className="mt-4 flex gap-4 text-sm">
 									<Magnetic>
 										<a
-											className={`rounded-full px-3 py-1 transition-colors duration-200 ${
+											className={twMerge(
+												`rounded-full px-3 py-1 transition-colors duration-200`,
+												'active:bg-primary active:text-white',
 												project.url
 													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
-											}`}
+											)}
 											href={project.url || undefined}
 											target={project.url ? '_blank' : undefined}
 											rel={project.url ? 'noreferrer' : undefined}
@@ -90,11 +98,13 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 
 									<Magnetic>
 										<a
-											className={`rounded-full px-3 py-1 transition-colors duration-200 ${
-												project.github
+											className={twMerge(
+												`rounded-full px-3 py-1 transition-colors duration-200`,
+												'active:bg-primary active:text-white',
+												project.url
 													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
-											}`}
+											)}
 											href={project.github || undefined}
 											target={project.github ? '_blank' : undefined}
 											rel={project.github ? 'noreferrer' : undefined}
