@@ -1,6 +1,7 @@
 export interface Project {
 	show: boolean
 	title: string
+	type: string
 	description?: string
 	date: string // YYYY-MM
 	url?: string
@@ -12,7 +13,8 @@ export interface Project {
 const projects: Project[] = [
 	{
 		show: true,
-		title: 'Saúde Brasil website',
+		title: 'Saúde Brasil',
+		type: 'Website',
 		description:
 			'Developed the ecommerce website for Saúde Brasil, a Brazilian peptide seller, handling the frontend and backend development from product browsing through to customer enquiries. Built with Next.js, TypeScript, Tailwind CSS, Cloudflare D1, Cloudflare R2 and Pipedrive CRM, with a focus on a fast, responsive experience and a streamlined sales workflow.',
 		date: '2026-08',
@@ -30,7 +32,8 @@ const projects: Project[] = [
 	},
 	{
 		show: true,
-		title: 'MV Steel Group website',
+		title: 'MV Steel Group',
+		type: 'Website',
 		description: 'Description 1',
 		date: '2025-10',
 		url: 'https://mvsteelgroup.lt',
@@ -39,7 +42,8 @@ const projects: Project[] = [
 	},
 	{
 		show: true,
-		title: 'FMCG Innovations website',
+		title: 'FMCG Innovations',
+		type: 'Website',
 		description:
 			'Developed a global B2B FMCG wholesale platform from the ground up, focused on enabling international trade across diverse product categories. Built with React, Next.js, TypeScript, and Tailwind CSS, with an emphasis on scalable architecture, reusable components, and a fast, polished buyer experience. Worked closely with stakeholders to translate business goals into a high-performing product designed to support the startup’s early growth and future expansion.',
 		date: '2026-04',
@@ -49,7 +53,8 @@ const projects: Project[] = [
 	},
 	{
 		show: true,
-		title: 'Twitch Split Viewer website',
+		title: 'Twitch Split Viewer',
+		type: 'Website',
 		description:
 			'A website that allows you to view multiple Twitch streams at once, splitting the screen into multiple video players.',
 		date: '2026-02',
@@ -60,7 +65,8 @@ const projects: Project[] = [
 	},
 	{
 		show: true,
-		title: 'Stream Track Chrome Extention',
+		title: 'Stream Track',
+		type: 'Chrome Extension',
 		description:
 			'Stream Track is a Chrome extension that helps you keep track of which Twitch streamers you follow are currently live. The main difference is that it uses a UI that looks and feels like Twitch itself, so you can check your followed streamers without having to get used to a completely different interface.',
 		date: '2024-03',
@@ -83,14 +89,17 @@ const projects: Project[] = [
 	},
 	{
 		show: true,
-		title: 'The Next Typer typing test website',
+		title: 'The Next Typer',
+		type: 'Website',
 		description:
 			"The Next Typer is a feature rich typing test website built with Next.js, Shadcn and Recharts. Test your speed and accuracy and track your progress with Recharts. This revamped version enahances the original typing test website using technologies I've recently learned.",
 		date: '2025-03',
 		github: 'https://github.com/LeightonGuang/typing_test_react_app',
 		url: 'https://thenexttyper.netlify.app',
 		technologies: ['Next.js', 'TypeScript', 'Shadcn', 'Recharts'],
-		images: []
+		images: [
+			'https://github.com/LeightonGuang/typing_test_react_app/raw/main/_assets/screenshots/homePage.png'
+		]
 	}
 ]
 

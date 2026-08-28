@@ -15,11 +15,12 @@ const ProjectRow = ({ project, open, onClick }: ProjectRowProps) => {
 	return (
 		<div className="relative border-b border-zinc-500">
 			<div
-				className="grid grid-cols-[minmax(0,1fr)_auto] px-0 py-1 text-sm transition-all duration-300 hover:cursor-none! hover:px-2 hover:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)_auto]"
+				className="grid grid-cols-[minmax(0,1fr)_auto] px-0 py-1 text-sm transition-all duration-300 hover:cursor-none! hover:px-2 hover:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto]"
 				onClick={onClick}
 				data-cursor="project-row"
 			>
 				<div className="min-w-0 py-1 whitespace-nowrap">{project.title}</div>
+				<div className="hidden min-w-0 py-1 whitespace-nowrap md:block">{project.type}</div>
 				<div className="hidden min-w-0 truncate py-1 whitespace-nowrap md:block">{project.url}</div>
 				<div className="shrink-0 py-1 whitespace-nowrap">{formattedProjectDate}</div>
 			</div>
@@ -65,17 +66,17 @@ const ProjectRow = ({ project, open, onClick }: ProjectRowProps) => {
 								<div className="mt-4 flex gap-4 text-sm">
 									<Magnetic>
 										<a
-											className={`active:bg-primary rounded-full px-3 py-1 transition-colors duration-200 active:text-white ${
+											className={`rounded-full px-3 py-1 transition-colors duration-200 ${
 												project.url
 													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
-													: 'bg-text/5 pointer-events-none cursor-not-allowed opacity-40'
+													: 'bg-text/5 cursor-not-allowed! opacity-40'
 											}`}
 											href={project.url || undefined}
 											target={project.url ? '_blank' : undefined}
 											rel={project.url ? 'noreferrer' : undefined}
 											aria-disabled={!project.url}
 											data-cursor="project-site"
-											title={project.url ? '' : 'No link available'}
+											title={project.url ? undefined : 'No link available'}
 										>
 											Site
 										</a>
@@ -93,7 +94,7 @@ const ProjectRow = ({ project, open, onClick }: ProjectRowProps) => {
 											rel={project.github ? 'noreferrer' : undefined}
 											aria-disabled={!project.github}
 											data-cursor="project-github"
-											title={project.github ? '' : 'No Github link available'}
+											title={project.github ? undefined : 'No Github link available'}
 										>
 											Github
 										</a>
