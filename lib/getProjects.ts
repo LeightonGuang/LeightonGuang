@@ -1,11 +1,11 @@
 export interface Project {
 	show: boolean
 	title: string
-	type: string
+	type: 'Website' | 'Chrome Extension' | 'Discord Bot'
 	description?: string
 	date: string // YYYY-MM
-	url?: string
 	technologies: string[]
+	url?: string
 	github?: string
 	images?: string[]
 }
@@ -53,6 +53,17 @@ const projects: Project[] = [
 	},
 	{
 		show: true,
+		title: 'Nade Vault',
+		type: 'Website',
+		description: '',
+		date: '2026-01',
+		url: 'https://nadevault.netlify.app',
+		github: 'https://github.com/LeightonGuang/NadeVault',
+		technologies: ['Next.js', 'Typescript', 'Framer Motion', 'Tailwind CSS'],
+		images: []
+	},
+	{
+		show: true,
 		title: 'Twitch Split Viewer',
 		type: 'Website',
 		description:
@@ -96,9 +107,24 @@ const projects: Project[] = [
 		date: '2025-03',
 		github: 'https://github.com/LeightonGuang/typing_test_react_app',
 		url: 'https://thenexttyper.netlify.app',
-		technologies: ['Next.js', 'TypeScript', 'Shadcn', 'Recharts'],
+		technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn', 'Recharts'],
 		images: [
 			'https://github.com/LeightonGuang/typing_test_react_app/raw/main/_assets/screenshots/homePage.png'
+		]
+	},
+	{
+		show: true,
+		title: 'Q Bot',
+		type: 'Discord Bot',
+		description: 'Description 1',
+		date: '2024-06',
+		github: 'https://github.com/LeightonGuang/Q-bot',
+		technologies: ['Typescript', 'Axios', 'Cheerio', 'Discord.js', 'Peppeteer'],
+		images: [
+			'https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help.png',
+			'https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-account.png',
+			'https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-valorant.png',
+			'https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-private-vc.png'
 		]
 	}
 ]
