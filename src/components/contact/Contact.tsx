@@ -7,7 +7,7 @@ const ContactPage = () => {
 		<PageLayout>
 			<CustomCursor />
 
-			<main className="mx-4 flex h-dvh flex-col justify-center py-24 md:mx-12 lg:mx-24">
+			<main className="mx-4 flex h-dvh flex-col justify-center md:mx-12 lg:mx-24">
 				<div className="mx-auto w-full max-w-5xl">
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
