@@ -420,13 +420,13 @@ const MobileHero = () => {
 			<div className="absolute inset-x-0 bottom-16 z-999 flex justify-center px-4">
 				{!enabled ? (
 					<button
-						className="text-text active:bg-primary rounded-full bg-white/25 px-4 py-2 font-medium shadow-md transition-all active:scale-95 active:text-white"
+						className="text-text active:bg-primary rounded-full bg-white/50 px-2 py-1 text-sm font-medium shadow-sm transition-all active:scale-95 active:text-white dark:bg-white/25"
 						onClick={enableMotion}
 					>
 						Click me!
 					</button>
 				) : (
-					<span className='text-muted/50 text-xs'>Reset gyro by clicking on the card</span>
+					<span className="text-muted/50 text-xs">Reset gyro by tapping the card</span>
 				)}
 			</div>
 
