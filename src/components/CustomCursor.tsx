@@ -156,21 +156,32 @@ const CustomCursor = () => {
 				zIndex: isCloseImage ? 310 : 99
 			}}
 			animate={{
-				width: isLargeTarget ? targetDimensions.width : cursorSize,
-				height: isLargeTarget ? targetDimensions.height : cursorSize,
+				width: isCardDvd
+					? targetDimensions.width + 16
+					: isLargeTarget
+						? targetDimensions.width
+						: cursorSize,
+
+				height: isCardDvd
+					? targetDimensions.height + 16
+					: isLargeTarget
+						? targetDimensions.height
+						: cursorSize,
 
 				borderRadius:
 					isHome || isNavLink
 						? 6
 						: isProjectLink
 							? 9999
-							: isProjectRow || isCardDvd
+							: isProjectRow
 								? 2
 								: isCloseImage
 									? 9999
-									: 10,
+									: isCardDvd
+										? 8
+										: 10,
 
-				scale: isTheme ? 1.5 : isNavLink ? 1.25 : isHome ? 1.1 : isCardDvd ? 1.05 : 1
+				scale: isTheme ? 1.5 : isNavLink ? 1.25 : isHome ? 1.1 : 1
 			}}
 			transition={{
 				duration: 0.2,
