@@ -36,8 +36,10 @@ export const Navbar = () => {
 	}, [])
 
 	return (
-		<nav className="fixed top-4 z-200 flex w-full justify-between px-4 md:items-center">
-			<div className="flex h-max rounded-lg backdrop-blur-md">
+		<nav className="fixed top-4 z-200 flex w-full justify-between px-4 leading-none md:items-center">
+			{/* Logo */}
+
+			<div className="h-max rounded-lg">
 				<Magnetic>
 					<a
 						className="active:text-primary rounded-lg px-1 backdrop-blur-md transition-colors duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none md:bg-transparent md:px-0 md:active:text-white"
@@ -50,6 +52,7 @@ export const Navbar = () => {
 			</div>
 
 			{/* Links */}
+
 			<div className="flex flex-col items-end gap-2 md:flex-row md:items-center md:gap-4">
 				<Magnetic>
 					<a

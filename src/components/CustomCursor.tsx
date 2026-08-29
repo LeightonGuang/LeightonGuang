@@ -84,7 +84,6 @@ const CustomCursor = () => {
 			const strength = 0.1
 
 			mouseX.set(centerX + (clientX - centerX) * strength)
-
 			mouseY.set(centerY + (clientY - centerY) * strength)
 		}
 
@@ -127,16 +126,12 @@ const CustomCursor = () => {
 		}
 
 		window.addEventListener('mousemove', handleMouseMove)
-
 		window.addEventListener('mouseover', handleMouseOver)
-
 		window.addEventListener('mouseout', handleMouseOut)
 
 		return () => {
 			window.removeEventListener('mousemove', handleMouseMove)
-
 			window.removeEventListener('mouseover', handleMouseOver)
-
 			window.removeEventListener('mouseout', handleMouseOut)
 		}
 	}, [])
@@ -162,12 +157,11 @@ const CustomCursor = () => {
 			}}
 			animate={{
 				width: isLargeTarget ? targetDimensions.width : cursorSize,
-
 				height: isLargeTarget ? targetDimensions.height : cursorSize,
 
 				borderRadius:
 					isHome || isNavLink
-						? 4
+						? 6
 						: isProjectLink
 							? 9999
 							: isProjectRow || isCardDvd
