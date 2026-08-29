@@ -18,7 +18,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 	return (
 		<div className="relative z-100 border-b border-zinc-500">
 			<div
-				className="active:bg-primary relative grid grid-cols-[minmax(0,1fr)_auto] px-0 py-1 text-sm transition-all duration-100 hover:cursor-none! hover:px-2 hover:text-white active:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto]"
+				className="active:bg-primary relative grid grid-cols-[minmax(0,1fr)_auto] py-1 text-sm transition-all duration-250 hover:cursor-none! hover:px-2 hover:text-white active:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto]"
 				onClick={onClick}
 				data-cursor="project-row"
 			>
