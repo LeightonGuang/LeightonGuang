@@ -74,7 +74,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 									<Magnetic>
 										<a
 											className={twMerge(
-												`rounded-full px-3 py-1 transition-colors duration-200`,
+												`rounded-full px-3 py-1 transition-colors duration-100`,
 												'active:bg-primary active:text-white',
 												project.url
 													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
