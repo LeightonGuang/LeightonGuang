@@ -94,13 +94,8 @@ const DesktopHero = () => {
 						dvdVelocity.current.y *= hoverFriction
 
 						// Prevent tiny floating-point movement.
-						if (Math.abs(dvdVelocity.current.x) < 0.1) {
-							dvdVelocity.current.x = 0
-						}
-
-						if (Math.abs(dvdVelocity.current.y) < 0.1) {
-							dvdVelocity.current.y = 0
-						}
+						if (Math.abs(dvdVelocity.current.x) < 0.1) dvdVelocity.current.x = 0
+						if (Math.abs(dvdVelocity.current.y) < 0.1) dvdVelocity.current.y = 0
 					} else {
 						// Gradually restore the original speed
 						// after leaving the card.
@@ -173,7 +168,6 @@ const DesktopHero = () => {
 			const maxY = container.clientHeight - card.offsetHeight
 
 			position.current.x = Math.min(Math.max(position.current.x, 0), maxX)
-
 			position.current.y = Math.min(Math.max(position.current.y, 0), maxY)
 
 			controls.set({
@@ -193,7 +187,7 @@ const DesktopHero = () => {
 		<section ref={containerRef} className="relative flex h-full w-full overflow-hidden">
 			<motion.div
 				ref={cardRef}
-				className="absolute z-100 w-72 rounded-xs bg-white p-6 text-black shadow-xl hover:cursor-none"
+				className="absolute z-100 aspect-[1.75] w-80 rounded-md bg-white text-black shadow-xl hover:cursor-none"
 				data-cursor="card-dvd"
 				animate={controls}
 				drag
@@ -225,9 +219,17 @@ const DesktopHero = () => {
 					}
 				}}
 			>
-				<h2 className="text-xl font-bold">Leighton Guang</h2>
-				<p className="mt-2">Full Stack React Developer</p>
-				<p className="mt-6 text-sm">leighton.guang@icloud.com</p>
+				<div className="flex h-full flex-col justify-between p-[7%]">
+					<div>
+						<h2 className="text-[clamp(18px,6vw,28px)] leading-tight font-bold">Leighton Guang</h2>
+
+						<p className="mt-1 text-[clamp(11px,3vw,15px)] text-black/60">
+							Full Stack React Developer
+						</p>
+					</div>
+
+					<p className="text-[clamp(9px,2.5vw,13px)]">leighton.guang@icloud.com</p>
+				</div>
 			</motion.div>
 		</section>
 	)
