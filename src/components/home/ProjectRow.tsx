@@ -97,7 +97,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 											className={twMerge(
 												`rounded-full px-3 py-1 transition-colors duration-200`,
 												'active:bg-primary active:text-white',
-												project.url
+												project.github
 													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
 											)}
@@ -129,17 +129,16 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 										<motion.div
 											key={image}
 											layoutId={`project-image-${project.title}-${index}`}
-											className="bg-text/5 group relative aspect-video cursor-zoom-in overflow-hidden rounded-lg"
+											className="bg-text/5 group relative aspect-video cursor-zoom-in overflow-hidden"
 											onClick={(e) => {
 												e.stopPropagation()
-
 												onImageClick(image, index)
 											}}
 										>
 											<img
 												src={image}
 												alt={`${project.title} screenshot ${index + 1}`}
-												className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+												className="aspect-video h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
 											/>
 										</motion.div>
 									))
