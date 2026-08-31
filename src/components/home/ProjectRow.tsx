@@ -23,7 +23,9 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 				data-cursor="project-row"
 			>
 				<div className="min-w-0 py-1 whitespace-nowrap">{project.title}</div>
-				<div className="hidden min-w-0 py-1 whitespace-nowrap md:block">{project.type}</div>
+				<div className="hidden min-w-0 py-1 whitespace-nowrap md:block">
+					{project.types.join(', ')}
+				</div>
 				<div className="hidden min-w-0 truncate py-1 whitespace-nowrap md:block">
 					{project.url || '-'}
 				</div>
@@ -112,15 +114,55 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 											Github
 										</a>
 									</Magnetic>
+
+									{project.backendGithub && (
+										<Magnetic>
+											<a
+												className={twMerge(
+													`rounded-full px-3 py-1 transition-colors duration-200`,
+													'active:bg-primary active:text-white',
+													'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
+												)}
+												href={project.backendGithub}
+												target="_blank"
+												rel="noreferrer"
+												data-cursor="project-github"
+											>
+												Backend Github
+											</a>
+										</Magnetic>
+									)}
 								</div>
 
-								<ul className="mt-4 flex flex-col pl-4 text-sm">
-									{project.technologies.map((tech) => (
-										<li key={tech} className="list-disc rounded px-2 py-1">
-											{tech}
-										</li>
-									))}
-								</ul>
+								<div className="flex justify-between">
+									{project.technologies.length > 0 && (
+										<div className="mt-4 w-full">
+											<h2 className="text-medium">Stack</h2>
+
+											<ul className="flex flex-col pl-4 text-sm">
+												{project.technologies.map((tech) => (
+													<li key={tech} className="list-disc rounded px-2 py-1">
+														{tech}
+													</li>
+												))}
+											</ul>
+										</div>
+									)}
+
+									{project.backendTechnologies && (
+										<div className="mt-4 w-full">
+											<h2 className="text-medium">Backend</h2>
+
+											<ul className="flex flex-col pl-4 text-sm">
+												{project.backendTechnologies.map((tech) => (
+													<li key={tech} className="list-disc rounded px-2 py-1">
+														{tech}
+													</li>
+												))}
+											</ul>
+										</div>
+									)}
+								</div>
 							</div>
 
 							<div className="grid min-w-0 grid-cols-2 gap-2">
