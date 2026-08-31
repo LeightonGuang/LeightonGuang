@@ -77,9 +77,9 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 										<a
 											className={twMerge(
 												`rounded-full px-3 py-1 transition-colors duration-100`,
-												'active:bg-primary active:text-white',
 												project.url
-													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
+													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white' +
+															'active:bg-primary active:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
 											)}
 											href={project.url || undefined}
@@ -98,9 +98,9 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 										<a
 											className={twMerge(
 												`rounded-full px-3 py-1 transition-colors duration-200`,
-												'active:bg-primary active:text-white',
 												project.github
-													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
+													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white' +
+															'active:bg-primary active:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
 											)}
 											href={project.github || undefined}
@@ -119,9 +119,9 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 										<Magnetic>
 											<a
 												className={twMerge(
-													`rounded-full px-3 py-1 transition-colors duration-200`,
-													'active:bg-primary active:text-white',
-													'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white'
+													`rounded-full px-3 py-1 whitespace-nowrap transition-colors duration-200`,
+													'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white',
+													'active:bg-primary active:text-white'
 												)}
 												href={project.backendGithub}
 												target="_blank"
