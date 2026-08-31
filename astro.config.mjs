@@ -1,7 +1,8 @@
 // @ts-check
+import react from '@astrojs/react'
 import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
-import react from '@astrojs/react'
+import cloudflare from '@astrojs/cloudflare'
 
 export default defineConfig({
 	vite: {
@@ -13,5 +14,6 @@ export default defineConfig({
 		}
 	},
 
-	integrations: [react()]
+	integrations: [react()],
+	adapter: cloudflare()
 })
