@@ -11,6 +11,7 @@
 		"host": "astro dev --host",
 		"build": "astro build",
 		"preview": "astro preview",
+		"deploy": "wrangler deploy",
 		"astro": "astro",
 		"tunnel": "cloudflared tunnel --url http://localhost:4321",
 		"generate-types": "wrangler types"
