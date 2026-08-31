@@ -154,7 +154,9 @@ const projects: Project[] = [
 			'A multifunctional Discord bot built with TypeScript and Discord.js, providing Valorant statistics, VCT event tracking, account management, private voice channels, and Minecraft server controls. Also includes moderation and utility commands for managing and enhancing Discord communities.',
 		date: '2024-06',
 		github: 'https://github.com/LeightonGuang/Q-bot',
+		backendGithub: 'https://github.com/LeightonGuang/Q-bot-api',
 		technologies: ['TypeScript', 'Discord.js', 'Axios', 'Cheerio', 'Puppeteer'],
+		backendTechnologies: ['Node.js', 'Express', 'TypeScript', 'MySQL', 'Knex', 'Axios'],
 		images: [
 			'https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help.png',
 			'https://github.com/LeightonGuang/Q-bot/raw/main/README/screenShots/help-account.png',
