@@ -28,8 +28,7 @@ export const Navbar = () => {
 	useEffect(() => {
 		const savedTheme = localStorage.getItem('theme')
 
-		const initialTheme =
-			savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+		const initialTheme = savedTheme || 'light'
 
 		setTheme(initialTheme as 'light' | 'dark')
 		applyTheme(initialTheme)
