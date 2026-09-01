@@ -42,7 +42,7 @@ export const Navbar = () => {
 			<div className="h-max rounded-lg">
 				<Magnetic>
 					<a
-						className="active:text-primary rounded-lg px-1 backdrop-blur-md transition-colors duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none md:bg-transparent md:px-0 md:active:text-white"
+						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-colors duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none md:bg-transparent md:px-0 md:active:text-white"
 						href="/"
 						data-cursor="home"
 					>
