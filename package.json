@@ -13,7 +13,7 @@
 		"preview": "astro preview",
 		"deploy": "wrangler deploy",
 		"astro": "astro",
-		"tunnel": "cloudflared tunnel --url http://localhost:4321",
+		"tunnel": "npx cloudflared tunnel --url",
 		"generate-types": "wrangler types"
 	},
 	"dependencies": {
