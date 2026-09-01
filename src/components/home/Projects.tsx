@@ -54,7 +54,7 @@ const Projects = () => {
 	return (
 		<>
 			<section className="mx-4 mb-32 overflow-hidden">
-				<div className="text-muted grid grid-cols-[minmax(0,1fr)_auto] border-b font-light border-zinc-500 text-sm md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto]">
+				<div className="text-muted grid grid-cols-[minmax(0,1fr)_auto] border-b border-zinc-500 text-sm font-light md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto]">
 					<div>Project</div>
 					<div className="hidden md:block">Type</div>
 					<div className="hidden md:block">URL</div>
@@ -94,7 +94,7 @@ const Projects = () => {
 							{/* Expanded image */}
 							<motion.div
 								layoutId={`project-image-${selectedImage.project}-${selectedImage.index}`}
-								className="pointer-events-auto relative max-h-[80vh] max-w-[80vw] overflow-hidden rounded-xl"
+								className="pointer-events-auto relative max-h-[80vh] max-w-[80vw] overflow-hidden"
 								transition={{
 									type: 'spring',
 									stiffness: 260,
@@ -114,7 +114,7 @@ const Projects = () => {
 							<button
 								type="button"
 								onClick={closeImage}
-								className="pointer-events-auto absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-colors hover:cursor-none! hover:bg-white/20"
+								className="pointer-events-auto absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all duration-200 hover:cursor-none! hover:bg-transparent hover:backdrop-blur-none"
 								aria-label="Close image"
 								data-cursor="close-image"
 							>
