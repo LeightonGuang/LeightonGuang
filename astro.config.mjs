@@ -1,5 +1,6 @@
 // @ts-check
 import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap'
 import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 import cloudflare from '@astrojs/cloudflare'
@@ -13,7 +14,7 @@ export default defineConfig({
 			allowedHosts: true
 		}
 	},
-
-	integrations: [react()],
+	site: 'https://leightonguang.com',
+	integrations: [react(), sitemap()],
 	adapter: cloudflare()
 })
