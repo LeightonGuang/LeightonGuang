@@ -31,7 +31,6 @@ const Projects = () => {
 		setSelectedImage(null)
 	}
 
-	// Lock page scrolling while the image is open.
 	useEffect(() => {
 		if (!selectedImage) return
 
@@ -53,7 +52,7 @@ const Projects = () => {
 
 	return (
 		<>
-			<section className="mx-4 mb-32 overflow-hidden">
+			<section className="mx-2 mb-32 overflow-hidden">
 				<div className="text-muted grid grid-cols-[minmax(0,1fr)_auto] border-b border-zinc-500 text-sm font-light md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto]">
 					<div>Project</div>
 					<div className="hidden md:block">Type</div>
@@ -61,21 +60,25 @@ const Projects = () => {
 					<div>Year</div>
 				</div>
 
-				{projects.map((project) => (
-					<ProjectRow
-						key={project.title}
-						project={project}
-						open={openProject === project.title}
-						onClick={() => handleRowClick(project.title)}
-						onImageClick={(image, index) => handleImageClick(image, project.title, index)}
-					/>
-				))}
+				<div>
+					{projects.map((project, index) => (
+						<ProjectRow
+							key={project.title}
+							project={project}
+							open={openProject === project.title}
+							onClick={() => handleRowClick(project.title)}
+							onImageClick={(image, imageIndex) =>
+								handleImageClick(image, project.title, imageIndex)
+							}
+							index={index}
+						/>
+					))}
+				</div>
 			</section>
 
 			<AnimatePresence>
 				{selectedImage && (
 					<>
-						{/* Dark backdrop overlay */}
 						<motion.div
 							className="pointer-events-auto fixed inset-0 z-300 bg-black/80 backdrop-blur-sm"
 							initial={{ opacity: 0 }}
@@ -84,14 +87,12 @@ const Projects = () => {
 							onClick={closeImage}
 						/>
 
-						{/* Expanded image & close button container */}
 						<motion.div
 							className="pointer-events-none fixed inset-0 z-320 flex items-center justify-center p-4 md:p-8"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
 						>
-							{/* Expanded image */}
 							<motion.div
 								layoutId={`project-image-${selectedImage.project}-${selectedImage.index}`}
 								className="pointer-events-auto relative max-h-[80vh] max-w-[80vw] overflow-hidden"

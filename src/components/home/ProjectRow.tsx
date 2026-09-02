@@ -1,6 +1,7 @@
+import { useRef } from 'react'
 import Magnetic from '../Magnetic'
 import { twMerge } from 'tailwind-merge'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, easeIn, easeInOut, motion, useInView } from 'framer-motion'
 import { formatProjectDate } from '../../../lib/formatProjectDate'
 
 import type { Project } from '../../../lib/getProjects'
@@ -10,25 +11,59 @@ type ProjectRowProps = {
 	open: boolean
 	onClick: () => void
 	onImageClick: (image: string, index: number) => void
+	index: number
 }
 
-const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) => {
+const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowProps) => {
 	const formattedProjectDate = formatProjectDate(project.date)
 
+	const ref = useRef<HTMLDivElement>(null)
+
+	const isInView = useInView(ref, {
+		once: true,
+		amount: 0.15
+	})
+
 	return (
-		<div className="relative z-100 border-b border-zinc-500">
+		<motion.div
+			ref={ref}
+			className="relative z-100 border-b border-zinc-500"
+			initial={{
+				opacity: 0,
+				y: 40
+			}}
+			animate={
+				isInView
+					? {
+							opacity: 1,
+							y: 0
+						}
+					: {
+							opacity: 0,
+							y: 40
+						}
+			}
+			transition={{
+				duration: 0.5,
+				delay: isInView ? index * 0.1 : 0,
+				ease: easeInOut
+			}}
+		>
 			<div
-				className="active:bg-primary relative grid grid-cols-[minmax(0,1fr)_auto] py-1 text-sm transition-all duration-250 hover:cursor-none! hover:px-4 hover:text-white active:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto] md:active:bg-transparent"
+				className="active:bg-primary relative grid grid-cols-[minmax(0,1fr)_auto] py-1 text-sm transition-all duration-250 hover:cursor-none! hover:px-4 hover:text-white active:px-2 active:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto] md:active:bg-transparent"
 				onClick={onClick}
 				data-cursor="project-row"
 			>
 				<div className="min-w-0 py-1 whitespace-nowrap">{project.title}</div>
+
 				<div className="hidden min-w-0 py-1 whitespace-nowrap md:block">
 					{project.types.join(', ')}
 				</div>
+
 				<div className="hidden min-w-0 truncate py-1 whitespace-nowrap md:block">
 					{project.url || '-'}
 				</div>
+
 				<div className="shrink-0 py-1 whitespace-nowrap">{formattedProjectDate}</div>
 			</div>
 
@@ -65,7 +100,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 								}
 							}
 						}}
-						className="relative z-100 overflow-hidden"
+						className="relative z-100"
 					>
 						<div className="grid w-full grid-cols-1 gap-6 py-4 md:grid-cols-2 md:gap-8">
 							<div className="min-w-0">
@@ -75,7 +110,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 									<Magnetic disabled={!project.url}>
 										<a
 											className={twMerge(
-												`rounded-full px-3 py-1 transition-colors duration-100`,
+												'rounded-full px-3 py-1 transition-colors duration-100',
 												project.url
 													? 'bg-text/10 active:bg-primary hover:cursor-none! hover:bg-transparent hover:text-white active:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
@@ -95,7 +130,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 									<Magnetic disabled={!project.github}>
 										<a
 											className={twMerge(
-												`rounded-full px-3 py-1 transition-colors duration-200`,
+												'rounded-full px-3 py-1 transition-colors duration-200',
 												project.github
 													? 'bg-text/10 active:bg-primary hover:cursor-none! hover:bg-transparent hover:text-white active:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
@@ -116,7 +151,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 										<Magnetic disabled={!project.backendGithub}>
 											<a
 												className={twMerge(
-													`rounded-full px-3 py-1 whitespace-nowrap transition-colors duration-200`,
+													'rounded-full px-3 py-1 whitespace-nowrap transition-colors duration-200',
 													'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white',
 													'active:bg-primary active:text-white'
 												)}
@@ -124,6 +159,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 												target="_blank"
 												rel="noreferrer"
 												data-cursor={project.backendGithub && 'project-github'}
+												onClick={(e) => e.stopPropagation()}
 											>
 												Backend Github
 											</a>
@@ -162,7 +198,6 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 								</div>
 							</div>
 
-							{/* image grid */}
 							<div className="grid min-w-0 grid-cols-2 gap-2">
 								{project.images?.length ? (
 									project.images.map((image, index) => (
@@ -192,7 +227,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 					</motion.div>
 				)}
 			</AnimatePresence>
-		</div>
+		</motion.div>
 	)
 }
 
