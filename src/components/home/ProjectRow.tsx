@@ -68,25 +68,23 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 						className="relative z-100 overflow-hidden"
 					>
 						<div className="grid w-full grid-cols-1 gap-6 py-4 md:grid-cols-2 md:gap-8">
-							{/* Project information */}
 							<div className="min-w-0">
 								<p className="wrap-break-words text-xl">{project.description}</p>
 
 								<div className="mt-4 flex gap-4 text-sm">
-									<Magnetic>
+									<Magnetic disabled={!project.url}>
 										<a
 											className={twMerge(
 												`rounded-full px-3 py-1 transition-colors duration-100`,
 												project.url
-													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white' +
-															'active:bg-primary active:text-white'
+													? 'bg-text/10 active:bg-primary hover:cursor-none! hover:bg-transparent hover:text-white active:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
 											)}
 											href={project.url || undefined}
 											target={project.url ? '_blank' : undefined}
 											rel={project.url ? 'noreferrer' : undefined}
 											aria-disabled={!project.url}
-											data-cursor="project-site"
+											data-cursor={project.url && 'project-site'}
 											title={project.url ? undefined : 'No link available'}
 											onClick={(e) => e.stopPropagation()}
 										>
@@ -94,20 +92,19 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 										</a>
 									</Magnetic>
 
-									<Magnetic>
+									<Magnetic disabled={!project.github}>
 										<a
 											className={twMerge(
 												`rounded-full px-3 py-1 transition-colors duration-200`,
 												project.github
-													? 'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white' +
-															'active:bg-primary active:text-white'
+													? 'bg-text/10 active:bg-primary hover:cursor-none! hover:bg-transparent hover:text-white active:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
 											)}
 											href={project.github || undefined}
 											target={project.github ? '_blank' : undefined}
 											rel={project.github ? 'noreferrer' : undefined}
 											aria-disabled={!project.github}
-											data-cursor="project-github"
+											data-cursor={project.github && 'project-github'}
 											title={project.github ? undefined : 'No Github link available'}
 											onClick={(e) => e.stopPropagation()}
 										>
@@ -116,7 +113,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 									</Magnetic>
 
 									{project.backendGithub && (
-										<Magnetic>
+										<Magnetic disabled={!project.backendGithub}>
 											<a
 												className={twMerge(
 													`rounded-full px-3 py-1 whitespace-nowrap transition-colors duration-200`,
@@ -126,7 +123,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 												href={project.backendGithub}
 												target="_blank"
 												rel="noreferrer"
-												data-cursor="project-github"
+												data-cursor={project.backendGithub && 'project-github'}
 											>
 												Backend Github
 											</a>
@@ -165,6 +162,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick }: ProjectRowProps) =
 								</div>
 							</div>
 
+							{/* image grid */}
 							<div className="grid min-w-0 grid-cols-2 gap-2">
 								{project.images?.length ? (
 									project.images.map((image, index) => (

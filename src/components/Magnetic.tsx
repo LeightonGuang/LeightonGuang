@@ -4,9 +4,10 @@ import { useRef, useState } from 'react'
 type MagneticProps = {
 	children: React.ReactNode
 	className?: string
+	disabled?: boolean
 }
 
-const Magnetic = ({ children, className }: MagneticProps) => {
+const Magnetic = ({ children, className, disabled }: MagneticProps) => {
 	const ref = useRef<HTMLDivElement>(null)
 	const [position, setPosition] = useState({ x: 0, y: 0 })
 
@@ -33,8 +34,8 @@ const Magnetic = ({ children, className }: MagneticProps) => {
 			className={className}
 			style={{ position: 'relative' }}
 			ref={ref}
-			onMouseMove={handleMouse}
-			onMouseLeave={reset}
+			onMouseMove={disabled ? undefined : handleMouse}
+			onMouseLeave={disabled ? undefined : reset}
 			animate={{ x, y }}
 			transition={{ type: 'spring', stiffness: 200, damping: 20 }}
 		>

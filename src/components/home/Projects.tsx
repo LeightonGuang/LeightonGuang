@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { X } from 'lucide-react'
 import ProjectRow from './ProjectRow'
+import { useEffect, useState } from 'react'
 import { getProjects } from '../../../lib/getProjects'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
 
 const Projects = () => {
 	const [openProject, setOpenProject] = useState<string | null>(null)
@@ -110,7 +110,6 @@ const Projects = () => {
 								/>
 							</motion.div>
 
-							{/* Close button */}
 							<button
 								type="button"
 								onClick={closeImage}
