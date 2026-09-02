@@ -52,7 +52,7 @@ const Projects = () => {
 
 	return (
 		<>
-			<section className="mx-2 mb-32 overflow-hidden">
+			<section className="mx-2 mb-32 overflow-hidden md:mx-4">
 				<div className="text-muted grid grid-cols-[minmax(0,1fr)_auto] border-b border-zinc-500 text-sm font-light md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto]">
 					<div>Project</div>
 					<div className="hidden md:block">Type</div>
