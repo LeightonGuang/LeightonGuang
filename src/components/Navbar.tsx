@@ -41,7 +41,7 @@ export const Navbar = () => {
 			<div className="h-max rounded-lg">
 				<Magnetic>
 					<a
-						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-colors duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none md:bg-transparent md:px-0 md:active:text-white"
+						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-all duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none active:scale-90 md:bg-transparent md:px-0 md:active:text-white"
 						href="/"
 						data-cursor="home"
 					>
@@ -55,7 +55,7 @@ export const Navbar = () => {
 			<div className="flex flex-col items-end gap-2 md:flex-row md:items-center md:gap-4">
 				<Magnetic>
 					<a
-						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-colors duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none md:bg-transparent md:px-0 md:active:text-white"
+						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-all duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none active:scale-90 md:bg-transparent md:px-0 md:active:text-white"
 						href="https://www.linkedin.com/in/leighton-guang"
 						target="_blank"
 						rel="noreferrer"
@@ -67,7 +67,7 @@ export const Navbar = () => {
 
 				<Magnetic>
 					<a
-						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-colors duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none md:bg-transparent md:px-0 md:active:text-white"
+						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-all duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none active:scale-90 md:bg-transparent md:px-0 md:active:text-white"
 						href="/contact"
 						data-cursor="contact"
 					>
@@ -77,7 +77,7 @@ export const Navbar = () => {
 
 				<Magnetic>
 					<a
-						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-colors duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none md:bg-transparent md:px-0 md:active:text-white"
+						className="active:text-primary inline-block rounded-lg px-1 backdrop-blur-md transition-all duration-100 hover:cursor-none! hover:text-white hover:backdrop-blur-none active:scale-90 md:bg-transparent md:px-0 md:active:text-white"
 						href="https://github.com/LeightonGuang"
 						target="_blank"
 						rel="noreferrer"
@@ -88,7 +88,7 @@ export const Navbar = () => {
 				</Magnetic>
 
 				<Magnetic>
-					<div className="active:text-primary pointer-events-none relative flex size-5 items-center justify-center rounded-lg backdrop-blur-md transition-colors duration-100 hover:text-white hover:backdrop-blur-none md:bg-transparent">
+					<div className="active:text-primary pointer-events-none relative flex size-5 items-center justify-center rounded-lg backdrop-blur-md transition-all duration-100 hover:text-white hover:backdrop-blur-none md:bg-transparent">
 						<AnimatePresence mode="wait" initial={false}>
 							{theme === 'light' ? (
 								<MotionMoon
