@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import Magnetic from '../Magnetic'
 import { twMerge } from 'tailwind-merge'
-import { AnimatePresence, easeIn, easeInOut, motion, useInView } from 'framer-motion'
+import { AnimatePresence, easeInOut, motion, useInView } from 'framer-motion'
 import { formatProjectDate } from '../../../lib/formatProjectDate'
 
 import type { Project } from '../../../lib/getProjects'
@@ -44,9 +44,11 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 						}
 			}
 			transition={{
-				duration: 0.5,
 				delay: isInView ? index * 0.1 : 0,
-				ease: easeInOut
+				type: 'spring',
+				stiffness: 150,
+				damping: 30,
+				mass: 0.7
 			}}
 		>
 			<div
