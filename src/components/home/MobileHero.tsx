@@ -1,4 +1,7 @@
+import { motion } from 'framer-motion'
+import { ChevronsDown } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
+import { useScroll, useTransform } from 'framer-motion'
 
 type OrientationEventWithPermission = typeof DeviceOrientationEvent & {
 	requestPermission?: () => Promise<'granted' | 'denied'>
@@ -33,6 +36,10 @@ const RAD_TO_DEG = 180 / Math.PI
 const MobileHero = () => {
 	const [enabled, setEnabled] = useState(false)
 	const [error, setError] = useState<string | null>(null)
+
+	const { scrollY } = useScroll()
+
+	const scrollIndicatorOpacity = useTransform(scrollY, [0, 120], [1, 0])
 
 	const orientation = useRef<Orientation>({
 		alpha: 0,
@@ -82,9 +89,7 @@ const MobileHero = () => {
 	// How much sensor movement creates additional momentum.
 	const movementMomentum = 0.12
 
-	// Convert DeviceOrientation
-	// to quaternion
-
+	// Convert DeviceOrientation to quaternion
 	const orientationToQuaternion = (alpha: number, beta: number, gamma: number): Quaternion => {
 		const x = beta * DEG_TO_RAD
 		const y = gamma * DEG_TO_RAD
@@ -319,14 +324,12 @@ const MobileHero = () => {
 
 			state.velocityX *= damping
 			state.velocityY *= damping
-
 			state.rotationVelocity *= rotationDamping
 
 			// Integrate velocity
 
 			state.x += state.velocityX
 			state.y += state.velocityY
-
 			state.rotation += state.rotationVelocity
 
 			// Output
@@ -417,7 +420,7 @@ const MobileHero = () => {
 
 			{/* ENABLE MOTION */}
 
-			<div className="absolute inset-x-0 bottom-16 z-999 flex justify-center px-4">
+			<div className="absolute inset-x-0 bottom-40 z-999 flex justify-center px-4">
 				{!enabled ? (
 					<button
 						className="text-text active:bg-primary rounded-full bg-white/50 px-2 py-1 text-sm font-medium shadow-sm transition-all active:scale-95 active:text-white dark:bg-white/25"
@@ -444,6 +447,29 @@ const MobileHero = () => {
 					</div> */}
 				</div>
 			)}
+
+			{/* SCROLL INDICATOR */}
+
+			<motion.div
+				className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+				style={{
+					opacity: scrollIndicatorOpacity
+				}}
+			>
+				<motion.div
+					animate={{ y: [0, 6, 0] }}
+					transition={{
+						duration: 1.5,
+						repeat: Infinity,
+						ease: 'easeInOut'
+					}}
+					className="text-muted/50 flex flex-col items-center gap-2"
+				>
+					<span className="text-xs tracking-[0.25em] uppercase">Scroll</span>
+
+					<ChevronsDown className="size-4" />
+				</motion.div>
+			</motion.div>
 
 			{/* ERROR */}
 

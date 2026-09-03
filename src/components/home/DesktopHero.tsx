@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { motion, useAnimationControls, type PanInfo } from 'framer-motion'
+import { ChevronsDown } from 'lucide-react'
+import { motion, useAnimationControls, useScroll, useTransform, type PanInfo } from 'framer-motion'
 
 const DesktopHero = () => {
 	const containerRef = useRef<HTMLElement | null>(null)
@@ -37,16 +38,26 @@ const DesktopHero = () => {
 
 	// How quickly a thrown card loses momentum.
 	const friction = 0.975
+
 	// How much of the drag release velocity is applied.
 	const throwStrength = 0.4
+
 	// When thrown velocity becomes this small,
 	// return to normal DVD movement.
 	const stopThreshold = 2
+
 	// How quickly the DVD slows down while hovered.
 	const hoverFriction = 0.94
+
 	// How quickly the DVD returns to normal speed
 	// after leaving the card.
 	const resumeStrength = 0.08
+
+	// Scroll indicator
+
+	const { scrollY } = useScroll()
+
+	const scrollIndicatorOpacity = useTransform(scrollY, [0, 120], [1, 0])
 
 	// DVD animation loop
 
@@ -62,6 +73,7 @@ const DesktopHero = () => {
 				const maxY = container.clientHeight - card.offsetHeight
 
 				const hoveredElement = document.querySelector('[data-cursor="card-dvd"]:hover')
+
 				const isHovered = hoveredElement === card
 
 				// Thrown card
@@ -94,8 +106,13 @@ const DesktopHero = () => {
 						dvdVelocity.current.y *= hoverFriction
 
 						// Prevent tiny floating-point movement.
-						if (Math.abs(dvdVelocity.current.x) < 0.1) dvdVelocity.current.x = 0
-						if (Math.abs(dvdVelocity.current.y) < 0.1) dvdVelocity.current.y = 0
+						if (Math.abs(dvdVelocity.current.x) < 0.1) {
+							dvdVelocity.current.x = 0
+						}
+
+						if (Math.abs(dvdVelocity.current.y) < 0.1) {
+							dvdVelocity.current.y = 0
+						}
 					} else {
 						// Gradually restore the original speed
 						// after leaving the card.
@@ -154,8 +171,7 @@ const DesktopHero = () => {
 		}
 	}, [controls])
 
-	// Keep card inside viewport
-	// after resize
+	// Keep card inside viewport after resize
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -168,6 +184,7 @@ const DesktopHero = () => {
 			const maxY = container.clientHeight - card.offsetHeight
 
 			position.current.x = Math.min(Math.max(position.current.x, 0), maxX)
+
 			position.current.y = Math.min(Math.max(position.current.y, 0), maxY)
 
 			controls.set({
@@ -230,6 +247,27 @@ const DesktopHero = () => {
 
 					<p className="text-[clamp(9px,2.5vw,13px)]">leighton.guang@icloud.com</p>
 				</div>
+			</motion.div>
+
+			{/* Scroll indicator */}
+
+			<motion.div
+				className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+				style={{ opacity: scrollIndicatorOpacity }}
+			>
+				<motion.div
+					animate={{ y: [0, 6, 0] }}
+					transition={{
+						duration: 1.5,
+						repeat: Infinity,
+						ease: 'easeInOut'
+					}}
+					className="text-muted/50 flex flex-col items-center gap-2"
+				>
+					<span className="text-xs tracking-[0.25em] uppercase">Scroll</span>
+
+					<ChevronsDown className="size-4" />
+				</motion.div>
 			</motion.div>
 		</section>
 	)
