@@ -81,11 +81,11 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 									duration: 0.75,
 									type: 'spring',
 									stiffness: 220,
-									damping: 18,
-									mass: 0.8
+									damping: 30,
+									mass: 0.5
 								},
 								opacity: {
-									duration: 0.15
+									duration: 0.2
 								}
 							}
 						}}
