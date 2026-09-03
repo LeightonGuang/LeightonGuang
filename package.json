@@ -1,7 +1,7 @@
 {
 	"name": "leightonguang",
 	"type": "module",
-	"version": "2.5.2",
+	"version": "2.5.3",
 	"engines": {
 		"node": ">=22.12.0"
 	},
