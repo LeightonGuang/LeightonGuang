@@ -33,6 +33,28 @@ const Projects = () => {
 		setSelectedImage(null)
 	}
 
+	// Scroll opened project into view
+	useEffect(() => {
+		if (!openProject) return
+
+		const timeout = setTimeout(() => {
+			const element = document.getElementById(`project-${openProject}`)
+
+			if (!element) return
+
+			const offset = 44
+			const top = element.getBoundingClientRect().top + window.scrollY - offset
+
+			window.scrollTo({
+				top,
+				behavior: 'smooth'
+			})
+		}, 500)
+
+		return () => clearTimeout(timeout)
+	}, [openProject])
+
+	// Image modal
 	useEffect(() => {
 		if (!selectedImage) return
 
@@ -64,16 +86,17 @@ const Projects = () => {
 
 				<div>
 					{projects.map((project, index) => (
-						<ProjectRow
-							key={project.title}
-							project={project}
-							open={openProject === project.title}
-							onClick={() => handleRowClick(project.title)}
-							onImageClick={(image, imageIndex) =>
-								handleImageClick(image, project.title, imageIndex)
-							}
-							index={index}
-						/>
+						<div key={project.title} id={`project-${project.title}`} className="scroll-mt-4">
+							<ProjectRow
+								project={project}
+								open={openProject === project.title}
+								onClick={() => handleRowClick(project.title)}
+								onImageClick={(image, imageIndex) =>
+									handleImageClick(image, project.title, imageIndex)
+								}
+								index={index}
+							/>
+						</div>
 					))}
 				</div>
 			</section>
