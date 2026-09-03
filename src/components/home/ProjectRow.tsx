@@ -204,7 +204,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 								</div>
 							</div>
 
-							<div className="grid min-w-0 grid-cols-2 gap-2">
+							<div className="grid min-w-0 grid-cols-2 gap-2 md:gap-4 h-max">
 								{project.images?.length ? (
 									project.images.map((image, index) => (
 										<motion.div
