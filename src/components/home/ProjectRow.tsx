@@ -56,7 +56,7 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 				onClick={onClick}
 				data-cursor="project-row"
 			>
-				<div className="min-w-0 py-1 whitespace-nowrap">{project.title}</div>
+				<div className="min-w-0 py-1 font-medium whitespace-nowrap">{project.title}</div>
 
 				<div className="hidden min-w-0 py-1 whitespace-nowrap md:block">
 					{project.types.join(', ')}
@@ -106,6 +106,10 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 					>
 						<div className="grid w-full grid-cols-1 gap-6 py-4 md:grid-cols-2 md:gap-8">
 							<div className="min-w-0">
+								<div className="text-text mb-2 block text-sm md:hidden">
+									Type: {project.types.join(', ')}
+								</div>
+
 								<p className="wrap-break-words text-xl">{project.description}</p>
 
 								<div className="mt-4 flex gap-4 text-sm">
