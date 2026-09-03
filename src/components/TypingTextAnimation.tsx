@@ -1,3 +1,4 @@
+import { twMerge } from 'tailwind-merge'
 import { useEffect, useState } from 'react'
 
 interface TypingTextProps {
@@ -76,9 +77,10 @@ const TypingTextAnimation = ({
 			{showCursor && (
 				<span
 					aria-hidden="true"
-					className={`ml-0.5 inline-block h-[1em] w-[2px] translate-y-[0.1em] bg-current ${
-						isComplete ? 'animate-cursor-blink' : ''
-					}`}
+					className={twMerge(
+						'ml-0.5 inline-block h-[1em] w-0.5 translate-y-[0.1em] bg-current',
+						isComplete && 'animate-cursor-blink'
+					)}
 				/>
 			)}
 		</span>
