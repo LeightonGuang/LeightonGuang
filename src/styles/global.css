@@ -21,8 +21,8 @@ a {
 }
 
 :root {
-	--color-primary: oklch(67.336% 0.18442 37.113);
-	--color-background: oklch(89.496% 0.03332 83.691);
+	--color-primary: oklch(70.723% 0.15907 37.564);
+	--color-background: oklch(95.76% 0.02034 81.739);
 	--color-text: oklch(0.2 0 0);
 	--color-muted: oklch(0.4 0 0);
 	--color-nav-bg: oklch(0.97 0 0 / 0.8);
