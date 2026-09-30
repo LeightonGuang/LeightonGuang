@@ -21,24 +21,40 @@ const { title = 'Leighton Guang', description = '' } = Astro.props
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+
+		<link id="favicon" rel="icon" type="image/svg+xml" href="/favicon-light.svg" />
+
 		<meta name="generator" content={Astro.generator} />
 		<title>{title === 'Leighton Guang' ? title : `${title} | Leighton Guang`}</title>
 		<meta name="description" content={description} />
+
 		<script is:inline>
 			const getTheme = () => {
-				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-					return localStorage.getItem('theme')
-				}
+				return localStorage.getItem('theme') ?? 'light'
+			}
 
-				return 'light'
+			const setFavicon = () => {
+				const favicon = document.querySelector('#favicon')
+
+				if (!favicon) return
+
+				const isDark = document.documentElement.classList.contains('dark')
+
+				favicon.href = isDark ? '/favicon-dark.svg' : '/favicon-light.svg'
 			}
-			if (getTheme() === 'dark') {
-				document.documentElement.classList.add('dark')
-			} else {
-				document.documentElement.classList.remove('dark')
-			}
+
+			const theme = getTheme()
+
+			document.documentElement.classList.toggle('dark', theme === 'dark')
+
+			setFavicon()
+
+			const observer = new MutationObserver(setFavicon)
+
+			observer.observe(document.documentElement, {
+				attributes: true,
+				attributeFilter: ['class']
+			})
 		</script>
 	</head>
 
