@@ -1,7 +1,8 @@
 import { useRef } from 'react'
-import Magnetic from '../Magnetic'
 import { twMerge } from 'tailwind-merge'
-import { AnimatePresence, easeInOut, motion, useInView } from 'framer-motion'
+import { AnimatePresence, motion, useInView } from 'framer-motion'
+
+import Magnetic from '../Magnetic'
 import { formatProjectDate } from '../../../lib/formatProjectDate'
 
 import type { Project } from '../../../lib/getProjects'
@@ -27,11 +28,11 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 	return (
 		<motion.div
 			ref={ref}
-			className="relative z-100 border-b border-zinc-500"
 			initial={{
 				opacity: 0,
 				y: 40
 			}}
+			className="relative z-100 overflow-hidden border-b border-zinc-500"
 			animate={
 				isInView
 					? {
@@ -52,9 +53,9 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 			}}
 		>
 			<div
-				className="active:bg-primary relative grid grid-cols-[minmax(0,1fr)_auto] py-1 text-sm transition-all duration-250 hover:cursor-none! hover:px-4 hover:text-white active:px-2 active:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto] md:active:bg-transparent"
 				onClick={onClick}
 				data-cursor="project-row"
+				className="active:bg-primary relative grid grid-cols-[minmax(0,1fr)_auto] py-1 text-sm transition-all duration-250 hover:cursor-none! hover:px-4 hover:text-white active:px-2 active:text-white md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,2fr)_auto] md:active:bg-transparent"
 			>
 				<div className="min-w-0 py-1 font-medium whitespace-nowrap">{project.title}</div>
 
@@ -72,7 +73,21 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 			<AnimatePresence initial={false}>
 				{open && (
 					<motion.div
+						className="relative z-100"
 						initial={{ height: 0, opacity: 0 }}
+						exit={{
+							height: 0,
+							opacity: 0,
+							transition: {
+								height: {
+									duration: 0.75,
+									ease: [0.22, 1, 0.36, 1]
+								},
+								opacity: {
+									duration: 0.15
+								}
+							}
+						}}
 						animate={{
 							height: 'auto',
 							opacity: 1,
@@ -89,20 +104,6 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 								}
 							}
 						}}
-						exit={{
-							height: 0,
-							opacity: 0,
-							transition: {
-								height: {
-									duration: 0.75,
-									ease: [0.22, 1, 0.36, 1]
-								},
-								opacity: {
-									duration: 0.15
-								}
-							}
-						}}
-						className="relative z-100"
 					>
 						<div className="grid w-full grid-cols-1 gap-6 py-4 md:grid-cols-2 md:gap-8">
 							<div className="min-w-0">
@@ -115,19 +116,19 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 								<div className="mt-4 flex gap-4 text-sm">
 									<Magnetic disabled={!project.url}>
 										<a
+											aria-disabled={!project.url}
+											href={project.url || undefined}
+											onClick={(e) => e.stopPropagation()}
+											target={project.url ? '_blank' : undefined}
+											data-cursor={project.url && 'project-site'}
+											rel={project.url ? 'noreferrer' : undefined}
+											title={project.url ? undefined : 'No link available'}
 											className={twMerge(
 												'rounded-full px-3 py-1 transition-colors duration-100',
 												project.url
 													? 'bg-text/10 active:bg-primary hover:cursor-none! hover:bg-transparent hover:text-white active:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
 											)}
-											href={project.url || undefined}
-											target={project.url ? '_blank' : undefined}
-											rel={project.url ? 'noreferrer' : undefined}
-											aria-disabled={!project.url}
-											data-cursor={project.url && 'project-site'}
-											title={project.url ? undefined : 'No link available'}
-											onClick={(e) => e.stopPropagation()}
 										>
 											Site
 										</a>
@@ -135,19 +136,19 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 
 									<Magnetic disabled={!project.github}>
 										<a
+											aria-disabled={!project.github}
+											href={project.github || undefined}
+											onClick={(e) => e.stopPropagation()}
+											target={project.github ? '_blank' : undefined}
+											rel={project.github ? 'noreferrer' : undefined}
+											data-cursor={project.github && 'project-github'}
+											title={project.github ? undefined : 'No Github link available'}
 											className={twMerge(
 												'rounded-full px-3 py-1 transition-colors duration-200',
 												project.github
 													? 'bg-text/10 active:bg-primary hover:cursor-none! hover:bg-transparent hover:text-white active:text-white'
 													: 'bg-text/5 cursor-not-allowed! opacity-40'
 											)}
-											href={project.github || undefined}
-											target={project.github ? '_blank' : undefined}
-											rel={project.github ? 'noreferrer' : undefined}
-											aria-disabled={!project.github}
-											data-cursor={project.github && 'project-github'}
-											title={project.github ? undefined : 'No Github link available'}
-											onClick={(e) => e.stopPropagation()}
 										>
 											Github
 										</a>
@@ -156,16 +157,16 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 									{project.backendGithub && (
 										<Magnetic disabled={!project.backendGithub}>
 											<a
+												target="_blank"
+												rel="noreferrer"
+												href={project.backendGithub}
+												onClick={(e) => e.stopPropagation()}
+												data-cursor={project.backendGithub && 'project-github'}
 												className={twMerge(
 													'rounded-full px-3 py-1 whitespace-nowrap transition-colors duration-200',
 													'bg-text/10 hover:cursor-none! hover:bg-transparent hover:text-white',
 													'active:bg-primary active:text-white'
 												)}
-												href={project.backendGithub}
-												target="_blank"
-												rel="noreferrer"
-												data-cursor={project.backendGithub && 'project-github'}
-												onClick={(e) => e.stopPropagation()}
 											>
 												Backend Github
 											</a>
@@ -204,17 +205,17 @@ const ProjectRow = ({ project, open, onClick, onImageClick, index }: ProjectRowP
 								</div>
 							</div>
 
-							<div className="grid min-w-0 grid-cols-2 gap-2 md:gap-4 h-max">
+							<div className="grid h-max min-w-0 grid-cols-2 gap-2 md:gap-4">
 								{project.images?.length ? (
 									project.images.map((image, index) => (
 										<motion.div
 											key={image}
 											layoutId={`project-image-${project.title}-${index}`}
-											className="bg-text/5 group relative aspect-video cursor-zoom-in overflow-hidden"
 											onClick={(e) => {
 												e.stopPropagation()
 												onImageClick(image, index)
 											}}
+											className="bg-text/5 group relative aspect-video cursor-zoom-in overflow-hidden"
 										>
 											<img
 												src={image}
