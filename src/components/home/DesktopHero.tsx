@@ -36,21 +36,14 @@ const DesktopHero = () => {
 
 	// Physics settings
 
-	// How quickly a thrown card loses momentum.
 	const friction = 0.975
 
-	// How much of the drag release velocity is applied.
 	const throwStrength = 0.4
 
-	// When thrown velocity becomes this small,
-	// return to normal DVD movement.
 	const stopThreshold = 2
 
-	// How quickly the DVD slows down while hovered.
 	const hoverFriction = 0.94
 
-	// How quickly the DVD returns to normal speed
-	// after leaving the card.
 	const resumeStrength = 0.08
 
 	// Scroll indicator
@@ -64,12 +57,66 @@ const DesktopHero = () => {
 	useEffect(() => {
 		let frame: number
 
+		const initializeCard = () => {
+			const container = containerRef.current
+			const card = cardRef.current
+
+			if (!container || !card) return false
+
+			const maxX = Math.max(0, container.clientWidth - card.offsetWidth)
+
+			const maxY = Math.max(0, container.clientHeight - card.offsetHeight)
+
+			// Random starting position
+			position.current = {
+				x: Math.random() * maxX,
+				y: Math.random() * maxY
+			}
+
+			// Random starting direction
+			const speedX = 30
+			const speedY = 24
+
+			dvdVelocity.current = {
+				x: speedX * (Math.random() < 0.5 ? -1 : 1),
+				y: speedY * (Math.random() < 0.5 ? -1 : 1)
+			}
+
+			// Keep base velocity in sync
+			baseVelocity.current = {
+				x: dvdVelocity.current.x,
+				y: dvdVelocity.current.y
+			}
+
+			// IMPORTANT:
+			// Set the position and opacity at the same time.
+			// This means the card never appears at 0, 0.
+			controls.set({
+				x: position.current.x,
+				y: position.current.y,
+				opacity: 1
+			})
+
+			return true
+		}
+
 		const loop = () => {
 			const container = containerRef.current
 			const card = cardRef.current
 
+			// Wait until the card has dimensions before
+			// initializing its position.
+			if (container && card) {
+				const currentOpacity = card.style.opacity
+
+				if (currentOpacity === '0') {
+					initializeCard()
+				}
+			}
+
 			if (container && card && !dragging.current) {
 				const maxX = container.clientWidth - card.offsetWidth
+
 				const maxY = container.clientHeight - card.offsetHeight
 
 				const hoveredElement = document.querySelector('[data-cursor="card-dvd"]:hover')
@@ -80,6 +127,7 @@ const DesktopHero = () => {
 
 				if (isThrown.current) {
 					position.current.x += throwVelocity.current.x / 60
+
 					position.current.y += throwVelocity.current.y / 60
 
 					throwVelocity.current.x *= friction
@@ -114,8 +162,7 @@ const DesktopHero = () => {
 							dvdVelocity.current.y = 0
 						}
 					} else {
-						// Gradually restore the original speed
-						// after leaving the card.
+						// Gradually restore the original speed.
 						dvdVelocity.current.x +=
 							(baseVelocity.current.x - dvdVelocity.current.x) * resumeStrength
 
@@ -124,6 +171,7 @@ const DesktopHero = () => {
 					}
 
 					position.current.x += dvdVelocity.current.x / 60
+
 					position.current.y += dvdVelocity.current.y / 60
 				}
 
@@ -180,8 +228,9 @@ const DesktopHero = () => {
 
 			if (!container || !card) return
 
-			const maxX = container.clientWidth - card.offsetWidth
-			const maxY = container.clientHeight - card.offsetHeight
+			const maxX = Math.max(0, container.clientWidth - card.offsetWidth)
+
+			const maxY = Math.max(0, container.clientHeight - card.offsetHeight)
 
 			position.current.x = Math.min(Math.max(position.current.x, 0), maxX)
 
@@ -203,13 +252,18 @@ const DesktopHero = () => {
 	return (
 		<section ref={containerRef} className="relative flex h-full w-full overflow-hidden">
 			<motion.div
-				ref={cardRef}
-				className="absolute z-100 aspect-[1.75] w-80 rounded-md bg-white text-black shadow-xl hover:cursor-none"
-				data-cursor="card-dvd"
-				animate={controls}
 				drag
-				dragMomentum={false}
+				ref={cardRef}
+				animate={controls}
 				dragElastic={0.15}
+				dragMomentum={false}
+				data-cursor="card-dvd"
+				initial={{
+					x: 0,
+					y: 0,
+					opacity: 0
+				}}
+				className="absolute z-100 aspect-[1.75] w-80 rounded-md bg-white text-black shadow-xl hover:cursor-none"
 				onDragStart={() => {
 					dragging.current = true
 					isThrown.current = false
@@ -217,6 +271,13 @@ const DesktopHero = () => {
 					throwVelocity.current = {
 						x: 0,
 						y: 0
+					}
+				}}
+				onUpdate={(latest) => {
+					if (dragging.current) {
+						position.current.x = Number(latest.x ?? 0)
+
+						position.current.y = Number(latest.y ?? 0)
 					}
 				}}
 				onDragEnd={(_, info: PanInfo) => {
@@ -228,12 +289,6 @@ const DesktopHero = () => {
 					}
 
 					isThrown.current = true
-				}}
-				onUpdate={(latest) => {
-					if (dragging.current) {
-						position.current.x = Number(latest.x ?? 0)
-						position.current.y = Number(latest.y ?? 0)
-					}
 				}}
 			>
 				<div className="flex h-full flex-col justify-between p-[7%]">
@@ -252,17 +307,17 @@ const DesktopHero = () => {
 			{/* Scroll indicator */}
 
 			<motion.div
-				className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
 				style={{ opacity: scrollIndicatorOpacity }}
+				className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
 			>
 				<motion.div
 					animate={{ y: [0, 6, 0] }}
+					className="text-muted/50 flex flex-col items-center gap-2"
 					transition={{
 						duration: 1.5,
 						repeat: Infinity,
 						ease: 'easeInOut'
 					}}
-					className="text-muted/50 flex flex-col items-center gap-2"
 				>
 					<span className="text-xs tracking-[0.25em] uppercase">Scroll</span>
 
