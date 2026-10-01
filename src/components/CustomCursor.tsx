@@ -23,6 +23,7 @@ type TargetDimensions = {
 const CustomCursor = () => {
 	const activeElement = useRef<HTMLElement | null>(null)
 	const [activeTarget, setActiveTarget] = useState<CursorTarget>(null)
+	const [hasMousePosition, setHasMousePosition] = useState(false)
 
 	const isHome = activeTarget === 'home'
 	const isTheme = activeTarget === 'theme'
@@ -40,8 +41,12 @@ const CustomCursor = () => {
 		height: cursorSize
 	})
 
-	const mouseX = useMotionValue(0)
-	const mouseY = useMotionValue(0)
+	// Start from the center rather than 0, 0.
+	// The cursor remains invisible until the first
+	// real mouse position is received.
+	const mouseX = useMotionValue(typeof window !== 'undefined' ? window.innerWidth / 2 : 0)
+
+	const mouseY = useMotionValue(typeof window !== 'undefined' ? window.innerHeight / 2 : 0)
 
 	const smoothMouseX = useSpring(mouseX, {
 		damping: 20,
@@ -59,6 +64,17 @@ const CustomCursor = () => {
 		const handleMouseMove = (e: MouseEvent) => {
 			const { clientX, clientY } = e
 
+			// The first mouse event gives us the actual
+			// position of the user's cursor.
+			if (!hasMousePosition) {
+				mouseX.set(clientX)
+				mouseY.set(clientY)
+
+				setHasMousePosition(true)
+
+				return
+			}
+
 			const element = activeElement.current
 
 			if (!element) {
@@ -74,7 +90,7 @@ const CustomCursor = () => {
 
 			// Completely snap the cursor to the center
 			// of project rows and the close button.
-			if (isProjectRow || isCloseImage) {
+			if (activeTarget === 'project-row' || activeTarget === 'close-image') {
 				mouseX.set(centerX)
 				mouseY.set(centerY)
 				return
@@ -134,7 +150,7 @@ const CustomCursor = () => {
 			window.removeEventListener('mouseover', handleMouseOver)
 			window.removeEventListener('mouseout', handleMouseOut)
 		}
-	}, [])
+	}, [hasMousePosition, activeTarget, mouseX, mouseY])
 
 	const isLargeTarget =
 		isHome ||
@@ -147,6 +163,13 @@ const CustomCursor = () => {
 
 	return (
 		<motion.div
+			initial={{
+				opacity: 0
+			}}
+			transition={{
+				duration: 0.2,
+				ease: [0.4, 0, 0.2, 1]
+			}}
 			className="bg-primary pointer-events-none fixed hidden md:block"
 			style={{
 				left: smoothMouseX,
@@ -156,6 +179,7 @@ const CustomCursor = () => {
 				zIndex: isCloseImage ? 310 : 99
 			}}
 			animate={{
+				opacity: hasMousePosition ? 1 : 0,
 				width: isCardDvd
 					? targetDimensions.width + 16
 					: isLargeTarget
@@ -182,10 +206,6 @@ const CustomCursor = () => {
 										: 10,
 
 				scale: isTheme ? 1.5 : isNavLink ? 1.25 : isHome ? 1.1 : 1
-			}}
-			transition={{
-				duration: 0.2,
-				ease: [0.4, 0, 0.2, 1]
 			}}
 		/>
 	)
